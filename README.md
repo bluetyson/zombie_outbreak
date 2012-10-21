@@ -2,48 +2,40 @@
 
 > * Group Name: 
 > * Group participants names: Mottet Matthieu, Wicky Basile
-> * Project Title: Inter-state collaboration following a Zombie outbreak
+> * Project Title: Inter-state collaboration following a zombie outbreak
 
 ## General Introduction
 
-While models of international relationship have been studied extensively under different pressure components, the effect of a Zombie outbreak on international collaboration and equilibrium is a question that has been underestimated and was never addressed to the best of our knowledge. It is remarkable that the effect of such an intense event has not been looked at, although the fear of zombies and the threat they represent is vivid for many of us as reflected by the importance of the zombie cu. Zombies have the very peculiar (in comparaison to other (sur)-natural creatures such as vampires or aliens) not to be a minority in the strict sense of the term, but instead exactly like human, just zombified. Accordingly, the fear of seeing a loved-one transformed into a flesh-eating ghoul is in that sense different that it could be any of us. The psychological effect of such a non-standard threat as well as the repercussion on the behaviour of large popluation systems such as states should be far from trivial. It is clear that standard assumption of international politics would not be applicable for such an extreme case.
-Accordingly, we decided to simulate the inter-state collaboration models in order to see the outcome on a world scale of such an extreme event. While some people might question the validity of such a study (in the end, no Zombie has been observed so far), the applicablity of such a reasoning could extend to more real large-scale epidemological threats or simply, give a line of reasoning for copping with what former U.S. Secretery of Defense Donald Rumsfeld referred as the "unknown unknowns" of international security. Zombies might not be real, but the threat and stress the impose on current world politics collaboration is. 
-
+While models of international relationship have been studied extensively under different pressure components, the effect of a zombie outbreak on international collaboration and equilibrium is a question that has been underestimated and was never addressed to the best of our knowledge. It is remarkable that the effect of such an intense event has not been looked at, although the fear of zombies and the threat they represent is vivid for many of us as reflected by the importance of the zombie culture. zombies, compared to other *unnatural* creatures such as vampires or aliens, have the very peculiar property not to be a minority inside the human civilization but rather to be in a way a part of it, just not quite as it was, *i.e.* zombified. Accordingly, zombies cause a much more deep-rooted fear as they not only threaten our lifes but also the our sense of identity as it questions our notion of what humanity is. The psychological effect of such a non-standard threat as well as the repercussion on the behaviour of large popluation systems such as states should be far from trivial.
+Accordingly, we decided to simulate the inter-state collaboration models in order to see the outcome on a large scale of such an extreme event. While some people might question the validity of such a study (no zombie has been observed so far), we think that the applicablity of such a reasoning could extend to a more propable large-scale epidemological event or simply, give a line of reasoning to cope with what former U.S. Secretery of Defense Donald Rumsfeld referred as the "unknown unknowns" of international security. Zombies might not be real, but the threat and stress they could impose on current world politics collaboration is. 
 
 ## The Model
 
 <img alt="Population relation diagram" src="https://github.com/mottetm/project_template/blob/master/images/figure1.png?raw=true" style="align: center;"/>
 
-For each state, we define a SZR model that evaluates the evolution of the different populations under studies: susceptibles (S), zombies (Z) and removed (R). The apparition of zombies in one state will start the game. Each state will then evolve on the domestic and international level. The domestic level will follow a standard SIR model, whereas the international level will introduce exchange in the population of suceptible and zombie between the states. These exchanges will be influenced by the state decision on foreign policies such as humanitarian or military politics.
-We aim to study the evolution of the repartition of the population in our SZR model on a state-scale and international-state.  
-(Define dependent and independent variables you want to study. Say how you want to measure them.) (Why is your model a good abtraction of the problem you want to study?) (Are you capturing all the relevant aspects of the problem?)
-
+For each state, we define a SZR model that evaluates the evolution of the different populations under studies: susceptibles (S), zombies (Z) and removed (R). The apparition of zombies in one state will start the game. Each state will then evolve on the domestic and international level. The domestic level will follow a standard SIR model, whereas the international level will introduce exchange in the population of suceptible and zombie between the states. These exchanges will be influenced by the state decisions on foreign policies such as humanitarian or military actions determined by our game theory framework.
 
 ## Fundamental Questions
 
-Investigation of the application of the SIR model to a zombie outbreak has already been studied letting fear dark days in the event of such an happening in the human population. However, we would like to deepenth this investigation to a multi-state system to see how interactions between subpopulation may brighten the future of the human race. Moreover, we are interested in seeing to what extend the different paradigm of international politics, *Realpolitik*, Liberalism and Neoconservatism as defined by Daniel W. Drezner in *Theories of International Politics and Zombies* may lead to different outcomes, especially we would like to see if the appearance of equilibrium is possible as describe in the case of *Realpolitik* and Liberalism.
-(At the end of the project you want to find the answer to these questions)
-(Formulate a few, clear questions. Articulate them in sub-questions, from the more general to the more specific. )
-
+Investigation of the application of the SIR model to a zombie outbreak has already been studied, raising the fear of dark days for humanity. However, we would like to deepen this investigation to a multi-state system to see how interactions between subpopulation may brighten the future of the human race. Moreover, we are interested in seeing to what extent the different paradigms of international politics, *Realpolitik*, Liberalism and Neoconservatism as defined by Daniel W. Drezner in *Theories of International Politics and zombies* may lead to different outcomes.
 
 ## Expected Results
 
-(What are the answers to the above questions that you expect to find before starting your research?)
-
+As describe in Drezner's book, we except different equilibrium outcomes depending on the paradigm under consideration. He postulates the possibile appearance of zombie states under *Realpolitik* and Liberalism paradigms while Neoconservatism would not allow such an outcome.
 
 ## References 
 
-(Add the bibliographic references you intend to use)
-(Explain possible extension to the above models)
-(Code / Projects Reports of the previous year)
-
+1. Daniel W. Drezner, *Theories of International Politics and Zombies* (Princeton Univ. Press, 2011)
+2. Philip Munz, Ioan Hudea, Joe Imad, Robert J. Smith?, *Infectious Disease Modelling Research Progress: 4 - When Zombies Attack!: Mathematical Modelling of an Outbreak of Zombie Infection* (Nova Science Publisher, 2009) 
+3. Timothy C. Reluga, *An SIS epidemiology game with two subpopulations*, Journal of Biological Dynamics, **3**, 515-531 (2009)
+4. Timothy C. Reluga, *Game Theory of Social Distancing in Response to an Epidemic*, PLOS Computational Biology, **6** (2010)
+5. Sebastian Funk, MArcel Salathé, Vincent A. A. Jansen, *Modelling the Influence of Human Behaviour on the Spread of Infectious Diseases: A Review*, J. R. Soc. Interface, **7**, 1247-1256 (2010)
+6. Duygu Baclan and Alessandro Vespigniani, *Phase Transitions in Contagion Processes Mediated by Recurrent Mobility Pattern*, Nature Physics, **7**, 581-586 (2011)
 
 ## Research Methods
 
-(Cellular Automata, Agent-Based Model, Continuous Modeling...) (If you are not sure here: 1. Consult your colleagues, 2. ask the teachers, 3. remember that you can change it afterwards)
-We would like to tackle this question by using a two-level model. Intra-state populations would be modelled by a standard SIR (Kermack-McKendrick) model or an evolution of it that might include quarantined poplutions and more evolved parameters. On the next level, the inter-state relationships would be modelled using Game-Theory under different cost-hypothesis relating to the main paradigms of international relationships. 
+We would like to tackle this question by using a two-level model. Intra-state populations would be modelled by a standard SIR (Kermack-McKendrick) model or an evolution of it that might include quarantined poplutions and more evolved parameters. On the next level, the inter-state relationships would be modelled using Game-Theory under different cost-hypothesis related to the main paradigms of international relationships as previously defined. 
 
 ## Other
 
-The material necessary for defining our models of zombies and 'zombification' parameters will be extracted from the canon of the Zombie popular media such as 'World War Z', '28 Days Later', 'The Night of the Leaving Deads', etc.
-(mention datasets you are going to use)
+The material necessary for defining our models of zombies and 'zombification' parameters will be extracted from the canon of the zombie popular culture such as *World War Z* (Brooks, 2006), *28 Days Later* (Boyle, 2002), *The Night of the Living Dead* (Romero, 1968), *Zombieland* (Fleischer, 2009), Resident Evil (Capcom, 1996), etc.
