@@ -1,12 +1,12 @@
 # MATLAB HS12 – Research Plan
 
-> * Group Name: 
+> * Group Name: Umbrella Corp.
 > * Group participants names: Mottet Matthieu, Wicky Basile
 > * Project Title: Inter-state collaboration following a zombie outbreak
 
 ## General Introduction
 
-While models of international relationship have been studied extensively under different pressure components, the effect of a zombie outbreak on international collaboration and equilibrium is a question that has been underestimated and was never addressed to the best of our knowledge. It is remarkable that the effect of such an intense event has not been looked at, although the fear of zombies and the threat they represent is vivid for many of us as reflected by the importance of the zombie culture. zombies, compared to other *unnatural* creatures such as vampires or aliens, have the very peculiar property not to be a minority inside the human civilization but rather to be in a way a part of it, just not quite as it was, *i.e.* zombified. Accordingly, zombies cause a much more deep-rooted fear as they not only threaten our lifes but also the our sense of identity as it questions our notion of what humanity is. The psychological effect of such a non-standard threat as well as the repercussion on the behaviour of large popluation systems such as states should be far from trivial.
+While models of international relationship have already been studied under different pressure components, the effect of a zombie outbreak on international collaboration and equilibrium is a question that has been underestimated and was never addressed to the best of our knowledge. It is remarkable that the effect of such an intense event has not been looked at, although the fear of zombies and the threat they represent is vivid for many of us as reflected by the importance of the zombie culture. zombies, compared to other *unnatural* creatures such as vampires or aliens, have the very peculiar property not to be a minority inside the human civilization but rather to be in a way a part of it, just not quite as it was, *i.e.* zombified. Accordingly, zombies cause a much more deep-rooted fear as they not only threaten our lifes but also the our sense of identity as it questions our notion of what humanity is. The psychological effect of such a non-standard threat as well as the repercussion on the behaviour of large popluation systems such as states should be far from trivial.
 Accordingly, we decided to simulate the inter-state collaboration models in order to see the outcome on a large scale of such an extreme event. While some people might question the validity of such a study (no zombie has been observed so far), we think that the applicablity of such a reasoning could extend to a more propable large-scale epidemological event or simply, give a line of reasoning to cope with what former U.S. Secretery of Defense Donald Rumsfeld referred as the "unknown unknowns" of international security. Zombies might not be real, but the threat and stress they could impose on current world politics collaboration is. 
 
 ## The Model
@@ -31,6 +31,7 @@ As describe in Drezner's book, we except different equilibrium outcomes dependin
 4. Timothy C. Reluga, *Game Theory of Social Distancing in Response to an Epidemic*, PLOS Computational Biology, **6** (2010)
 5. Sebastian Funk, MArcel Salathé, Vincent A. A. Jansen, *Modelling the Influence of Human Behaviour on the Spread of Infectious Diseases: A Review*, J. R. Soc. Interface, **7**, 1247-1256 (2010)
 6. Duygu Baclan and Alessandro Vespigniani, *Phase Transitions in Contagion Processes Mediated by Recurrent Mobility Pattern*, Nature Physics, **7**, 581-586 (2011)
+7. Peter G. Bennett, *Modelling Decisions in International Relations: Game Theory and Beyond*, Mershon Int. Studies Review, **39**, 19-52 (1995)
 
 ## Research Methods
 
