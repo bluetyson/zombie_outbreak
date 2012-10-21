@@ -12,7 +12,7 @@ Accordingly, we decided to simulate the inter-state collaboration models in orde
 
 ## The Model
 
-![Population relation diagram](https://github.com/mottetm/project_template/blob/master/images/figure1.png?raw=true)
+<img alt="Population relation diagram" src="https://github.com/mottetm/project_template/blob/master/images/figure1.png?raw=true" style="align: center;"/>
 
 For each state, we define a SZR model that evaluates the evolution of the different populations under studies: susceptibles (S), zombies (Z) and removed (R). The apparition of zombies in one state will start the game. Each state will then evolve on the domestic and international level. The domestic level will follow a standard SIR model, whereas the international level will introduce exchange in the population of suceptible and zombie between the states. These exchanges will be influenced by the state decision on foreign policies such as humanitarian or military politics.
 We aim to study the evolution of the repartition of the population in our SZR model on a state-scale and international-state.  
