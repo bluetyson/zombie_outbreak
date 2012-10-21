@@ -1,15 +1,18 @@
-# MATLAB HS12 – Research Plan (Template)
-(text between brackets to be removed)
+# MATLAB HS12 – Research Plan
 
-> * Group Name: (be creative!)
+> * Group Name: 
 > * Group participants names: Mottet Matthieu, Wicky Basile
-> * Project Title: (can be changed)
+> * Project Title: Inter-state collaboration following a Zombie outbreak
 
 ## General Introduction
 
-(States your motivation clearly: why is it important / interesting to solve this problem?)
+
+//(States your motivation clearly: why is it important / interesting to solve this problem?)
 (Add real-world examples, if any)
 (Put the problem into a historical context, from what does it originate? Are there already some proposed solutions?)
+
+
+
 
 ## The Model
 
