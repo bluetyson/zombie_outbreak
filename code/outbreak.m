@@ -15,7 +15,7 @@ function varargout = outbreak( varargin )
 	% 2 ) S -> R
 	% 3 ) Z -> R
 	% 4 ) Za -> Zb
-	rates = [ 0.00095, 0.00025, 0.00005, 0.005 ];
+	rates = [ 0.00095, 0.00025, 0.00005, 0.00000005 ];
     
     
     states( 4, 1 ) = varargin{ 2 } + varargin{ 3 } + varargin{ 4 };
