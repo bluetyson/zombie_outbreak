@@ -2,28 +2,30 @@ function plotResults( ~ )
 
 	global dump;
 
-	x = 0:( length( dump.state1.S ) - 1 );
+	x = 0:( length( dump.S ) - 1 );
 		
-	subplot( 4, 2, 1:2 );
-	plot( x, dump.state1.S, x, dump.state1.Z, x, dump.state1.R );
-	ylim( [ 0 dump.global.S( 1 ) ] );
-	title( 'State 1' );
+    for i = 1:3
+       
+        subplot( 4, 4, ( i * 4 - 3 ):( i * 4 - 2 ) );
+        plot( x, dump.S( i, : ), x, dump.Z( 1, : ), x, dump.R( i, : ) );
+        ylim( [ 0 dump.S( 4 ) ] );
+        title( [ 'State ', int2str( i ) ] );
+    
+        subplot( 4, 4, ( i * 4 - 1 ):( i * 4 ) );
+        plot( x, dump.dS( i, : ), x, dump.dZ( i, : ), x, dump.dR( i, : ) );
+        title( [ 'State ', int2str( i ) ] );
 	
-	subplot( 4, 2, 3:4 );
-	plot( x, dump.state2.S, x, dump.state2.Z, x, dump.state2.R );
-	ylim( [ 0 dump.global.S( 1 ) ] );
-	title( 'State 2' );
+    end
 	
-	subplot( 4, 2, 5:6 );
-	plot( x, dump.state3.S, x, dump.state3.Z, x, dump.state3.R );
-	ylim( [ 0 dump.global.S( 1 ) ] );
-	title( 'State 3' );
-	
-	subplot( 4, 2, 7:8 );
-	plot( x, dump.global.S, x, dump.global.Z, x, dump.global.R );
-	ylim( [ 0 dump.global.S( 1 ) ] );
+	subplot( 4, 4, 13:14 );
+	plot( x, dump.S( 4, : ), x, dump.Z( 4, : ), x, dump.R( 4, : ) );
+	ylim( [ 0 dump.S( 4 ) ] );
 	legend( 'Susceptible', 'Zombie', 'Removed' );
 	title( 'World population' );
+    
+	subplot( 4, 4, 15:16 );
+	plot( x, dump.dS( 4, : ), x, dump.dZ( 4, : ), x, dump.dR( 4, : ) );
+	title( 'State 1' );
 
 
 end

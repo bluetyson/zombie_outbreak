@@ -1,0 +1,11 @@
+function dumpState( ~ )
+
+	global states;
+	global dump;
+	
+	dump.S = states.pop( :, 2 );
+	dump.S = states.pop( :, 2 );
+	dump.S = states.pop( :, 2 );
+
+end
+
