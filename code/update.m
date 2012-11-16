@@ -57,12 +57,16 @@ function out = update( ~ )
     
     % The possibility that any of the individual |dS| is larger than the
     % actual population is possible we habe to make sure it doesn't happen.
+    
+    a = 0;
+    
     while sum( sum( dS( :, 1:4 ), 2 ) < - ( s + sum( dS( :, 5:6 ), 2 ) ) )
+
         
         % If it does happen, we do individual check on each state.
         for i = 1:3
            
-            if( sum( dS( i, : ), 2 ) < - s( i ) )
+            if( sum( dS( i, 1:4 ), 2 ) < - ( s( i ) + sum( dS( i, 5:6 ), 2 ) ) )
                
                 % We correct the differential for the state with the flaw.
                 % Each exiting flow is reduced proportionnally so that the sum is
@@ -76,7 +80,6 @@ function out = update( ~ )
                 dS( iFluxCoor( i, 3 ), 4 + iFluxCoor( i, 4 ) ) = - dS( i, 4 );
             end
         end
-        
         % Note that the input flux can only be lower than the original flux. 
         % Therefore, the sum of the input flux and population of the two 
         % other states decrease. Therefore the process has to be repeated
@@ -109,18 +112,18 @@ function out = update( ~ )
     dZ = zeros( 3, 6 );
     dZ( :, 1 ) = - dS( :, 1 );
     dZ( :, 2 ) = - beta .* s .* z;
-    dZ( :, 3 ) = - eta( :, 1 ) .* tanh( s .* z );
-    dZ( :, 4 ) = - eta( :, 2 ) .* tanh( s .* z );
+    dZ( :, 3 ) = - eta( :, 1 ) .* tanh( z ./ s );
+    dZ( :, 4 ) = - eta( :, 2 ) .* tanh( z ./ s );
     dZ( :, 5 ) = - permutation * permutation * dZ( :, 4 );
     dZ( :, 6 ) = - permutation * dZ( :, 3 );
     
     % We then use the same procedure on the negative variation of Z to
     % ensure that the population will not go negative.
-    while sum( - ( dZ( :, 1 ) + sum( dZ( :, 5:6 ), 2 ) + z ) > sum( dZ( :, 2:4 ), 2 ) )
-       
+    while sum( ( dZ( :, 1 ) + sum( dZ( :, 5:6 ), 2 ) + z ) + sum( dZ( :, 2:4 ), 2 ) < - 1e-10 )
+        
         for i = 1:3
            
-            if - ( dZ( i, 1 ) + sum( dZ( i, 5:6 ), 2 ) + z( i ) ) > sum( dZ( i, 2:4 ) )
+            if( - ( dZ( i, 1 ) + sum( dZ( i, 5:6 ), 2 ) + z( i ) ) > sum( dZ( i, 2:4 ) ) )
                 
                 dZ( i, 2:4 ) = dZ( i, 2:4 ) * ( sum( dZ( i, 5:6 ) ) + dZ( i, 1 ) + z( i ) ) / abs( sum( dZ( i, 2:4 ) ) );
                 
@@ -129,7 +132,6 @@ function out = update( ~ )
             end
         end
     end
-    
     
     %% Update of the removed population
     
@@ -151,7 +153,20 @@ function out = update( ~ )
     
     states.pop( 1:3, 2:4 ) = states.pop( 1:3, 2:4 ) + states.dpop( 1:3, : );
     
+    if( states.pop( 1:3, 3 ) < ones( 3, 1 ) )
+       
+        for i = 1:3 
+           
+            if( states.pop( i, 3 ) < 1 )
+               
+                states.pop( i, 4 ) = states.pop( i, 4 ) + states.pop( i, 3 );
+                states.pop( i, 3 ) = 0;
+            end
+        end
+    end
+    
     states.pop( 4, 2:4 ) = sum( states.pop( 1:3, 2:4 ) );
+    
     
     dumpState;
     	
