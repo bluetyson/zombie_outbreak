@@ -22,7 +22,7 @@ function out = update( ~ )
     nu = rates.nu;
     eta = rates.eta;
     
-    permutation = [ 0 1 0 ; 0 0 1 ; 1 0 0 ];
+    permutation = [ 0 0 1 ; 1 0 0 ; 0 1 0 ];
     iFluxCoor = [ 2 2 3 1 ; 3 2 1 1 ; 1 2 2 1 ];
     
     %% Update of the susceptible population. 
@@ -52,8 +52,8 @@ function out = update( ~ )
     dS( :, 2 ) = - gamma .* s .* z;
     dS( :, 3 ) = - mu( :, 1 ) .* s .* z + nu( :, 1 ) .* ds;
     dS( :, 4 ) = - mu( :, 2 ) .* s .* z + nu( :, 2 ) .* ds;
-    dS( :, 5 ) = - permutation * dS( :, 3 );
-    dS( :, 6 ) = - permutation * permutation * dS( :, 4 );
+    dS( :, 5 ) = - permutation * dS( :, 4 );
+    dS( :, 6 ) = - permutation * permutation * dS( :, 3 );
     
     % The possibility that any of the individual |dS| is larger than the
     % actual population is possible we habe to make sure it doesn't happen.
