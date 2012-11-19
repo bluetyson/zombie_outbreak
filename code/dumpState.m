@@ -3,8 +3,7 @@ function dumpState( ~ )
 	global states;
 	global dump;
 	
-    index = dump.step + 1;
-    dump.step = index;
+    index = length( sum( dump.S ) ) + 1;
     
     dump.S( :, index ) = states.pop( :, 2 );
     dump.dS( :, index ) = states.dpop( :, 1 );

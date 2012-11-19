@@ -65,10 +65,8 @@ function varargout = outbreak( varargin )
 	
 	states.pop( :, 3 ) = zombies;
 	
-    dump = struct( 'S', zeros( 4, varargin{ 1 } ), 'dS', zeros( 4, varargin{ 1 } ), 'Z', zeros( 4, varargin{ 1 } ), 'dZ', zeros( 4, varargin{ 1 } ), 'R', zeros( 4, varargin{ 1 } ), 'dR', zeros( 4, varargin{ 1 } ), 'step', 1 );
-    dump.S( :, 1 ) = states.pop( 1:4, 2 );
-    dump.Z( :, 1 ) = states.pop( 1:4, 3 );
-    dump.R( :, 1 ) = states.pop( 1:4, 4 );
+    dump = struct( 'S', states.pop( 1:4, 2 ), 'dS', zeros( 4, 1 ), 'Z', states.pop( 1:4, 3 ), 'dZ', zeros( 4, 1 ), 'R', states.pop( 1:4, 4 ), 'dR', zeros( 4, 1 ) );
+    
     reverseStr = '';
     
     for i = 1:varargin{ 1 }
