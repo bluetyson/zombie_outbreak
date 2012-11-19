@@ -3,7 +3,12 @@ function varargout = outbreak( varargin )
     minargs = 5;
     
     narginchk( minargs, 20 );
-        
+    
+    global states;
+    global rates;
+    global dump;
+    global ds10;
+    
     ds10 = zeros( 3, 10 );
     
     states = struct( 'pop', zeros( 4, 4 ), 'dpop', zeros( 4, 3 ) );
@@ -68,7 +73,7 @@ function varargout = outbreak( varargin )
     
     for i = 1:varargin{ 1 }
         
-        [ states, rates, ds10, dump ] = update( states, rates, ds10, dump );
+        update;
     
         msg = sprintf('Processed %d/%d', i, varargin{ 1 });
         fprintf([reverseStr, msg]);
@@ -76,7 +81,7 @@ function varargout = outbreak( varargin )
         reverseStr = repmat(sprintf('\b'), 1, length(msg));
     end
 	
-    plotResults( dump );
+    plotResults;
     
     varargout{ 1 } = 0;
     varargout{ 2 } = dump;

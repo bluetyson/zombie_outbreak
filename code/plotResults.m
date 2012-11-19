@@ -1,6 +1,7 @@
-function plotResults( dump )
+function plotResults( ~ )
 
-	
+	global dump;
+
 	x = 0:( length( dump.S ) - 1 );
 		
     for i = 1:3

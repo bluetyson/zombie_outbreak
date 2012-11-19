@@ -1,9 +1,19 @@
-function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
+function out = update( ~ )
 
     %% Setting of parameters : 
+
+    global states;
+    global rates;
+    global ds10;
 	
 	s = states.pop( 1:3, 2 );
-	z = states.pop( 1:3, 3 );    
+	z = states.pop( 1:3, 3 );
+	r = states.pop( 1:3, 4 );
+    
+	ds = states.dpop( 1:3, 1 );
+	dz = states.dpop( 1:3, 2 );
+	dr = states.dpop( 1:3, 3 );
+    
 	
     alpha = rates.alpha;
     beta = rates.beta;
@@ -161,6 +171,8 @@ function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
     states.pop( 4, 2:4 ) = sum( states.pop( 1:3, 2:4 ) );
     
     
-    dump = dumpState( dump, states );
+    dumpState;
+    	
+	out = 0;
 end
 
