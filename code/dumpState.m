@@ -1,7 +1,4 @@
-function dumpState( ~ )
-
-	global states;
-	global dump;
+function dump = dumpState( dump, states )
 	
     index = dump.step + 1;
     dump.step = index;
