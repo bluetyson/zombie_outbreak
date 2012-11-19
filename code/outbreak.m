@@ -7,6 +7,9 @@ function varargout = outbreak( varargin )
     global states;
     global rates;
     global dump;
+    global ds10;
+    
+    ds10 = zeros( 3, 10 );
     
     states = struct( 'pop', zeros( 4, 4 ), 'dpop', zeros( 4, 3 ) );
     

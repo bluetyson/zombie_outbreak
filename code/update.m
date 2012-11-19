@@ -4,7 +4,7 @@ function out = update( ~ )
 
     global states;
     global rates;
-    global dump;
+    global ds10;
 	
 	s = states.pop( 1:3, 2 );
 	z = states.pop( 1:3, 3 );
@@ -50,8 +50,8 @@ function out = update( ~ )
     dS = zeros( 3, 6 );
     dS( :, 1 ) = - alpha .* s .* z;
     dS( :, 2 ) = - gamma .* s .* z;
-    dS( :, 3 ) = - mu( :, 1 ) .* s .* z + nu( :, 1 ) .* ds;
-    dS( :, 4 ) = - mu( :, 2 ) .* s .* z + nu( :, 2 ) .* ds;
+    dS( :, 3 ) = - mu( :, 1 ) .* s .* z + nu( :, 1 ) .* mean( ds10, 2 );
+    dS( :, 4 ) = - mu( :, 2 ) .* s .* z + nu( :, 2 ) .* mean( ds10, 2 );
     dS( :, 5 ) = - permutation * permutation * dS( :, 4 );
     dS( :, 6 ) = - permutation * dS( :, 3 );
     
@@ -148,6 +148,9 @@ function out = update( ~ )
     %% Update and save data
     
     states.dpop( 1:3, : ) = [ sum( dS, 2 ), sum( dZ, 2 ), sum( dR, 2 ) ];
+    
+    ds10( :, 2:10 ) = ds10( :, 1:9 );
+    ds10( :, 1 ) = sum( dS, 2 );
     
     states.dpop( 4, : ) = sum( states.dpop( 1:3, : ) );
     
