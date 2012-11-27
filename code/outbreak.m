@@ -1,13 +1,12 @@
 function varargout = outbreak( varargin )
 
-    minargs = 5;
-    
-    narginchk( minargs, 20 );
+    silent = 0;
         
     ds10 = zeros( 3, 10 );
     
     states = struct( 'pop', zeros( 4, 4 ), 'dpop', zeros( 4, 3 ) );
     
+    maxSteps = 1e8;
 	
 	% rates of the SZR model. 
 	% 1 ) S -> Z
@@ -15,68 +14,109 @@ function varargout = outbreak( varargin )
 	% 3 ) Z -> R
 	% 4 ) Za -> Zb
 	rates = struct( 'alpha', [ 0.00095 ; 0.00095 ; 0.00095 ], 'beta', [0.00025 ; 0.00025 ; 0.00025 ], 'gamma', [ 0.00005 ; 0.00005 ; 0.00005 ], 'mu', [ 0.00000005 , 0.00000005 ; 0.00000005 , 0.00000005 ; 0.00000005 , 0.00000005 ], 'nu', [ 0.00000005 , 0.00000005 ; 0.00000005 , 0.00000005 ; 0.00000005 , 0.00000005 ], 'eta', [ 0.00000005 , 0.00000005 ; 0.00000005 , 0.00000005 ; 0.00000005 , 0.00000005 ] );    
-    zombies = [ 0 ; 0 ; 0 ; 0 ];
     
-    if( nargin > 5 )
-        
-        for i = 6:2:nargin
+    zombies = [ 0 ; 0 ; 0 ; 0 ];
+    populations = [ 1e3 ; 1e3 ; 1e3 ; 3e3 ];
+    
+    for i = 1:2:nargin
            
-            if( nargin < i + 1 )
-               
-                error( [ 'Missing argument for parameter "' varargin{ i } '".' ] );
-            end
-            
-            switch varargin{ i }
-               
-                case 'params'
-                    rates = varargin{ i + 1 };
-                    
-                case 'paramfile'
-                    rates = load( varargin{ i + 1 }, '' );
-                    
-                case 'zombies' 
-                    temp = varargin{ i + 1 };
-                    for j = 1:3
-                        
-                        zombies( j ) = temp( j );
-                        zombies( 4 ) = zombies( 4 ) + temp( j );
-                    end
-                    
-                otherwise
-                    error( [ 'Unknown parameter "', varargin{ i }, '".' ] );
-            end
+        if( nargin < i + 1 )
+
+            error( [ 'Missing argument for parameter "' varargin{ i } '".' ] );
+        end
+
+        switch varargin{ i }
+
+            case 'params'
+                rates = varargin{ i + 1 };
+
+            case 'paramfile'
+                rates = load( varargin{ i + 1 }, '' );
+
+            case 'zombies' 
+                temp = varargin{ i + 1 };
+                for j = 1:3
+
+                    zombies( j ) = temp( j );
+                    zombies( 4 ) = zombies( 4 ) + temp( j );
+                end
+
+            case 'population'
+                temp = varargin{ i + 1 };
+                populations( 4 ) = 0;
+                for j = 1:3
+
+                    populations( j ) = temp( j );
+                    populations( 4 ) = populations( 4 ) + populations( j );
+                end
+
+            case 'steps'
+                maxSteps = varargin{ i + 1 };
+
+                
+            case 'silent' 
+                silent = varargin{ i + 1 };
+                
+            otherwise
+                error( [ 'Unknown parameter "', varargin{ i }, '".' ] );
         end
     end
     
-    states.pop( 4, 1 ) = varargin{ 2 } + varargin{ 3 } + varargin{ 4 };
-    states.pop( 1, 1 ) = varargin{ 2 };
-    states.pop( 2, 1 ) = varargin{ 3 };
-    states.pop( 3, 1 ) = varargin{ 4 };
-    
-    states.pop( 4, 2 ) = varargin{ 5 };
-    states.pop( 1, 2 ) = states.pop( 4, 2 ) / states.pop( 4, 1 ) * states.pop( 1, 1 );
-    states.pop( 2, 2 ) = states.pop( 4, 2 ) / states.pop( 4, 1 ) * states.pop( 2, 1 );
-    states.pop( 3, 2 ) = states.pop( 4, 2 ) / states.pop( 4, 1 ) * states.pop( 3, 1 );   
+    states.pop( 4, 1 ) = 1;
+    states.pop( 1, 1 ) = populations( 1 ) / populations( 4 );
+    states.pop( 2, 1 ) = populations( 2 ) / populations( 4 );
+    states.pop( 3, 1 ) = populations( 3 ) / populations( 4 );  
 	
+    states.pop( :, 2 ) = populations;
 	states.pop( :, 3 ) = zombies;
 	
-    dump = struct( 'S', zeros( 4, varargin{ 1 } ), 'dS', zeros( 4, varargin{ 1 } ), 'Z', zeros( 4, varargin{ 1 } ), 'dZ', zeros( 4, varargin{ 1 } ), 'R', zeros( 4, varargin{ 1 } ), 'dR', zeros( 4, varargin{ 1 } ), 'step', 1 );
+    d = zeros( 4, .001 * maxSteps );
+    
+    dump = struct( 'S', d, 'dS', d, 'Z', d, 'dZ', d, 'R', d, 'dR', d, 'step', 1 );
     dump.S( :, 1 ) = states.pop( 1:4, 2 );
     dump.Z( :, 1 ) = states.pop( 1:4, 3 );
     dump.R( :, 1 ) = states.pop( 1:4, 4 );
     reverseStr = '';
     
-    for i = 1:varargin{ 1 }
+    for i = 1:maxSteps
+        
+        if silent < 2
+
+            msg = sprintf('Processing step %d...', i );
+            fprintf([reverseStr, msg]);
+
+            reverseStr = repmat(sprintf('\b'), 1, length(msg));
+        end
         
         [ states, rates, ds10, dump ] = update( states, rates, ds10, dump );
-    
-        msg = sprintf('Processed %d/%d', i, varargin{ 1 });
-        fprintf([reverseStr, msg]);
         
-        reverseStr = repmat(sprintf('\b'), 1, length(msg));
+        if states.pop( 4, 2 ) == 0
+            
+            if silent < 2
+                
+                disp( ' ' );
+                disp( 'Humanity vanished.' );
+            end
+            break;
+        end
+        
+        if states.pop( 4, 3 ) == 0 
+            
+            if silent < 2
+                
+                disp( ' ' );
+                disp( 'Humanity survived.' );
+            end
+            break;
+        end
     end
+    
+    dump = clearDump( dump );
 	
-    plotResults( dump );
+    if silent < 1
+       
+        plotResults( dump );
+    end
     
     varargout{ 1 } = 0;
     varargout{ 2 } = dump;

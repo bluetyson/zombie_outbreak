@@ -2,3 +2,9 @@
 *.m~
 
 code/update.m~
+
+results/*
+
+*.asv
+
+*.restart

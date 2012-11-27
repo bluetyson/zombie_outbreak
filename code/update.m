@@ -50,13 +50,13 @@ function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
     
     a = 0;
     
-    while sum( sum( dS( :, 1:4 ), 2 ) < - ( s + sum( dS( :, 5:6 ), 2 ) ) )
+    while sum( sum( dS( :, 1:4 ), 2 ) + s + sum( dS( :, 5:6 ), 2 ) < -1e-4 )
 
         
         % If it does happen, we do individual check on each state.
         for i = 1:3
            
-            if( sum( dS( i, 1:4 ), 2 ) < - ( s( i ) + sum( dS( i, 5:6 ), 2 ) ) )
+            if( sum( dS( i, 1:4 ), 2 ) + ( s( i ) + sum( dS( i, 5:6 ), 2 ) ) < -1e-4 )
                
                 % We correct the differential for the state with the flaw.
                 % Each exiting flow is reduced proportionnally so that the sum is
@@ -109,7 +109,7 @@ function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
     
     % We then use the same procedure on the negative variation of Z to
     % ensure that the population will not go negative.
-    while sum( ( dZ( :, 1 ) + sum( dZ( :, 5:6 ), 2 ) + z ) + sum( dZ( :, 2:4 ), 2 ) < - 1e-10 )
+    while sum( ( dZ( :, 1 ) + sum( dZ( :, 5:6 ), 2 ) + z ) + sum( dZ( :, 2:4 ), 2 ) < - 1e-4 )
         
         for i = 1:3
            
@@ -146,14 +146,30 @@ function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
     
     states.pop( 1:3, 2:4 ) = states.pop( 1:3, 2:4 ) + states.dpop( 1:3, : );
     
-    if( states.pop( 1:3, 3 ) < ones( 3, 1 ) )
+    if( sum( states.pop( 1:3, 3 ) < ones( 3, 1 ) ) && sum( states.pop( 1:3, 3 ) > zeros( 3, 1 ) ) )
        
         for i = 1:3 
            
-            if( states.pop( i, 3 ) < 1 )
+            if( states.pop( i, 3 ) < 1 && states.pop( i, 3 ) > 0 )
                
-                states.pop( i, 4 ) = states.pop( i, 4 ) + states.pop( i, 3 );
-                states.pop( i, 3 ) = 0;
+                t = rand < 0.5;
+                
+                states.pop( i, 4 ) = states.pop( i, 4 ) + states.pop( i, 3 ) - t;
+                states.pop( i, 3 ) = t;
+            end
+        end
+    end
+    
+    if( sum( states.pop( 1:3, 2 ) < ones( 3, 1 ) ) && sum( states.pop( 1:3, 2 ) > zeros( 3, 1 ) ) )
+       
+        for i = 1:3 
+           
+            if( states.pop( i, 2 ) < 1 && states.pop( i, 2 ) > 0 )
+               
+                t = rand < 0.5;
+                
+                states.pop( i, 4 ) = states.pop( i, 4 ) + states.pop( i, 2 ) - t;
+                states.pop( i, 2 ) = t;
             end
         end
     end

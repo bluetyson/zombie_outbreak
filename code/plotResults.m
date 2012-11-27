@@ -1,5 +1,4 @@
 function plotResults( dump )
-
 	
 	x = 0:( length( dump.S ) - 1 );
 		
