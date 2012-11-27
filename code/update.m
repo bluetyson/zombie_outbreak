@@ -146,11 +146,11 @@ function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
     
     states.pop( 1:3, 2:4 ) = states.pop( 1:3, 2:4 ) + states.dpop( 1:3, : );
     
-    if( sum( states.pop( 1:3, 3 ) < ones( 3, 1 ) ) && sum( states.pop( 1:3, 3 ) > zeros( 3, 1 ) ) )
+    if( sum( abs( states.pop( 1:3, 3 ) ) < ones( 3, 1 ) ) && sum( states.pop( 1:3, 3 ) ~= zeros( 3, 1 ) ) )
        
         for i = 1:3 
            
-            if( states.pop( i, 3 ) < 1 && states.pop( i, 3 ) > 0 )
+            if( abs( states.pop( i, 3 ) ) < 1 && states.pop( i, 3 ) ~= 0 )
                
                 t = rand < 0.5;
                 
@@ -160,11 +160,11 @@ function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
         end
     end
     
-    if( sum( states.pop( 1:3, 2 ) < ones( 3, 1 ) ) && sum( states.pop( 1:3, 2 ) > zeros( 3, 1 ) ) )
+    if( sum( abs( states.pop( 1:3, 2 ) ) < ones( 3, 1 ) ) && sum( states.pop( 1:3, 2 ) ~= zeros( 3, 1 ) ) )
        
         for i = 1:3 
            
-            if( states.pop( i, 2 ) < 1 && states.pop( i, 2 ) > 0 )
+            if( abs( states.pop( i, 2 ) ) < 1 && states.pop( i, 2 ) ~= 0 )
                
                 t = rand < 0.5;
                 

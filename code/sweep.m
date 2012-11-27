@@ -124,8 +124,5 @@ function sweep( params )
         
         params.nu( 4 ) = nu + params.nu( 2 );
     end
-    
-    disp( params.nu( 4 ) );
-
 end
 

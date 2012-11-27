@@ -82,7 +82,7 @@ function varargout = outbreak( varargin )
         
         if silent < 2
 
-            msg = sprintf('Processing step %d...', i );
+            msg = sprintf('Processing step %d... Human population %d, Zombie population %d', i, dump.S( 4, dump.step ), dump.Z( 4, dump.step ) );
             fprintf([reverseStr, msg]);
 
             reverseStr = repmat(sprintf('\b'), 1, length(msg));
@@ -111,12 +111,6 @@ function varargout = outbreak( varargin )
         end
     end
     
-    dump = clearDump( dump );
-	
-    if silent < 1
-       
-        plotResults( dump );
-    end
     
     varargout{ 1 } = 0;
     varargout{ 2 } = dump;
