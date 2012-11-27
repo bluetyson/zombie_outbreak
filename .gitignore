@@ -1,10 +1,10 @@
 
+results/
+
 *.m~
-
-code/update.m~
-
-results/*
 
 *.asv
 
 *.restart
+
+*.mat
