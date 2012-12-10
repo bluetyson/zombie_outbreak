@@ -1,18 +1,37 @@
-function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
+    function [ states, rates, dshistory ] = update( states, rates, dshistory )
 
-    %% Setting of parameters : 
+    %
+    % UPDATE compute the population evolution for one step of the
+    %   epidemiological model.
+    %
+    % [ STATES, RATES, DSHISTORY, DUMP ] = UPDATE( STATES, RATES, DSHISTORY, DUMP )
+    %       STATES is the structure storing the populations and population
+    %           variations as defined in the OUTBREAK function.
+    %       RATES is the structure containing the epidemiological transfer 
+    %           rates as defined in the OUTBREAK function.
+    %       DSHISTORY is the array containing the sliding window for
+    %           inter-state susceptible transfer.
+    %
+    
+    %% Initialization of parameters : 
 	
-	s = states.pop( 1:3, 2 );
-	z = states.pop( 1:3, 3 );    
+	s = states.pop( 1:3, 1 );
+	z = states.pop( 1:3, 2 );    
 	
     alpha = rates.alpha;
     beta = rates.beta;
     gamma = rates.gamma;
-    mu = rates.mu;
     nu = rates.nu;
     eta = rates.eta;
     
+    % Permutation matrix used to set the input inter-state flux from the
+    % inter-state output flux to avoid redundant calculations. See flux
+    % update.
     permutation = [ 0 0 1 ; 1 0 0 ; 0 1 0 ];
+    
+    % Matrix containing the coordinates of the input inter-state flux from
+    % each state (line) to the other two (block of two colons). See flux
+    % correction.
     iFluxCoor = [ 2 2 3 1 ; 3 2 1 1 ; 1 2 2 1 ];
     
     %% Update of the susceptible population. 
@@ -21,10 +40,10 @@ function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
     %
     %   S  -> Z  = - alpha * s * z
     %   S  -> R  = - gamma * s * z
-    %   S1 -> S2 = - mu12 * s * z + nu12 * dS
-    %   S1 -> S3 = - mu13 * s * z + nu13 * dS
+    %   S1 -> S2 = nu * dSmean
+    %   S1 -> S3 = nu * dSmean
     %
-    % Immigration is the only source of population.
+    % Immigration is the only source of susceptible population.
     %
     % dS is a 3x6 matrix containing for each state :
     %
@@ -37,44 +56,46 @@ function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
     %
     % The sum of each line gives the population variation for the state.
     
+    % Mean variation of the susceptible in the sliding window.
+    dsmean = mean( dshistory, 2 );
+    
     dS = zeros( 3, 6 );
     dS( :, 1 ) = - alpha .* s .* z;
     dS( :, 2 ) = - gamma .* s .* z;
-    dS( :, 3 ) = - mu( :, 1 ) .* s .* z + nu( :, 1 ) .* mean( ds10, 2 );
-    dS( :, 4 ) = - mu( :, 2 ) .* s .* z + nu( :, 2 ) .* mean( ds10, 2 );
+    dS( :, 3 ) = min( nu( :, 1 ) .* dsmean, 0 );
+    dS( :, 4 ) = min( nu( :, 2 ) .* dsmean, 0 );
     dS( :, 5 ) = - permutation * permutation * dS( :, 4 );
     dS( :, 6 ) = - permutation * dS( :, 3 );
     
-    % The possibility that any of the individual |dS| is larger than the
-    % actual population is possible we habe to make sure it doesn't happen.
-    
-    a = 0;
-    
+    % There is the possibility that any of the |-dSi| is larger than the
+    % actual population in the state (negative population fluctuation larger
+    % than the actual population). If so, a correction is applied to
+    % avoid negative population.
+    % As long as any state falls into this category: 
     while sum( sum( dS( :, 1:4 ), 2 ) + s + sum( dS( :, 5:6 ), 2 ) < -1e-4 )
 
-        
-        % If it does happen, we do individual check on each state.
         for i = 1:3
            
+            % Correct the state that falls into this category:
             if( sum( dS( i, 1:4 ), 2 ) + ( s( i ) + sum( dS( i, 5:6 ), 2 ) ) < -1e-4 )
                
-                % We correct the differential for the state with the flaw.
-                % Each exiting flow is reduced proportionnally so that the sum is
-                % equal to the total population.
-                
+                % Population is considered equal to the sum of previous
+                % population and the inter-state input transfer. The
+                % negative contributions to the dS are reduced so that it
+                % equals this population.
                 dS( i, 1:4 ) = dS( i, 1:4 ) / abs( sum( dS( i, 1:4 ) ) ) * ( sum( dS( i, 5:6 ) ) + s( i ) );
                 
-                % We then correct the input flux for the two other states.
-                
+                % The effect of the correction on the output flux is
+                % applied to the other state input flux.
                 dS( iFluxCoor( i, 1 ), 4 + iFluxCoor( i, 2 ) ) = - dS( i, 3 );
                 dS( iFluxCoor( i, 3 ), 4 + iFluxCoor( i, 4 ) ) = - dS( i, 4 );
             end
         end
-        % Note that the input flux can only be lower than the original flux. 
-        % Therefore, the sum of the input flux and population of the two 
-        % other states decrease. Therefore the process has to be repeated
-        % until all states have a population differential equal or bigger
-        % than minus the population.
+        % Note that the output flux can only be lower than the original flux. 
+        % Therefore, the input flux for the two other states can only 
+        % be smaller than before the correction. Accordingly, the
+        % process has to be repeated until all states have a population
+        % differential such that it doesn't lead to a negative population.
     end
     
     %% Update of the zombie population.
@@ -83,8 +104,8 @@ function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
     %
     %   S  -> Z  = alpha * s * z
     %   Z  -> R  = - beta * s * z
-    %   Z1 -> Z2 = - eta * tanh( z / s )
-    %   Z1 -> Z3 = - eta * tanh( z / s )
+    %   Z1 -> Z2 = - eta * z * tanh( z / s )
+    %   Z1 -> Z3 = - eta * z * tanh( z / s )
     %
     % Conversion from susceptible and "immigration" are the two sources of
     % zombies.
@@ -102,18 +123,19 @@ function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
     dZ = zeros( 3, 6 );
     dZ( :, 1 ) = - dS( :, 1 );
     dZ( :, 2 ) = - beta .* s .* z;
-    dZ( :, 3 ) = - eta( :, 1 ) .* tanh( z ./ s );
-    dZ( :, 4 ) = - eta( :, 2 ) .* tanh( z ./ s );
+    dZ( :, 3 ) = - eta( :, 1 ) .* z .* tanh( z ./ s );
+    dZ( :, 4 ) = - eta( :, 2 ) .* z .* tanh( z ./ s );
     dZ( :, 5 ) = - permutation * permutation * dZ( :, 4 );
     dZ( :, 6 ) = - permutation * dZ( :, 3 );
     
-    % We then use the same procedure on the negative variation of Z to
-    % ensure that the population will not go negative.
+    % The same control procedure as for the susceptible population is
+    % applied to avoid negative population of zombies. See susceptible 
+    % correction for details on the procedure.
     while sum( ( dZ( :, 1 ) + sum( dZ( :, 5:6 ), 2 ) + z ) + sum( dZ( :, 2:4 ), 2 ) < - 1e-4 )
         
         for i = 1:3
            
-            if( - ( dZ( i, 1 ) + sum( dZ( i, 5:6 ), 2 ) + z( i ) ) > sum( dZ( i, 2:4 ) ) )
+            if( ( dZ( i, 1 ) + sum( dZ( i, 5:6 ), 2 ) + z( i ) ) + sum( dZ( i, 2:4 ) ) < - 1e-4 )
                 
                 dZ( i, 2:4 ) = dZ( i, 2:4 ) * ( sum( dZ( i, 5:6 ) ) + dZ( i, 1 ) + z( i ) ) / abs( sum( dZ( i, 2:4 ) ) );
                 
@@ -126,57 +148,30 @@ function [ states, rates, ds10, dump ] = update( states, rates, ds10, dump )
     %% Update of the removed population
     
     % Variation in the removed population is strictly positive and comes
-    % from both the susceptible and zombie population :
+    % from both the susceptible and zombie population:
     %
     %   S  -> R  = alpha * s * z
     %   Z  -> R  = beta * s * z
     %
-    % We can use the value obtained for dS and dZ :
+    % The value obtained for dS and dZ are used:
     
     dR = - [ dS( :, 2 ), dZ( :, 2 ) ];
     
-    %% Update and save data
+    %% Update each population
     
+    % Compilation of the populations variations
     states.dpop( 1:3, : ) = [ sum( dS, 2 ), sum( dZ, 2 ), sum( dR, 2 ) ];
     
-    ds10( :, 2:10 ) = ds10( :, 1:9 );
-    ds10( :, 1 ) = sum( dS, 2 );
+    % Update of the sliding window matrix for the susceptible.
+    [ ~, dsSize ] = size( dshistory );
+    dshistory( :, 2:dsSize ) = dshistory( :, 1:( dsSize - 1 ) );
+    dshistory( :, 1 ) = states.dpop( 1:3, 1 );
     
+    % Update of the current populations
+    states.pop( 1:3, : ) = states.pop( 1:3, : ) + states.dpop( 1:3, : );
+   
+    % Update of the total populations
+    states.pop( 4, : ) = sum( states.pop( 1:3, : ) );
     states.dpop( 4, : ) = sum( states.dpop( 1:3, : ) );
-    
-    states.pop( 1:3, 2:4 ) = states.pop( 1:3, 2:4 ) + states.dpop( 1:3, : );
-    
-    if( sum( abs( states.pop( 1:3, 3 ) ) < ones( 3, 1 ) ) && sum( states.pop( 1:3, 3 ) ~= zeros( 3, 1 ) ) )
-       
-        for i = 1:3 
-           
-            if( abs( states.pop( i, 3 ) ) < 1 && states.pop( i, 3 ) ~= 0 )
-               
-                t = rand < 0.5;
-                
-                states.pop( i, 4 ) = states.pop( i, 4 ) + states.pop( i, 3 ) - t;
-                states.pop( i, 3 ) = t;
-            end
-        end
-    end
-    
-    if( sum( abs( states.pop( 1:3, 2 ) ) < ones( 3, 1 ) ) && sum( states.pop( 1:3, 2 ) ~= zeros( 3, 1 ) ) )
-       
-        for i = 1:3 
-           
-            if( abs( states.pop( i, 2 ) ) < 1 && states.pop( i, 2 ) ~= 0 )
-               
-                t = rand < 0.5;
-                
-                states.pop( i, 4 ) = states.pop( i, 4 ) + states.pop( i, 2 ) - t;
-                states.pop( i, 2 ) = t;
-            end
-        end
-    end
-    
-    states.pop( 4, 2:4 ) = sum( states.pop( 1:3, 2:4 ) );
-    
-    
-    dump = dumpState( dump, states );
 end
 
