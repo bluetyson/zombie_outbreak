@@ -159,7 +159,7 @@ function dump = outbreak( varargin )
     % Setting up the initial dump structure. Large matrices are used to
     % avoid the need of dynamic memory allocation to improve code
     % efficency.
-    d = zeros( 4, .001 * maxSteps );
+    d = zeros( 4, max( 200, .0001 * maxSteps ) );
     dump = struct( 'S', d, 'dS', d, 'Z', d, 'dZ', d, 'R', d, 'dR', d, 'step', 1, 'alpha', mean( rates.alpha ), 'beta', mean( rates.beta ), 'gamma', mean( rates.gamma ), 'eta', mean( mean( rates.eta ) ), 'nu', mean( mean( rates.nu ) ), 'time', 0 );
     dump.S( :, 1 ) = states.pop( 1:4, 1 );
     dump.Z( :, 1 ) = states.pop( 1:4, 2 );

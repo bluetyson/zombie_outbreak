@@ -57,33 +57,34 @@
     % The sum of each line gives the population variation for the state.
     
     % Mean variation of the susceptible in the sliding window.
-    dsmean = mean( dshistory, 2 );
+    dsmean = min( mean( dshistory, 2 ), 0 );
     
     dS = zeros( 3, 6 );
-    dS( :, 1 ) = - alpha .* s .* z;
-    dS( :, 2 ) = - gamma .* s .* z;
-    dS( :, 3 ) = min( nu( :, 1 ) .* dsmean, 0 );
-    dS( :, 4 ) = min( nu( :, 2 ) .* dsmean, 0 );
+    dS( :, 1 ) = min( - alpha .* s .* z, 0 );
+    dS( :, 2 ) = min( - gamma .* s .* z, 0 );
+    dS( :, 3 ) = nu( :, 1 ) .* dsmean;
+    dS( :, 4 ) = nu( :, 2 ) .* dsmean;
     dS( :, 5 ) = - permutation * permutation * dS( :, 4 );
     dS( :, 6 ) = - permutation * dS( :, 3 );
+    
     
     % There is the possibility that any of the |-dSi| is larger than the
     % actual population in the state (negative population fluctuation larger
     % than the actual population). If so, a correction is applied to
     % avoid negative population.
     % As long as any state falls into this category: 
-    while sum( sum( dS( :, 1:4 ), 2 ) + s + sum( dS( :, 5:6 ), 2 ) < -1e-4 )
+    while sum( sum( dS( :, 1:4 ), 2 ) + s + sum( dS( :, 5:6 ), 2 ) < -1e-6 )
 
         for i = 1:3
            
             % Correct the state that falls into this category:
-            if( sum( dS( i, 1:4 ), 2 ) + ( s( i ) + sum( dS( i, 5:6 ), 2 ) ) < -1e-4 )
+            if( sum( dS( i, 1:4 ), 2 ) + ( s( i ) + sum( dS( i, 5:6 ), 2 ) ) < -1e-6 )
                
                 % Population is considered equal to the sum of previous
                 % population and the inter-state input transfer. The
                 % negative contributions to the dS are reduced so that it
                 % equals this population.
-                dS( i, 1:4 ) = dS( i, 1:4 ) / abs( sum( dS( i, 1:4 ) ) ) * ( sum( dS( i, 5:6 ) ) + s( i ) );
+                dS( i, 1:4 ) = dS( i, 1:4 ) / abs( sum( dS( i, 1:4 ) ) ) * max( sum( dS( i, 5:6 ) ) + s( i ), 0 );
                 
                 % The effect of the correction on the output flux is
                 % applied to the other state input flux.
@@ -121,23 +122,24 @@
     %   
     
     dZ = zeros( 3, 6 );
-    dZ( :, 1 ) = - dS( :, 1 );
-    dZ( :, 2 ) = - beta .* s .* z;
-    dZ( :, 3 ) = - eta( :, 1 ) .* z .* tanh( z ./ s );
-    dZ( :, 4 ) = - eta( :, 2 ) .* z .* tanh( z ./ s );
+    dZ( :, 1 ) = max( - dS( :, 1 ), 0 );
+    dZ( :, 2 ) = min( - beta .* s .* z, 0 );
+    dZ( :, 3 ) = min( - eta( :, 1 ) .* z .* tanh( z ./ s ), 0 );
+    dZ( :, 4 ) = min( - eta( :, 2 ) .* z .* tanh( z ./ s ), 0 );
     dZ( :, 5 ) = - permutation * permutation * dZ( :, 4 );
     dZ( :, 6 ) = - permutation * dZ( :, 3 );
+                
     
     % The same control procedure as for the susceptible population is
     % applied to avoid negative population of zombies. See susceptible 
     % correction for details on the procedure.
-    while sum( ( dZ( :, 1 ) + sum( dZ( :, 5:6 ), 2 ) + z ) + sum( dZ( :, 2:4 ), 2 ) < - 1e-4 )
+    while sum( ( dZ( :, 1 ) + sum( dZ( :, 5:6 ), 2 ) + z ) + sum( dZ( :, 2:4 ), 2 ) < - 1e-6 )
         
         for i = 1:3
            
-            if( ( dZ( i, 1 ) + sum( dZ( i, 5:6 ), 2 ) + z( i ) ) + sum( dZ( i, 2:4 ) ) < - 1e-4 )
+            if( ( dZ( i, 1 ) + sum( dZ( i, 5:6 ), 2 ) + z( i ) ) + sum( dZ( i, 2:4 ) ) < - 1e-6 )
                 
-                dZ( i, 2:4 ) = dZ( i, 2:4 ) * ( sum( dZ( i, 5:6 ) ) + dZ( i, 1 ) + z( i ) ) / abs( sum( dZ( i, 2:4 ) ) );
+                dZ( i, 2:4 ) = dZ( i, 2:4 ) * max( sum( dZ( i, 5:6 ) ) + dZ( i, 1 ) + z( i ), 0 ) / abs( sum( dZ( i, 2:4 ) ) );
                 
                 dZ( iFluxCoor( i, 1 ), 4 + iFluxCoor( i, 2 ) ) = - dZ( i, 3 );
                 dZ( iFluxCoor( i, 3 ), 4 + iFluxCoor( i, 4 ) ) = - dZ( i, 4 );
