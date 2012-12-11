@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.3.4)  10 DEC 2012 22:49
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.3.4)  12 DEC 2012 00:14
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -208,6 +208,14 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
+(/usr/local/texlive/2011/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
 (./mcode.sty
 -- Package: `mcode' 2.3 <2012/08/31> --
 Package: mcode 2012/08/31 2.3
@@ -215,23 +223,6 @@ Package: mcode 2012/08/31 2.3
  - line numbering enabled
  - literate programming (character replacements) enabled
  - automatic line breaking enabled (careful, buggy!)
-(/usr/local/texlive/2011/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
-
-(/usr/local/texlive/2011/texmf-dist/tex/latex/latexconfig/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package xcolor Info: Driver file: pdftex.def on input line 225.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
-Package xcolor Info: Model `RGB' extended on input line 1353.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
-)
 (/usr/local/texlive/2011/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count103
 \lst@gtempboxa=\box28
@@ -462,13 +453,57 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 \tf@toc=\write3
 \openout3 = `zombie_report.toc'.
 
- [4] [5] [6] [7] (./zombie_report.bbl [8])
-(/Users/basilewicky/zombie_outbreak/code/outbreak.m [9]
+ [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+
+ []
+
+[7]
+Overfull \hbox (6.91856pt too wide) in paragraph at lines 122--123
+[]\OT1/cmr/m/n/12 For those rea-son we de-cided to sim-u-late a model of in-ter
+-act-ing sub-populations,
+ []
+
+<Zombie_model.png, id=29, 3010.24625pt x 2257.43375pt>
+File: Zombie_model.png Graphic file (type png)
+ <use Zombie_model.png>
+Package pdftex.def Info: Zombie_model.png used on input line 129.
+(pdftex.def)             Requested size: 451.51746pt x 338.60045pt.
+
+Overfull \hbox (33.26378pt too wide) in paragraph at lines 129--130
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8] [9 <./Zombie_model.png>] (./zombie_report.bbl [10])
+(/Users/basilewicky/zombie_outbreak/code/outbreak.m [11]
 LaTeX Font Info:    Try loading font information for TS1+pcr on input line 33.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-)
+) [12]
 LaTeX Font Info:    Try loading font information for OML+pcr on input line 72.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omlpcr.fd
@@ -483,15 +518,15 @@ File: omspcr.fd
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
- [10] [11]
-[12] [13]) (/Users/basilewicky/zombie_outbreak/code/update.m [14] [15] [16]
-[17]) (/Users/basilewicky/zombie_outbreak/code/plotResults.m [18]) [19]
+ [13] [14]
+[15]) (/Users/basilewicky/zombie_outbreak/code/update.m [16] [17] [18] [19])
+(/Users/basilewicky/zombie_outbreak/code/plotResults.m [20]) [21]
 (./zombie_report.aux) ) 
 Here is how much of TeX's memory you used:
- 6259 strings out of 493633
- 90273 string characters out of 3143378
- 310048 words of memory out of 3000000
- 9437 multiletter control sequences out of 15000+200000
+ 5844 strings out of 493633
+ 85797 string characters out of 3143378
+ 297543 words of memory out of 3000000
+ 9022 multiletter control sequences out of 15000+200000
  15089 words of font info for 57 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  42i,11n,42p,2318b,1527s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -513,10 +548,10 @@ exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
 live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texli
 ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texliv
 e/2011/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on zombie_report.pdf (18 pages, 233419 bytes).
+Output written on zombie_report.pdf (20 pages, 543330 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
- 95 compressed objects within 1 object stream
+ 145 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

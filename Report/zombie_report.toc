@@ -2,12 +2,12 @@
 \contentsline {section}{\numberline {2}Individual contributions}{5}
 \contentsline {section}{\numberline {3}Acknowledgments}{5}
 \contentsline {section}{\numberline {4}Introduction and Motivations}{6}
-\contentsline {section}{\numberline {5}Description of the Model}{6}
-\contentsline {section}{\numberline {6}Implementation}{7}
-\contentsline {section}{\numberline {7}Simulation Results and Discussion}{8}
-\contentsline {section}{\numberline {8}Summary and Outlook}{8}
-\contentsline {section}{\numberline {9}References}{8}
-\contentsline {section}{\numberline {10}Appendix}{9}
-\contentsline {subsection}{\numberline {10.1}outbreak.m}{9}
-\contentsline {subsection}{\numberline {10.2}update.m}{14}
-\contentsline {subsection}{\numberline {10.3}plotResults.m}{18}
+\contentsline {section}{\numberline {5}Description of the Model}{8}
+\contentsline {section}{\numberline {6}Implementation}{10}
+\contentsline {section}{\numberline {7}Simulation Results and Discussion}{10}
+\contentsline {section}{\numberline {8}Summary and Outlook}{11}
+\contentsline {section}{\numberline {9}References}{11}
+\contentsline {section}{\numberline {10}Appendix}{11}
+\contentsline {subsection}{\numberline {10.1}outbreak.m}{11}
+\contentsline {subsection}{\numberline {10.2}update.m}{16}
+\contentsline {subsection}{\numberline {10.3}plotResults.m}{20}

@@ -11,7 +11,7 @@
 \usepackage{amssymb} % Math functions
 \usepackage{amsmath} % Math functions
 \usepackage{epstopdf}
-%\usepackage{natbib}
+\usepackage{color}
 
 % load package with ``framed'' and ``numbered'' option.
 \usepackage[numbered, autolinebreaks, useliterate]{mcode} % for including MATLAB code
@@ -87,7 +87,7 @@
 
 % ABSTRACT 
 \section{Abstract}\indent
-
+\textcolor{red} {This part needs updating once the rest of the report will be finished}\\
 Investigation of the application of the SIR model to a zombie outbreak has already been studied, raising the fear of dark days for humanity. However, we would like to deepen this investigation to a multi-state system to see how interactions between subpopulation may brighten the future of the human race. Moreover, we are interested in seeing to what extent the different paradigms of international politics, Realpolitik, Liberalism and Neoconservatism as defined by Daniel W. Drezner in Theories of International Politics and zombies may lead to different outcomes.
 
 % INDIVIDUAL CONTRIBUTION
@@ -98,21 +98,35 @@ M.G.M. and B.I.M.W. formulated the question in mathematical terms and discussed 
 % ACKNOWLEDGMENTS
 \section{Acknowledgments}\indent
 
-We wish to thank Karsten Donnay and Stefano Bielleti for there support in our work, fruitful discussions and an open mind to accept such a project. We would also like to thank the chair of sociology for the computational support provided with simulation time on Brutus.
+We wish to thank Karsten Donnay and Stefano Balietti for their support in our work, fruitful discussions and an open mind to accept such a project. We would also like to thank the Chair of Sociology for the computational support provided with simulation time on the ETH cluster Brutus.
 
 \newpage
 
 % INTRODUCTION AND MOTIVATION
 \section{Introduction and Motivations}\indent
 
-While models of international relationship have already been studied under different pressure components, the effect of a zombie outbreak on international collaboration and equilibrium is a question that has been underestimated and was never addressed to the best of our knowledge. It is remarkable that the effect of such an intense event has not been looked at, although the fear of zombies and the threat they represent is vivid for many of us as reflected by the importance of the zombie culture. zombies, compared to other unnatural creatures such as vampires or aliens, have the very peculiar property not to be a minority inside the human civilization but rather to be in a way a part of it, just not quite as it was, i.e. zombified. Accordingly, zombies cause a much more deep-rooted fear as they not only threaten our lifes but also the our sense of identity as it questions our notion of what humanity is. The psychological effect of such a non-standard threat as well as the repercussion on the behaviour of large popluation systems such as states should be far from trivial. Accordingly, we decided to simulate the inter-state collaboration models in order to see the outcome on a large scale of such an extreme event. While some people might question the validity of such a study (no zombie has been observed so far), we think that the applicablity of such a reasoning could extend to a more probable large-scale epidemological event or simply, give a line of reasoning to cope with what former U.S. Secretery of Defense Donald Rumsfeld referred as the "unknown unknowns" of international security. Zombies might not be real, but the threat and stress they could impose on current world politics is. 
+While models of international relationship have already been studied under different pressure components, the effect of a zombie outbreak on international collaboration and equilibrium is a question that has been underestimated and was never addressed to the best of our knowledge. It is remarkable that the effect of such an intense event has not been looked at, although the fear of zombies and the threat they represent is vivid for many of us as reflected by the importance of the zombie culture. Zombies, compared to other unnatural creatures such as vampires or aliens, have the very peculiar property not to be a minority inside the human civilization but rather to be in a way a part of it, just not quite as it was, i.e. zombified. Accordingly, zombies cause a much more deep-rooted fear as they not only threaten our lives but also the our very sense of identity as it questions our notion of what humanity is. The psychological effect of such a non-standard threat as well as the repercussion on the behaviour of large popluation systems such as states should be far from trivial. Accordingly, we decided to simulate an inter-state collaboration models in order to see the outcome on a large scale of such an extreme event. While some people might question the validity of such a study (no zombie has been observed so far), we think that the applicablity of such a reasoning could extend to a more probable large-scale epidemological disaster or simply, give a line of reasoning to cope with what former U.S. Secretery of Defense Donald Rumsfeld referred as the "unknown unknowns" of international security. Zombies might not be real, but the threat and stress they could impose on current world politics is. \\
+
+Epidemiological models have been willed studies to see the evolution dynamics and spread of a disease in a population \textcolor{red}{REFERENCE}. They are based on a mass action model where interaction between susceptibles and infected together with an infection constant define the rate of infection. In the simplest case of such models, infected people can move to the immunized category also following a mass action law. This models have been shown to work in numerous cases and  when corrections are added \textcolor{red}{REFERENCE}, they can very well represent the evolution and spread of an infectious disease in a population. However, an epidemiological model of communicating population has not been tested to the best of our knowledge. \\
+
+The origin of the word "zombie" as well as its initial meaning is quite remote from modern pop culture description. The word itself is said to have originated in the voodoo language in the Caribbean \cite{drezner}. The original description is that of a ritual where the wizard of a tribe would start controlling another person. The fact that this person doesn't have a soul anymore and that it is no under the control of another human being, i.e. it has no longer a free-will, makes it a zombie \cite{drezner}. Some studies suggest that those "zombified" members of the tribe where actually administrated a cocktail of two natural drugs, one being a neurotoxin and the other a hallucinogenic drug \textcolor{red}{REFERENCE}. In fact, the neurotoxin damages the brain and turns the person into a vegetative state.\\
+
+Zombies in popular culture differ a lot from this original etymological definition. The canon of the zombie literature have had numerous description and hypothesis on how they may emerge in a human population, as well as what might characterize them. Since Romero's "night of the living dead" \textcolor{red}{REFERENCE}, where zombies were said to have raised from some pseudo-magical event, the depiction and origin of zombies has considerably evolved. Recent zombie stories usually describe the genesis of flesh-heating monsters in an epidemiological sense, typically some sort of virus. Recent examples in the zombie culture are numerous and include (non-exhaustively) "Resident Evil", "28 Days Later". For simplicity, we will treat the emergence and zombification events as linked to an infectious disease of some sort, allowing the treatment of the problem with a modified epidemiological model. The big difference with a standard infectious disease where people usually get immunized, being transformed into a zombie is a on way process. The only way out is death and therefore, humans (susceptibles) can only decrease in our system.\\
+
+It is interesting to notice that most zombie canon predict a very bleak outcome concerning the fate of humanity. Indeed, most movies/film describe an almost total disappearance of humans and the few survivors are rarely in a position that seem to be about to brighten up. While some might argue that the disappearance of humanity might not be such regretful event and might actually benefit our planet \textcolor{red}{REFERENCE}, we decided to see if the usual outcome and fate of the human race in case of a zombie outbreak might differ from those classical scenarios, and if so, under which set of particular conditions. 
+
+Mathematical modeling of a zombie outbreak in a single population has previously been simulated \cite{munz2009zombies} but showed very little hope for humans in the case of such an unlikely event. The primarily reason for the annihilation of humans in all of the presented scenarios lies in their models. In contrast to "classical" epidemiological models where infected people can recover and although having changed population statues (going from susceptible to removed in a immunized sense of the term), they do not actually die. This is very different for the zombie scenario, where now "removed" is no longer synonym of "immunized", but is actually a very nice way of putting "dead". Accordingly, under the considerations of the model presented, humans can only day and this eventually happens in every case (some set of parameters can give reprieve the inevitable fate).\\
+
+We rationalized that a more state-based description of the world population might actually help in brightening the outcome of a zombie outbreak. In fact, the world in divided into states and nations that apply their own laws and restrictions in terms of immigration. If immigration applies to humans, it might as well apply to zombies. In such a case, one might envision that in a given state under the threat of a zombie epidemiological disaster, flux of incoming susceptibles to help them kill the zombies or on the other hand the emigration of the survivors to a non-infected state might lead various outcome. For example, it is imaginable to see the emergence of a zombie-only state where all the remaining survivor would have found shelter in another state. Or even better, that the help of susceptible from another state might help eradicate the new-coming zombie threat. 
+
+For those reason we decided to simulate a model of interacting sub-populations, each under an epidemiological-like treatment. The inner-state epidemiological model describes the emergences of zombies from a spreading disease point of view, while the populations fluxes between states would represent immigration/emigration of the populations under concern (humans and/or zombies). 
 
 % DESCRIPTION OF THE MODEL
 \section{Description of the Model}\indent
 
 \begin{figure}[h!]
 \centering
-%\includegraphics[scale=0.15]{Zombie_model.png}
+\includegraphics[scale=0.15]{Zombie_model.png}
 \caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the micro-state level while the parts in orange represent the macro-state population fluxes. This schematic represent our simulated system where the interaction of three states (micro-states) is modeled }
 \end{figure}
 
@@ -165,7 +179,7 @@ blablabla\cite{reluga2009sis}
 
 \bibliography{zombie_report} % Load the .bib file containing the references
 \bibliographystyle{unsrt} % Define bibliography style
-\nocite{bennett1995modelling, balcan2011phase, funk2010modelling, reluga2010game, reluga2009sis, munz2009zombies, drezner2011theories}
+\nocite{bennett1995modelling, balcan2011phase, funk2010modelling, reluga2010game, reluga2009sis, munz2009zombies, drezner}
 
 \section{Appendix}
 
