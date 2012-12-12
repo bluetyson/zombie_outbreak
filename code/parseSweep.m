@@ -1,4 +1,4 @@
-function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, size )
+function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, sweepSize )
 %
 % PARSESWEEP parse the results of the sweep function for the parameters
 %   alpha, beta and gamma.
@@ -24,14 +24,14 @@ function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, size )
     % Results path
     path = [ '../results/' id '/output.' ];
     % Number of simulation to consider
-    runNbr = prod( size );
+    runNbr = prod( sweepSize );
     % Preparation of the output matrices
-    alpha = zeros( size );
-    beta = zeros( size );
-    gamma = zeros( size );
-    Sf = zeros( size );
-    Zf = zeros( size );
-    S = zeros( size );
+    alpha = zeros( sweepSize );
+    beta = zeros( sweepSize );
+    gamma = zeros( sweepSize );
+    Sf = zeros( sweepSize );
+    Zf = zeros( sweepSize );
+    S = zeros( sweepSize );
     
     
     reverseStr = '';
@@ -41,7 +41,7 @@ function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, size )
     for i = first:( first+runNbr - 1 )
 
         % Update of the process status
-        msg = sprintf('Processing step %d... \n', i );
+        msg = sprintf('Processing step %d... \n', a );
         fprintf([ reverseStr, msg]);
 
         reverseStr = repmat(sprintf('\b'), 1, length(msg));
@@ -63,7 +63,19 @@ function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, size )
     Z1f = findTransition( Zf > 1 );
     S1f = findTransition( Sf > 1 );
     
-    [ x0, y0, z0 ] = ind2sub( size, find( Z1f ) );
-    scatter3( x0, y0, z0, .5 );
+    [ xZ, yZ, zZ ] = ind2sub( sweepSize, find( Z1f ) );
+    [ xS, yS, zS ] = ind2sub( sweepSize, find( S1f ) );
+    
+    cS = zeros( size( xS, 1 ), 3 );
+    cS( :, 2 ) = 1;
+    cZ = zeros( size( xZ, 1 ), 3 );
+    cZ( :, 1 ) = 1;
+   
+    x = [ xS ; xZ ];
+    y = [ yS ; yZ ];
+    z = [ zS ; zZ ];
+    c = [ cS ; cZ ];
+    
+    scatter3( x, y, z, 4, c );
 end
 
