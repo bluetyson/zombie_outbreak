@@ -1,5 +1,17 @@
 \begin{thebibliography}{1}
 
+\bibitem{drezner}
+D.W. Drezner.
+\newblock {\em Theories of international politics and zombies}.
+\newblock Princeton University Press, 2011.
+
+\bibitem{munz2009zombies}
+P.~Munz, I.~Hudea, J.~Imad, and R.J. Smith.
+\newblock When zombies attack!: mathematical modelling of an outbreak of zombie
+  infection.
+\newblock {\em Infectious Disease Modelling Research Progress. Hauppauge NY:
+  Nova Science Publishers}, pages 133--150, 2009.
+
 \bibitem{reluga2009sis}
 T.C. Reluga.
 \newblock An sis epidemiology game with two subpopulations.
@@ -27,17 +39,5 @@ S.~Funk, M.~Salath{\'e}, and V.A.A. Jansen.
 T.C. Reluga.
 \newblock Game theory of social distancing in response to an epidemic.
 \newblock {\em PLoS computational biology}, 6(5):e1000793, 2010.
-
-\bibitem{munz2009zombies}
-P.~Munz, I.~Hudea, J.~Imad, and R.J. Smith.
-\newblock When zombies attack!: mathematical modelling of an outbreak of zombie
-  infection.
-\newblock {\em Infectious Disease Modelling Research Progress. Hauppauge NY:
-  Nova Science Publishers}, pages 133--150, 2009.
-
-\bibitem{drezner}
-D.W. Drezner.
-\newblock {\em Theories of international politics and zombies}.
-\newblock Princeton University Press, 2011.
 
 \end{thebibliography}

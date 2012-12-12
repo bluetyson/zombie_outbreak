@@ -13,9 +13,11 @@
 \usepackage{epstopdf}
 \usepackage{color}
 
+
 % load package with ``framed'' and ``numbered'' option.
 \usepackage[numbered, autolinebreaks, useliterate]{mcode} % for including MATLAB code
 
+\usepackage[final]{pdfpages}
 
 \usepackage[nottoc,numbib]{tocbibind} % Include the references in the table of content
 
@@ -73,11 +75,8 @@
 \end{center}
 \newpage
 
-
-\addtocounter{page}{1} % Add an extra page number to allow the merging with the pdf of the declaration of confidentiality
-
-% IMPORTANT
-% you MUST include the ETH declaration of originality here; it is available for download on the course website or at http://www.ethz.ch/faculty/exams/plagiarism/index_EN; it can be printed as pdf and should be filled out in handwriting
+% ETH declaration of originality
+\includepdf{confirmation_en.pdf}
 
 % TABLE OF CONTENT
 \tableofcontents
@@ -161,6 +160,29 @@ Other
 
 The material necessary for defining our models of zombies and 'zombification' parameters will be extracted from the canon of the zombie popular culture such as World War Z (Brooks, 2006), 28 Days Later (Boyle, 2002), The Night of the Living Dead (Romero, 1968), Zombieland (Fleischer, 2009), Resident Evil (Capcom, 1996), etc.
 
+The implementation in MatLab works on two levels: one taking care of the simulation of the epidemiological model, the other one taking care of the sweeping of the epidemiological parameters. We wil discuss the key parts of the implementation as well as some of the interesting details that had to ensure the coherence of the model.
+
+\subsection{The outbreak function}
+The outbreak function is the wrapping function of the epidemiological model. It first takes care of the evaluation of the different parameters, initialize the different matrices used throughout the simulation, calls the update function of our model and is finally responsible of the validation of the new data. The validation of the data allows the simulation to keep on running. We implemented three exit policy in the simulation loop. The two obvious first occured when either the susceptible or the zombie population reaches zero. The third one is triggered when the simulation's evolution becomes too slow, indicating a relative steady state. This last control is defined as follows:
+\begin{equation}
+\left\langle \left| \Delta S \right| \right\rangle < x\ \&\&\ \left\langle\left|\Delta Z \right| \right\rangle < x
+\end{equation}
+The mean of the absolute variation of susceptibles and zombies on the last 100 steps is calculated and compared to a threshold $x = 0.1$. If the values are smaller than the threshold, we assume a steady state and exit the simulation. Furthermore, a maximum number of step can be defined (default: $10^8$ steps) as last exit condition.
+
+\subsection{The update function}
+The update function takes care of the evolution of the model. It applies the different equations of the models and use safeguards to avoid unphysical results.
+The first constraint is applied during the computation of the flux exiting each states. Due to the structure of the program, negatives population values can arise. Though these populations will be extremely small ($> - 10^{-4}$), resulting in small negative exiting flux, they will lead to negative entering flux in the other states. These flux being considered as positive into the next control procedure, negative values have to be avoided.
+
+The second constraint is applied after the computation of all flux. There is the possibility for the negative flux (death, contamination, emigration) to be bigger than the population plus the positive flux (immigration). In such case, we apply a simple algorithm to avoid the negative population:
+\begin{enumerate}
+	\item the negative flux are normalized and multiplied by the population plus the positive flux,
+	\item the incoming flux of the two other states are corrected to fit the values,
+	\item the validation is applied to the two other states.
+\end{enumerate}
+This algorithm is applied until all discrepancy is removed. Note that negative values up to $10^{-4}$ are allowed and that during the first step of the algorithm, in the case where the sum of the population and incomming flux is negative, this value is zeroed. This method allows a relatively fast convergence of the values.
+
+\subsection{The sweep function}
+The sweep function acts as a wrapper function for the sweeping of each parameters between two values using defined steps. The results of each individual simulation is stored in a dedicated folder. It also assigns a id string to the sweep. This id allows to resume the sweep with the first non completed simulation, this feature was added due to the duration of the sweep with sufficient resolution. 
 % SIMULATION RESULTS AND DISCUSSION
 \section{Simulation Results and Discussion}\indent
 Fundamental Questions
@@ -184,22 +206,25 @@ blablabla\cite{reluga2009sis}
 \section{Appendix}
 
 \subsection{outbreak.m}
-\lstinputlisting{/Users/basilewicky/zombie_outbreak/code/outbreak.m}
+\lstinputlisting{../code/outbreak.m}
 \bigskip
 \bigskip
 \bigskip
 
 \subsection{update.m}
-\lstinputlisting{/Users/basilewicky/zombie_outbreak/code/update.m}
+\lstinputlisting{../code/update.m}
 \bigskip
 \bigskip
 \bigskip
 
 \subsection{plotResults.m}
-\lstinputlisting{/Users/basilewicky/zombie_outbreak/code/plotResults.m}
+\lstinputlisting{../code/plotResults.m}
 \bigskip
 \bigskip
 \bigskip
+
+\subsection{sweep.m}
+\lstinputlisting{../code/sweep.m}
 
 
 
