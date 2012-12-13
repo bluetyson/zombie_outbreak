@@ -14,7 +14,7 @@
 
 \usepackage{epstopdf}
 
-\usepackage{enumerate}
+\usepackage{enumerate} % Different enumeration types
 
 \usepackage{color} % Allowed for colored text
 
@@ -24,7 +24,7 @@
 
 \usepackage[nottoc,numbib]{tocbibind} % Include the references in the table of content
 
-\usepackage[labelfont=bf]{caption} % Put 'figure' of caption in bold
+\usepackage[labelfont=bf, justification=]{caption} % Put 'figure' of caption in bold and justify as centered
 
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
@@ -81,10 +81,12 @@
 % TABLE OF CONTENT
 \tableofcontents
 
-\newpage
+
 
 
 % ABSTRACT 
+\newpage
+
 \section{Abstract}\indent
 \textcolor{red} {This part needs updating once the rest of the report will be finished}\\
 Investigation of the application of the SIR model to a zombie outbreak has already been studied, raising the fear of dark days for humanity. However, we would like to deepen this investigation to a multi-state system to see how interactions between subpopulation may brighten the future of the human race. Moreover, we are interested in seeing to what extent the different paradigms of international politics, Realpolitik, Liberalism and Neoconservatism as defined by Daniel W. Drezner in Theories of International Politics and zombies may lead to different outcomes.
@@ -99,9 +101,10 @@ M.G.M. and B.I.M.W. formulated the question in mathematical terms and discussed 
 
 We wish to thank Karsten Donnay and Stefano Balietti for their support in our work, fruitful discussions and open-mindedness to accept such a project. We also would like to thank the Chair of Sociology for the computational support provided with simulation time on the ETH cluster Brutus.
 
-\newpage
+
 
 % INTRODUCTION AND MOTIVATION
+\newpage
 \section{Introduction and Motivations}\indent
 
 \subsection{Zombie Outbreak}\indent
@@ -139,12 +142,8 @@ Expected Results
 As describe in Drezner's book, we except different equilibrium outcomes depending on the paradigm under consideration. He postulates the possibile appearance of zombie states under Realpolitik and Liberalism paradigms while Neoconservatism would not allow such an outcome.
 
 % DESCRIPTION OF THE MODEL
+\newpage
 \section{Description of the Model}\indent
-
-We would like to tackle this question by using a two-level model. Intra-state populations would be modelled by a standard SIR (Kermack-McKendrick) model or an evolution of it that might include quarantined poplutions and more evolved parameters. On the next level, the inter-state relationships would be modelled using Game-Theory under different cost-hypothesis related to the main paradigms of international relationships as previously defined.
-Other
-
-
 
 In order to simulate a multi-state system under epidemiological evolution we needed to define a clear mathematical framework treating both the population fluxes within states and among states. Such a treatment was necessary to represent the two-fold problem of a zombie outbreak at an international level:
 \begin{enumerate}[i.]
@@ -152,12 +151,21 @@ In order to simulate a multi-state system under epidemiological evolution we nee
 	\item Inter-state fluxes do not have a similar physical meaning and will depend greatly on the paradigm of international politics under consideration (\textit{Realpolitik}, Liberal, Neoconservatorism). They do not represent epidemological variation \textit{per se} but modelisation of immigration/emigration fluxes.
 \end{enumerate}
 
+With such an approach, we would be able to separate the population evolutions at the international and domestic level. We decided to simulate the microstate level under a modification of the classical SIR model \textcolor{red}{REFERENCE} called the SZR model (S for susceptible, Z for Zombies, R for removed) \cite{munz2009zombies}. Contrary to the 
+
+\subsection{Microstate Description}\indent
+
+\subsection{Macrostate Description}\indent
+
+
+
+
 
 
 \begin{figure}[h!]
-\centerline{
-\includegraphics[scale=0.15]{Images/Zombie_model.png}}
-\caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the micro-state level while the parts in orange represent the macro-state population fluxes. This schematic represent our simulated system where the interaction of three states (micro-states) is modeled \label{overallmodel} }
+%\centerline{
+%includegraphics[scale=0.15]{Images/Zombie_model.png}}
+\caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the microstate level while the parts in orange represent the macrostate population fluxes. This schematic represent our simulated system where the interaction of three states (microstates) is modeled \label{overallmodel} }
 \end{figure}
 
 \begin{equation}  \label{eq:smicro}
@@ -173,16 +181,17 @@ In order to simulate a multi-state system under epidemiological evolution we nee
 \end{equation}
 
 \begin{equation} \label{eq:smacro}
-\Delta S_{i}^{macro} = -\nu S_{i} \langle \Delta S_{i} \rangle + \sum_{j\neq i}{\nu \langle \Delta S_{j} \rangle }
+\Delta S_{i}^{macro} =  \sum_{j\neq i}{ \left( \nu \langle \Delta S_{j} \rangle - \nu  \langle \Delta S_{i} \rangle \right) }
 \end{equation}
 
 \begin{equation} \label{eq:zmacro}
-\Delta Z_{i}^{macro} = -\eta Z_{i}\tanh \left( \frac{Z_{i}}{S_{i}}\right) + \sum_{j\neq i}{\eta Z_{j}\tanh \left( \frac{Z_{j}}{S_{j}}\right)}
+\Delta Z_{i}^{macro} = \sum_{j\neq i}{\left( \eta Z_{j}\tanh \left( \frac{Z_{j}}{S_{j}}\right) -\eta Z_{i}\tanh \left( \frac{Z_{i}}{S_{i}}\right) \right)}
 \end{equation}
 
 
 
 % IMPLEMENTATION
+\newpage
 \section{Implementation}\indent
 
 the first equation is \eqref{eq:smicro}, the second is \eqref{eq:zmicro} and so on
@@ -211,37 +220,48 @@ The second constraint is applied after the computation of all flux. There is the
 	\item the incoming flux of the two other states are corrected to fit the values,
 	\item the validation is applied to the two other states.
 \end{enumerate}
-This algorithm is applied until all discrepancy is removed. Note that negative values up to $10^{-4}$ are allowed and that during the first step of the algorithm, in the case where the sum of the population and incomming flux is negative, this value is zeroed. This method allows a relatively fast convergence of the values while retaining physical significance of the model and its implementation. Details of the code can be found in Appendix 10.2.
+This algorithm is applied until all discrepancy is removed. Note that negative values up to $10^{-4}$ are allowed and that during the first step of the algorithm, in the case where the sum of the population and incoming flux is negative, this value is zeroed. This method allows a relatively fast convergence of the values while retaining physical significance of the model and its implementation. Details of the code can be found in Appendix 10.2.
 
 \subsection{The Sweep Function}\indent
 
 The sweep function acts as a wrapper function for the sweeping of each parameters between two values using defined steps. The results of each individual simulation is stored in a dedicated folder. It also assigns a id string to the sweep. This id allows to resume the sweep with the first non completed simulation, this feature was added due to the duration of the sweep with sufficient resolution. Details of the code can be found in Appendix 10.3.
 % SIMULATION RESULTS AND DISCUSSION
+\newpage
 \section{Simulation Results and Discussion}\indent
 
-\subsection{Population Time-Evolution in Different Regimes}\indent
+\subsection{Population Time-Evolution under Different Regimes}\indent
  
-Discuss the different graphs
+% Doomsday figure
 \begin{figure}[h!]
 \centerline{
 \includegraphics[scale=0.35]{Images/example_doomsday.eps}}
-\caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the micro-state level while the parts in orange represent the macro-state population fluxes. This schematic represent our simulated system where the interaction of three states (micro-states) is modeled \label{doomsday} }
+\caption{Doomsday scenario. Emergence of zombies in state 1 leads to full contamination of the world's population (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-4}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.1, \eta=1.5\cdot10^{-4}$). \label{doomsday} }
 \end{figure}
 
+% Zombie kill figure
+\begin{figure}[h!]
+\centerline{
+\includegraphics[scale=0.35]{Images/example_zkill.eps}}
+\caption{Survival of humanity by zombie eradication. As soon as zombies appear in state 1, they get killed until the outbreak is contained  (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-8}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.01, \eta=1.5\cdot10^{-4}$).
+\label{skill} }
+\end{figure}
 
+% Exode figure
 \begin{figure}[h!]
 \centerline{
 \includegraphics[scale=0.35]{Images/example_exode.eps}}
-\caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the micro-state level while the parts in orange represent the macro-state population fluxes. This schematic represent our simulated system where the interaction of three states (micro-states) is modeled \label{exude} }
+\caption{Survival of humanity and emergence of a zombie state. Emergence of zombies in state 1 leads to the exodus of the remaining population to states 2 and 3. State 1 then becomes fully infested of zombies and the remaining of the world's population is in state 2 and 3 (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=5\cdot10^{-5},  \beta=5\cdot10^{-10},  \gamma=5\cdot10^{-10},  \nu=0.1,  \eta=0$). \label{exodus} }
 \end{figure}
 
+\subsection{Phase Transition at the Microstate }\indent
 
-\subsection{Phase Transition at the Microstate Level}\indent
+
 
 \subsection{Phase Transition at the Macrostate Level}\indent
 
 
 % SUMMARY AND OUTLOOK
+\newpage
 \section{Summary and Outlook}\indent
 
 \subsection{Regimes that Allowed the Survival of Humanity}\indent
@@ -260,11 +280,11 @@ Therefore, a nice way to make the macrostate parameters ($\nu$, $\eta$) dynamic 
 \bigskip
 
 \textit{Macrostate treatment} $\Rightarrow$  $\left\{
-	\begin{array}{l l}	
-		\Delta S_{i}^{macro} = -\textcolor{red}{\nu} \langle \Delta S_{i} \rangle + \sum_{j\neq i}{\textcolor{red}{\nu} \langle \Delta S_{j} \rangle}  
+	\begin{array}{l l}
+		\Delta S_{i}^{macro} =  \sum_{j\neq i}{ \left( \textcolor{red}{\nu} \langle \Delta S_{j} \rangle - \textcolor{red}{\nu}  \langle \Delta S_{i} \rangle \right) }	
     \\
     \\
-    		\Delta Z_{i}^{macro} = -\textcolor{blue}{\eta} Z_{i}\tanh \left(\frac{Z_{i}}{S_{i}}\right) + \sum_{j\neq i}{\textcolor{blue}{\eta} Z_{j}\tanh \left(\frac{Z_{j}}{S_{j}}\right)} 
+    		\Delta Z_{i}^{macro} = \sum_{j\neq i}{\left( \textcolor{blue}{\eta} Z_{j}\tanh \left( \frac{Z_{j}}{S_{j}}\right) -\textcolor{blue}{\eta} Z_{i}\tanh \left( \frac{Z_{i}}{S_{i}}\right) \right)}
 
 	\end{array} \right.$
 
