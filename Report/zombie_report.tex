@@ -129,13 +129,11 @@ Mathematical modeling of a zombie outbreak in a single population has previously
 
 \subsection{Can a Different Treatment of the Problem Lead to a Different Outcome?}\indent
 
-We rationalized that a more state-based description of the world population might actually help in brightening the outcome of a zombie outbreak. In fact, the world in divided into states and nations that apply their own laws and restrictions in terms of immigration. If immigration applies to humans, it might as well apply to zombies. In such a case, one might envision that in a given state under the threat of a zombie epidemiological disaster, flux of incoming susceptibles to help them kill the zombies or on the other hand the emigration of the survivors to a non-infected state might lead various outcome. For example, it is imaginable to see the emergence of a zombie-only state where all the remaining survivor would have found shelter in another state. Or even better, that the help of susceptible from another state might help eradicate the new-coming zombie threat. 
+We rationalized that a more state-based description of the world population might actually help in brightening the outcome of a zombie outbreak. In fact, the world in divided into states and nations that apply their own laws and restrictions in terms of immigration. If immigration applies to humans, it might as well apply to zombies. In such a case, one might envision that in a given state under the threat of a zombie epidemiological disaster, flux of incoming susceptibles to help them kill the zombies or on the other hand the emigration of the survivors to a non-infected state might lead to various outcome. For example, it is imaginable to see the emergence of a zombie-only state where all the remaining survivor would have found shelter in another state. Or even better, that the help of susceptible from another state might help eradicate the new-coming zombie threat. 
 
 For those reason we decided to simulate a model of interacting sub-populations, each under an epidemiological-like treatment. The inner-state epidemiological model describes the emergences of zombies from a spreading disease point of view, while the populations fluxes between states would represent immigration/emigration of the populations under concern (humans and/or zombies). 
 
-Fundamental Questions
-
-Investigation of the application of the SIR model to a zombie outbreak has already been studied, raising the fear of dark days for humanity. However, we would like to deepen this investigation to a multi-state system to see how interactions between subpopulation may brighten the future of the human race. Moreover, we are interested in seeing to what extent the different paradigms of international politics, Realpolitik, Liberalism and Neoconservatism as defined by Daniel W. Drezner in Theories of International Politics and zombies may lead to different outcomes.
+Moreover, we are interested in seeing to what extent the different paradigms of international politics, Realpolitik, Liberalism and Neoconservatism as defined by Daniel W. Drezner in Theories of International Politics and zombies may lead to different outcomes.
 Expected Results
 
 As describe in Drezner's book, we except different equilibrium outcomes depending on the paradigm under consideration. He postulates the possibile appearance of zombie states under Realpolitik and Liberalism paradigms while Neoconservatism would not allow such an outcome.
@@ -143,14 +141,10 @@ As describe in Drezner's book, we except different equilibrium outcomes dependin
 % DESCRIPTION OF THE MODEL
 \section{Description of the Model}\indent
 
-Research Methods
-
 We would like to tackle this question by using a two-level model. Intra-state populations would be modelled by a standard SIR (Kermack-McKendrick) model or an evolution of it that might include quarantined poplutions and more evolved parameters. On the next level, the inter-state relationships would be modelled using Game-Theory under different cost-hypothesis related to the main paradigms of international relationships as previously defined.
 Other
 
-The material necessary for defining our models of zombies and 'zombification' parameters will be extracted from the canon of the zombie popular culture such as World War Z (Brooks, 2006), 28 Days Later (Boyle, 2002), The Night of the Living Dead (Romero, 1968), Zombieland (Fleischer, 2009), Resident Evil (Capcom, 1996), etc.
 
-The implementation in MatLab works on two levels: one taking care of the simulation of the epidemiological model, the other one taking care of the sweeping of the epidemiological parameters. We wil discuss the key parts of the implementation as well as some of the interesting details that had to ensure the coherence of the model.
 
 In order to simulate a multi-state system under epidemiological evolution we needed to define a clear mathematical framework treating both the population fluxes within states and among states. Such a treatment was necessary to represent the two-fold problem of a zombie outbreak at an international level:
 \begin{enumerate}[i.]
@@ -161,8 +155,8 @@ In order to simulate a multi-state system under epidemiological evolution we nee
 
 
 \begin{figure}[h!]
-\centering
-%\includegraphics[scale=0.15]{Images/Zombie_model.png}
+\centerline{
+\includegraphics[scale=0.15]{Images/Zombie_model.png}}
 \caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the micro-state level while the parts in orange represent the macro-state population fluxes. This schematic represent our simulated system where the interaction of three states (micro-states) is modeled \label{overallmodel} }
 \end{figure}
 
@@ -192,6 +186,9 @@ In order to simulate a multi-state system under epidemiological evolution we nee
 \section{Implementation}\indent
 
 the first equation is \eqref{eq:smicro}, the second is \eqref{eq:zmicro} and so on
+
+The implementation in MatLab works on two levels: one taking care of the simulation of the epidemiological model, the other one taking care of the sweeping of the epidemiological parameters. We will discuss the key parts of the implementation as well as some of the interesting details that had to ensure the coherence of the model.
+
 
 \subsection{The Outbreak Function}\indent
 
@@ -226,9 +223,16 @@ The sweep function acts as a wrapper function for the sweeping of each parameter
  
 Discuss the different graphs
 \begin{figure}[h!]
-\centering
-\includegraphics[scale=0.3]{Images/example_doomsday.eps}
-\caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the micro-state level while the parts in orange represent the macro-state population fluxes. This schematic represent our simulated system where the interaction of three states (micro-states) is modeled \label{overallmodel} }
+\centerline{
+\includegraphics[scale=0.35]{Images/example_doomsday.eps}}
+\caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the micro-state level while the parts in orange represent the macro-state population fluxes. This schematic represent our simulated system where the interaction of three states (micro-states) is modeled \label{doomsday} }
+\end{figure}
+
+
+\begin{figure}[h!]
+\centerline{
+\includegraphics[scale=0.35]{Images/example_exode.eps}}
+\caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the micro-state level while the parts in orange represent the macro-state population fluxes. This schematic represent our simulated system where the interaction of three states (micro-states) is modeled \label{exude} }
 \end{figure}
 
 

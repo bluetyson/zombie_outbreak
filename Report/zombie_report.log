@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.3.4)  13 DEC 2012 17:52
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.3.4)  13 DEC 2012 18:23
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -381,11 +381,7 @@ Package: caption3 2010/01/14 v3.1m caption3 kernel (AR)
 \c@ContinuedFloat=\count115
 Package caption Info: listings package is loaded.
 )
-(./zombie_report.aux
-
-LaTeX Warning: Label `overallmodel' multiply defined.
-
-)
+(./zombie_report.aux)
 \openout1 = `zombie_report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -402,7 +398,8 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 38.
- (/usr/local/texlive/2011/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 38.
@@ -550,42 +547,74 @@ Overfull \hbox (6.91856pt too wide) in paragraph at lines 134--135
 -act-ing sub-populations,
  []
 
-[8] [9] [10]
+[8] <Images/Zombie_model.png, id=250, 3010.24625pt x 2257.43375pt>
+File: Images/Zombie_model.png Graphic file (type png)
+
+<use Images/Zombie_model.png>
+Package pdftex.def Info: Images/Zombie_model.png used on input line 159.
+(pdftex.def)             Requested size: 451.51746pt x 338.60045pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9] [10 <./Images/Zombie_model.png>] [11]
 Package epstopdf Info: Source file: <Images/example_doomsday.eps>
-(epstopdf)                    date: 2012-12-13 17:38:58
-(epstopdf)                    size: 52055 bytes
+(epstopdf)                    date: 2012-12-13 18:16:10
+(epstopdf)                    size: 51843 bytes
 (epstopdf)             Output file: <Images/example_doomsday-eps-converted-to.p
 df>
-(epstopdf)                    date: 2012-12-13 17:43:00
-(epstopdf)                    size: 23351 bytes
+(epstopdf)                    date: 2012-12-13 18:18:23
+(epstopdf)                    size: 22587 bytes
 (epstopdf)             Command: <epstopdf --outfile=Images/example_doomsday-eps
 -converted-to.pdf Images/example_doomsday.eps>
-(epstopdf)             \includegraphics on input line 230.
+(epstopdf)             \includegraphics on input line 227.
 Package epstopdf Info: Output file is already uptodate.
 
-<Images/example_doomsday-eps-converted-to.pdf, id=264, 1446.40375pt x 733.74126
+<Images/example_doomsday-eps-converted-to.pdf, id=270, 1446.40375pt x 733.74126
 pt>
 File: Images/example_doomsday-eps-converted-to.pdf Graphic file (type pdf)
  <use Images/example_doomsday-eps-converted-to.pdf>
 Package pdftex.def Info: Images/example_doomsday-eps-converted-to.pdf used on i
-nput line 230.
-(pdftex.def)             Requested size: 433.92448pt x 220.12407pt.
+nput line 227.
+(pdftex.def)             Requested size: 506.2489pt x 256.81328pt.
 
-Overfull \hbox (15.6708pt too wide) in paragraph at lines 230--231
- [][] 
- []
 
-[11] [12 <./Images/example_doomsday-eps-converted-to.pdf>] [13]
-Overfull \hbox (12.83426pt too wide) in paragraph at lines 258--266
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+Package epstopdf Info: Source file: <Images/example_exode.eps>
+(epstopdf)                    date: 2012-12-13 18:15:15
+(epstopdf)                    size: 63924 bytes
+(epstopdf)             Output file: <Images/example_exode-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2012-12-13 18:18:23
+(epstopdf)                    size: 22510 bytes
+(epstopdf)             Command: <epstopdf --outfile=Images/example_exode-eps-co
+nverted-to.pdf Images/example_exode.eps>
+(epstopdf)             \includegraphics on input line 234.
+Package epstopdf Info: Output file is already uptodate.
+
+<Images/example_exode-eps-converted-to.pdf, id=271, 1446.40375pt x 733.74126pt>
+File: Images/example_exode-eps-converted-to.pdf Graphic file (type pdf)
+<use Images/example_exode-eps-converted-to.pdf>
+Package pdftex.def Info: Images/example_exode-eps-converted-to.pdf used on inpu
+t line 234.
+(pdftex.def)             Requested size: 506.2489pt x 256.81328pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12] [13 <./Images/example_doomsday-eps-converted-to.pdf>] [14 <./Images/exampl
+e_exode-eps-converted-to.pdf>]
+Overfull \hbox (12.83426pt too wide) in paragraph at lines 262--270
 []\OT1/cmr/m/it/12 Macrostate treat-ment $\OMS/cmsy/m/n/12 )$ $[]$ 
  []
 
-[14] (./zombie_report.bbl) [15] (../code/outbreak.m
+[15] (./zombie_report.bbl) [16] (../code/outbreak.m
 LaTeX Font Info:    Try loading font information for TS1+pcr on input line 33.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [16]
+) [17]
 LaTeX Font Info:    Try loading font information for OML+pcr on input line 72.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omlpcr.fd
@@ -600,44 +629,41 @@ File: omspcr.fd
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
- [17] [18]
-[19] [20]) (../code/update.m [21] [22] [23]) (../code/plotResults.m [24]
-[25]) (../code/sweep.m [26] [27] [28]) [29] (./zombie_report.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+ [18] [19]
+[20] [21]) (../code/update.m [22] [23] [24]) (../code/plotResults.m [25]
+[26]) (../code/sweep.m [27] [28] [29]) [30] (./zombie_report.aux) ) 
 Here is how much of TeX's memory you used:
- 6664 strings out of 493633
- 98661 string characters out of 3143378
- 464135 words of memory out of 3000000
- 9813 multiletter control sequences out of 15000+200000
+ 6677 strings out of 493633
+ 99009 string characters out of 3143378
+ 464234 words of memory out of 3000000
+ 9823 multiletter control sequences out of 15000+200000
  15089 words of font info for 57 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  42i,18n,46p,2690b,1529s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
-xlive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/tex
-live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/tex
-live/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texl
-ive/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texli
-ve/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive
-/2011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2
-011/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/201
-1/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2011/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2011/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2011/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2011/texmf-dist/font
-s/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2011/texmf-dist/fonts
-/type1/urw/courier/ucrr8a.pfb>
-Output written on zombie_report.pdf (29 pages, 411833 bytes).
+{/usr/local/
+texlive/2011/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2011/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2011/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2011/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2011/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2011/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2011/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2011/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2011/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2011/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2011/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2011/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2011/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2011/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/cou
+rier/ucrr8a.pfb>
+Output written on zombie_report.pdf (30 pages, 726427 bytes).
 PDF statistics:
- 398 PDF objects out of 1000 (max. 8388607)
- 233 compressed objects within 3 object streams
+ 414 PDF objects out of 1000 (max. 8388607)
+ 243 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
