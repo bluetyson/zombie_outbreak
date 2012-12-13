@@ -7,16 +7,21 @@
 \contentsline {subsection}{\numberline {4.3}Zombies: a Definition}{7}
 \contentsline {subsection}{\numberline {4.4}Popular Believes in the Event of the Zombie Outbreak}{7}
 \contentsline {subsection}{\numberline {4.5}Can a Different Treatment of the Problem Lead to a Different Outcome?}{8}
-\contentsline {section}{\numberline {5}Description of the Model}{8}
+\contentsline {section}{\numberline {5}Description of the Model}{9}
 \contentsline {section}{\numberline {6}Implementation}{10}
-\contentsline {subsection}{\numberline {6.1}The Outbreak Function}{11}
-\contentsline {subsection}{\numberline {6.2}The Update Function}{12}
-\contentsline {subsection}{\numberline {6.3}The Sweep Function}{12}
-\contentsline {section}{\numberline {7}Simulation Results and Discussion}{12}
-\contentsline {section}{\numberline {8}Summary and Outlook}{13}
-\contentsline {section}{\numberline {9}References}{13}
-\contentsline {section}{\numberline {10}Appendix}{14}
-\contentsline {subsection}{\numberline {10.1}outbreak.m}{14}
-\contentsline {subsection}{\numberline {10.2}update.m}{19}
-\contentsline {subsection}{\numberline {10.3}plotResults.m}{22}
-\contentsline {subsection}{\numberline {10.4}sweep.m}{24}
+\contentsline {subsection}{\numberline {6.1}The Outbreak Function}{10}
+\contentsline {subsection}{\numberline {6.2}The Update Function}{11}
+\contentsline {subsection}{\numberline {6.3}The Sweep Function}{11}
+\contentsline {section}{\numberline {7}Simulation Results and Discussion}{11}
+\contentsline {subsection}{\numberline {7.1}Population Time-Evolution in Different Regimes}{12}
+\contentsline {subsection}{\numberline {7.2}Phase Transition at the Microstate Level}{12}
+\contentsline {subsection}{\numberline {7.3}Phase Transition at the Macrostate Level}{12}
+\contentsline {section}{\numberline {8}Summary and Outlook}{12}
+\contentsline {subsection}{\numberline {8.1}Regimes that Allowed the Survival of Humanity}{12}
+\contentsline {subsection}{\numberline {8.2}Further Work: Inter-State fluxes under Game-Theoretical Treatment}{12}
+\contentsline {section}{\numberline {9}References}{15}
+\contentsline {section}{\numberline {10}Appendix}{16}
+\contentsline {subsection}{\numberline {10.1}outbreak.m}{16}
+\contentsline {subsection}{\numberline {10.2}update.m}{21}
+\contentsline {subsection}{\numberline {10.3}plotResults.m}{24}
+\contentsline {subsection}{\numberline {10.4}sweep.m}{26}

@@ -75,7 +75,7 @@
 \end{center}
 \newpage
 
-% ETH declaration of originality
+% ETH DECLARATION OF ORIGINALITY
 \includepdf{confirmation_en.pdf}
 
 % TABLE OF CONTENT
@@ -97,7 +97,7 @@ M.G.M. and B.I.M.W. formulated the question in mathematical terms and discussed 
 % ACKNOWLEDGMENTS
 \section{Acknowledgments}\indent
 
-We wish to thank Karsten Donnay and Stefano Balietti for their support in our work, fruitful discussions and an open mind to accept such a project. We would also like to thank the Chair of Sociology for the computational support provided with simulation time on the ETH cluster Brutus.
+We wish to thank Karsten Donnay and Stefano Balietti for their support in our work, fruitful discussions and open-mindedness to accept such a project. We also would like to thank the Chair of Sociology for the computational support provided with simulation time on the ETH cluster Brutus.
 
 \newpage
 
@@ -133,45 +133,15 @@ We rationalized that a more state-based description of the world population migh
 
 For those reason we decided to simulate a model of interacting sub-populations, each under an epidemiological-like treatment. The inner-state epidemiological model describes the emergences of zombies from a spreading disease point of view, while the populations fluxes between states would represent immigration/emigration of the populations under concern (humans and/or zombies). 
 
+Fundamental Questions
+
+Investigation of the application of the SIR model to a zombie outbreak has already been studied, raising the fear of dark days for humanity. However, we would like to deepen this investigation to a multi-state system to see how interactions between subpopulation may brighten the future of the human race. Moreover, we are interested in seeing to what extent the different paradigms of international politics, Realpolitik, Liberalism and Neoconservatism as defined by Daniel W. Drezner in Theories of International Politics and zombies may lead to different outcomes.
+Expected Results
+
+As describe in Drezner's book, we except different equilibrium outcomes depending on the paradigm under consideration. He postulates the possibile appearance of zombie states under Realpolitik and Liberalism paradigms while Neoconservatism would not allow such an outcome.
+
 % DESCRIPTION OF THE MODEL
 \section{Description of the Model}\indent
-
-In order to simulate a multi-state system under epidemiological evolution we needed to define a clear mathematical framework treating both the population fluxes within states and among states. Such a treatment was necessary to represent the two-fold problem of a zombie outbreak at an international level:
-\begin{enumerate}[i.]
-	\item Intra-state fluxes have a fixed physical definition and are invariable among states. They represent the true epidemiological part of our model
-	\item Inter-state fluxes do not have a similar physical meaning and will depend greatly on the paradigm of international politics under consideration. They do not represent epidemological variation \textit{per se} but modelisation of immigration/emigration fluxes.
-\end{enumerate}
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.15]{Zombie_model.png}
-\caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the micro-state level while the parts in orange represent the macro-state population fluxes. This schematic represent our simulated system where the interaction of three states (micro-states) is modeled }
-\end{figure}
-
-\begin{equation}
-\Delta S_{i}^{micro} = -\alpha S_{i} Z_{i} -\gamma S_{i} Z_{i} = -(\alpha + \gamma) S_{i} Z_{i}
-\end{equation}
-
-\begin{equation}
-\Delta Z_{i}^{micro} = +\alpha S_{i} Z_{i} - \beta S_{i} Z_{i} = (\alpha - \beta) S_{i} Z_{i}
-\end{equation}
-
-\begin{equation}
-\Delta R_{i}^{micro} = +\beta S_{i} Z_{i} + \gamma S_{i} Z_{i} = (\beta + \gamma) S_{i} Z_{i}
-\end{equation}
-
-\begin{equation}
-\Delta S_{i}^{macro} = -\nu S_{i} \Delta S_{i} + \sum_{j\neq i}{\nu S_{j} \Delta S_{j}}
-\end{equation}
-
-\begin{equation}
-\Delta Z_{i}^{macro} = -\eta Z_{i}\tanh (\frac{Z_{i}}{S_{i}}) + \sum_{j\neq i}{\eta Z_{j}\tanh (\frac{Z_{j}}{S_{j}})}
-\end{equation}
-
-For each state (microstate), we define a SZR model that evaluates the evolution of the different populations under studies: susceptibles (S), zombies (Z) and removed (R). Epidemological-like transfer of populations between the states (at the macrostate level) also occurs as defined above and models the refugees and zombie transfer across states. Those transfers are parameters dependants, which depend on the cost-hypothesis as defined by the Game-Theoretical paradigm implemented. The apparition of zombies in one state will start the game. Each state will then evolve on the domestic and international level. The domestic level will follow a standard SZR model, whereas the international level will introduce exchange in the population of suceptible and zombie between the states. These exchanges will be influenced by the state decisions on foreign policies such as humanitarian or military actions determined by our game theory framework. The Game-Theoretical framework is defined as the possibility of undertaking military action of foreign soil (exporting S) or changing the refugee politics by modifying the mu parameter (allowing more S to come into one's state, and with a collateral cost of having more zombies crossing as well). Each action will be defined with a specific payoff, which in turn will depend on the international cooperation system under scrutiny. For simplicity, we will only model homogenous systems, i.e. all the states will adopt the same international politics paradigm. Finally, we will also introduce a "feedback" loop on the payoff depending on the success of a previously undertaken action (positive or negative affectation of the payoffs). This effect models the psychological effect of a successful or unsuccessful action on future action, for example the effectiveness of a military attack. This effect will be made as to converge after a certain time to model the wearing out of the psychological effect over time. The system will be implemented as a step-based update. This implies the ignorance of the actors (the states) of the action of the other actors. This rationalisation comes as the idea that the outbreak would occur over a short period of time, forcing for rapid decision-making and therefore not allow a reaction-based decision-making process. 
-
-% IMPLEMENTATION
-\section{Implementation}\indent
 
 Research Methods
 
@@ -182,11 +152,52 @@ The material necessary for defining our models of zombies and 'zombification' pa
 
 The implementation in MatLab works on two levels: one taking care of the simulation of the epidemiological model, the other one taking care of the sweeping of the epidemiological parameters. We wil discuss the key parts of the implementation as well as some of the interesting details that had to ensure the coherence of the model.
 
+In order to simulate a multi-state system under epidemiological evolution we needed to define a clear mathematical framework treating both the population fluxes within states and among states. Such a treatment was necessary to represent the two-fold problem of a zombie outbreak at an international level:
+\begin{enumerate}[i.]
+	\item Intra-state fluxes have a fixed physical definition and are invariable among states. They represent the true epidemiological part of our model
+	\item Inter-state fluxes do not have a similar physical meaning and will depend greatly on the paradigm of international politics under consideration (\textit{Realpolitik}, Liberal, Neoconservatorism). They do not represent epidemological variation \textit{per se} but modelisation of immigration/emigration fluxes.
+\end{enumerate}
+
+
+
+\begin{figure}[h!]
+\centering
+%\includegraphics[scale=0.15]{Images/Zombie_model.png}
+\caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the micro-state level while the parts in orange represent the macro-state population fluxes. This schematic represent our simulated system where the interaction of three states (micro-states) is modeled \label{overallmodel} }
+\end{figure}
+
+\begin{equation}  \label{eq:smicro}
+\Delta S_{i}^{micro} = -\alpha S_{i} Z_{i} -\gamma S_{i} Z_{i} = -(\alpha + \gamma) S_{i} Z_{i}
+\end{equation}
+
+\begin{equation} \label{eq:zmicro}
+\Delta Z_{i}^{micro} = +\alpha S_{i} Z_{i} - \beta S_{i} Z_{i} = (\alpha - \beta) S_{i} Z_{i}
+\end{equation}
+
+\begin{equation} \label{eq:rmicro}
+\Delta R_{i}^{micro} = +\beta S_{i} Z_{i} + \gamma S_{i} Z_{i} = (\beta + \gamma) S_{i} Z_{i}
+\end{equation}
+
+\begin{equation} \label{eq:smacro}
+\Delta S_{i}^{macro} = -\nu S_{i} \langle \Delta S_{i} \rangle + \sum_{j\neq i}{\nu \langle \Delta S_{j} \rangle }
+\end{equation}
+
+\begin{equation} \label{eq:zmacro}
+\Delta Z_{i}^{macro} = -\eta Z_{i}\tanh \left( \frac{Z_{i}}{S_{i}}\right) + \sum_{j\neq i}{\eta Z_{j}\tanh \left( \frac{Z_{j}}{S_{j}}\right)}
+\end{equation}
+
+
+
+% IMPLEMENTATION
+\section{Implementation}\indent
+
+the first equation is \eqref{eq:smicro}, the second is \eqref{eq:zmicro} and so on
+
 \subsection{The Outbreak Function}\indent
 
 The outbreak function is the wrapping function of the epidemiological model. It first evaluates the different parameters, initialize the different matrices used throughout the simulation, calls the update function of our model and is finally responsible for the validation of the new data generated after each update cycle. The validation of the data allows to test if it worth continuing the simulation or if it should be shut down. This allows to save computational time. We implemented three exit policies in the simulation loop. First of all, we implemented two obvious safeguards when either the susceptible or the zombie population reaches zero. Continuing the simulation in either case would not make sense since the system already reached its final state. The third one is triggered when the different population evolution becomes too slow, indicating a relative steady state. Even though it might not be a true dynamical equilibrium, very little population variation over a very long time would not be of any significance within the framework of our model (e.g. a single zombie killing thousands of remaining humans over the course of a very long simulation simply because the infection to death rate as a particular value). In order to avoid unphysical convergences, we define the following control:
 
-\begin{equation}
+\begin{equation} \label{eq:outbreakequilibrium}
 \left\langle \left| \Delta S \right| \right\rangle < x\ \&\&\ \left\langle\left|\Delta Z \right| \right\rangle < x
 \end{equation}
 
@@ -211,28 +222,60 @@ The sweep function acts as a wrapper function for the sweeping of each parameter
 % SIMULATION RESULTS AND DISCUSSION
 \section{Simulation Results and Discussion}\indent
 
-\textcolor{red}{THIS PART NEEDS UPDATING}
+\subsection{Population Time-Evolution in Different Regimes}\indent
+ 
+Discuss the different graphs
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{Images/example_doomsday.eps}
+\caption{Schematic of our model including all variables. The parts in blue represent the fluxes at the micro-state level while the parts in orange represent the macro-state population fluxes. This schematic represent our simulated system where the interaction of three states (micro-states) is modeled \label{overallmodel} }
+\end{figure}
 
-Fundamental Questions
 
-Investigation of the application of the SIR model to a zombie outbreak has already been studied, raising the fear of dark days for humanity. However, we would like to deepen this investigation to a multi-state system to see how interactions between subpopulation may brighten the future of the human race. Moreover, we are interested in seeing to what extent the different paradigms of international politics, Realpolitik, Liberalism and Neoconservatism as defined by Daniel W. Drezner in Theories of International Politics and zombies may lead to different outcomes.
-Expected Results
+\subsection{Phase Transition at the Microstate Level}\indent
 
-As describe in Drezner's book, we except different equilibrium outcomes depending on the paradigm under consideration. He postulates the possibile appearance of zombie states under Realpolitik and Liberalism paradigms while Neoconservatism would not allow such an outcome.
+\subsection{Phase Transition at the Macrostate Level}\indent
+
 
 % SUMMARY AND OUTLOOK
 \section{Summary and Outlook}\indent
 
+\subsection{Regimes that Allowed the Survival of Humanity}\indent
 
-\textcolor{red}{THIS PART NEEDS UPDATING}
+
+\subsection{Further Work: Inter-State fluxes under Game-Theoretical Treatment}\indent
+
+For each state (microstate), we defined a SZR model that evaluates the evolution of the different populations under studies: susceptibles (S), zombies (Z) and removed (R). Epidemological-like (mass-action) transfer of populations between the states (at the macrostate level, \textit{i.e.} international level) also occurs as defined above and models the refugees and zombie transfer across states. Those transfers are dependent of the parameter $\nu$ for susceptible transfer and parameter $\eta$ for the zombies. Within the scope of this semester work, we decided to simulate the different paradigms of inter national politics by simply fixing values of both $\eta$ and $\nu$ at the beginning of each simulation and observe the effect on the outcome. Both the relative and absolute values of those parameters are supposed to represent the paradigm under consideration (\textit{e.g.} a very small value of $\nu$ would be representative of neoconservatism within the framework of our model since it drastically limits the possibility of immigration of refugees into a given state). Of course, such a treatment is very static and does not take into account the likely variation over time of  international cooperation elements (change in immigration politics, military action on foreign soil, etc...). This change in foreign policies is even likely to be more pronounced for the case of a zombie outbreak since such an event would be unprecedented and decision-makers would have a hard time figuring out in such a short time what position to adopt. 
+
+Therefore, a nice way to make the macrostate parameters ($\nu$, $\eta$) dynamic in order to represent such changes would be to make them functions of a game-theoretical treatment. In such a model, population fluxes would still be treated within the framework of the current model, with the only variation that the macrostate parameters would be time-evolving. Redefininig $\nu$ and $\eta$ would be under a cost-hypothesis model as defined in game-theory and then the cost-hypothesis themselves would become fixed parameters over the course of a simulation, defined in order to represent the different paradigms of international relationships. Accordingly, macrostate fluxes could vary over the course of the simulation, possibly having an effect on the outcome but those variation would be anisotropic and depend on foreign policies bias. The apparition of zombies in one state would start the game. Each state would then evolve on the domestic and international level. The domestic level will follow a standard SZR model, whereas the international level will introduce exchange in the population of suceptibles and zombies between the states. These exchanges will be influenced by the state decisions on foreign policies such as humanitarian or military actions determined by our game theory framework. The Game-Theoretical framework is defined as the possibility of undertaking military action of foreign soil (exporting S) or changing the refugee politics by modifying the mu parameter (allowing more S to come into one's state, and with a collateral cost of having more zombies crossing as well). Each action will be defined with a specific payoff, which in turn will depend on the international cooperation system under scrutiny. For simplicity, models should be treated homogenously, i.e. all states should adopt the same international politics paradigm. Finally, a ``feedback'' loop on the payoff depending on the success of a previously undertaken action (positive or negative affectation of the payoffs) could be introduced. This effect could be a modeling of the psychological effect of a successful or unsuccessful action on future action, for example the effectiveness of a military attack. This effect will be made as to converge after a certain time to model the wearing out of the psychological effect over time. The system will be implemented as a step-based update. This implies the ignorance of the actors (the states) of the action of the other actors. This rationalisation comes as the idea that the outbreak would occur over a short period of time, forcing for rapid decision-making and therefore not allow a reaction-based decision-making process. 
+
+\bigskip
+
+\textit{Microstate treatment} $\Rightarrow$ \textit{SZR model} 
+
+\bigskip
+
+\textit{Macrostate treatment} $\Rightarrow$  $\left\{
+	\begin{array}{l l}	
+		\Delta S_{i}^{macro} = -\textcolor{red}{\nu} \langle \Delta S_{i} \rangle + \sum_{j\neq i}{\textcolor{red}{\nu} \langle \Delta S_{j} \rangle}  
+    \\
+    \\
+    		\Delta Z_{i}^{macro} = -\textcolor{blue}{\eta} Z_{i}\tanh \left(\frac{Z_{i}}{S_{i}}\right) + \sum_{j\neq i}{\textcolor{blue}{\eta} Z_{j}\tanh \left(\frac{Z_{j}}{S_{j}}\right)} 
+
+	\end{array} \right.$
+
+\bigskip
+
+\textit{where} \textcolor{red}{$\nu$} $= f(GT)$ \textit{,} \textcolor{blue}{$\eta$} $= f(GT)$  
 
 % REFERENCES
+\newpage
 
 \bibliography{zombie_report} % Load the .bib file containing the references
 \bibliographystyle{unsrt} % Define bibliography style
 \nocite{bennett1995modelling, balcan2011phase, funk2010modelling, reluga2010game, reluga2009sis, munz2009zombies, drezner}
 
-
+% APPENDIX
 \newpage
 
 \section{Appendix}
