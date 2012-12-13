@@ -39,16 +39,26 @@ function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, sweepSize, f
     a = 1;
     
     %% Simulation iterations
-    for i = first:( first+runNbr - 2 )
+    for i = first:( first+runNbr - 1 )
         
         % Loading of the simulation results
         job = load( [ path int2str( i ) '.mat' ] );
         
+        %[ x, y, z ] = ind2sub( sweepSize, a );
+                
         if a == 1 
             
             eta = job.eta;
             nu = job.nu;
-            disp( [ job.eta, job.nu ] );
+            
+            x = 1;
+            y = 1;
+            z = 1;
+        else
+            
+            x = round( job.alpha / alpha( 1, 1, 1 ) );
+            y = round( job.beta / beta( 1, 1, 1 ) );
+            z = round( job.gamma / gamma( 1, 1, 1 ) );
         end
         
         if eta ~= job.eta || nu ~= job.nu
@@ -64,12 +74,12 @@ function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, sweepSize, f
         
         
         % Update of the result matrices
-        alpha( a ) = job.alpha;
-        beta( a ) = job.beta;
-        gamma( a ) = job.gamma;
-        Sf( a ) = job.S( job.step );
-        Zf( a ) = job.Z( job.step );
-        S( a ) = job.step;
+        alpha( x, y, z ) = job.alpha;
+        beta( x, y, z ) = job.beta;
+        gamma( x, y, z ) = job.gamma;
+        Sf( x, y, z ) = job.S( 4, job.step );
+        Zf( x, y, z ) = job.Z( 4, job.step );
+        S( x, y, z ) = job.step;
         
         a = a + 1;
     end

@@ -1,4 +1,4 @@
-function plotABGSweep( ~ )
+function test = plotABGSweep( ~ )
 
     results = struct();
     results.run1 = load( 'output_1.mat' );
@@ -6,15 +6,19 @@ function plotABGSweep( ~ )
     results.run3 = load( 'output_3.mat' );
     results.run4 = load( 'output_4.mat' );
 
-    cutoff = [ 1 800 1600 2400 ];
+    cutoff = [ 1 800 1600 2400 3000 ];
+    
+    test = zeros( 4, 25, 25, 25 );
     
     for i = 1:4
         
         s = results.( [ 'run' int2str( i ) ] ).S;
+        step = results.( [ 'run' int2str( i ) ] ).steps;
+        test( i, :, :, : ) = s > 1;
         
         for j = 1:4
             
-            indexS = find( s > cutoff( j ) );
+            indexS = find( ( s > cutoff( j ) ) .* ( step > 1000 ) .* ( s < cutoff( j + 1 ) ) );
             
             [ X, Y, Z ] = ind2sub( size( s ), indexS );
             
