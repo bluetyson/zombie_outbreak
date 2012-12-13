@@ -1,4 +1,4 @@
-function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, sweepSize )
+function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, sweepSize, filename )
 %
 % PARSESWEEP parse the results of the sweep function for the parameters
 %   alpha, beta and gamma.
@@ -32,13 +32,29 @@ function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, sweepSize )
     Sf = zeros( sweepSize );
     Zf = zeros( sweepSize );
     S = zeros( sweepSize );
-    
+    eta = 0;
+    nu = 0;
     
     reverseStr = '';
     a = 1;
     
     %% Simulation iterations
-    for i = first:( first+runNbr - 1 )
+    for i = first:( first+runNbr - 2 )
+        
+        % Loading of the simulation results
+        job = load( [ path int2str( i ) '.mat' ] );
+        
+        if a == 1 
+            
+            eta = job.eta;
+            nu = job.nu;
+            disp( [ job.eta, job.nu ] );
+        end
+        
+        if eta ~= job.eta || nu ~= job.nu
+            
+            break;
+        end
 
         % Update of the process status
         msg = sprintf('Processing step %d... \n', a );
@@ -46,8 +62,6 @@ function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, sweepSize )
 
         reverseStr = repmat(sprintf('\b'), 1, length(msg));
         
-        % Loading of the simulation results
-        job = load( [ path int2str( i ) '.mat' ] );
         
         % Update of the result matrices
         alpha( a ) = job.alpha;
@@ -60,22 +74,7 @@ function [ alpha, beta, gamma, Sf, Zf, S ] = parseSweep( id, first, sweepSize )
         a = a + 1;
     end
     
-    Z1f = findTransition( Zf > 1 );
-    S1f = findTransition( Sf > 1 );
-    
-    [ xZ, yZ, zZ ] = ind2sub( sweepSize, find( Z1f ) );
-    [ xS, yS, zS ] = ind2sub( sweepSize, find( S1f ) );
-    
-    cS = zeros( size( xS, 1 ), 3 );
-    cS( :, 2 ) = 1;
-    cZ = zeros( size( xZ, 1 ), 3 );
-    cZ( :, 1 ) = 1;
-   
-    x = [ xS ; xZ ];
-    y = [ yS ; yZ ];
-    z = [ zS ; zZ ];
-    c = [ cS ; cZ ];
-    
-    scatter3( x, y, z, 4, c );
+    output = struct( 'S', Sf, 'Z', Zf, 'steps', S, 'alpha', alpha, 'gamma', gamma, 'beta', beta, 'eta', eta, 'nu', nu );
+    save( filename, '-struct', 'output' );
 end
 

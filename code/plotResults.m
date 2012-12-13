@@ -9,44 +9,43 @@ function plotResults( dump )
     %   DUMP is the dumping structure as defined in the OUTBREAK function.
     %
 
-	x = 0:( length( dump.S ) - 1 );
-
+    
+    set(0, 'DefaultAxesColorOrder', [ 0, 0, 1 ; 1, 0, 0 ; 0, 0, 0 ], 'DefaultLineLineWidth', 1.45 );
+   
+    x = 0:( length( dump.S ) - 1 );
+    
     % For each of the three states, plot the populations and
     % populations' variations.
     for i = 1:3
        
-        subplot( 4, 4, ( i * 4 - 3 ):( i * 4 - 2 ) );
-        plot( x, dump.S( i, : ), 'g', x, dump.Z( i, : ), 'r', x, dump.R( i, : ), 'k' );
+        subplot( 4, 2, 1 + ( i - 1 ) * 2 );
+        plot( x, dump.S( i, : ), x, dump.Z( i, : ), x, dump.R( i, : ) );
         ylim( [ 0 dump.S( 4 ) ] );
-        xlabel( 'Step' );
-        ylabel( 'Population' );
-        title( [ 'State ', int2str( i ) ], 'fontweight', 'b' );
-        if i == 1
-            
-            legend( 'Susceptibles', 'Zombies', 'Removed' );
-        end
+        xlabel( 'Step', 'fontsize', 11 );
+        ylabel( 'Population', 'fontsize', 11 );
+        title( [ 'State ', int2str( i ) ], 'fontweight', 'b', 'fontsize', 12 );
         
-        subplot( 4, 4, ( i * 4 - 1 ):( i * 4 ) );
-        plot( x, dump.dS( i, : ), 'g', x, dump.dZ( i, : ), 'r', x, dump.dR( i, : ), 'k' );
-        xlabel( 'Step' );
-        ylabel( 'Population Variation' );
-        title( [ 'State ', int2str( i ) ], 'fontweight', 'b' );
+        subplot( 4, 2, 2 + ( i - 1 ) * 2 );
+        plot( x, dump.dS( i, : ), x, dump.dZ( i, : ), x, dump.dR( i, : ) );
+        xlabel( 'Step', 'fontsize', 11 );
+        ylabel( 'Population Variation', 'fontsize', 11 );
+        title( [ 'State ', int2str( i ) ], 'fontweight', 'b', 'fontsize', 12 );
 	
     end
 	
     % Plot the total populations and total populations' variations.
-	subplot( 4, 4, 13:14 );
-	plot( x, dump.S( 4, : ), 'g', x, dump.Z( 4, : ), 'r', x, dump.R( 4, : ), 'k' );
+	subplot( 4, 2, 7 );
+	plot( x, dump.S( 4, : ), x, dump.Z( 4, : ), x, dump.R( 4, : ) );
 	ylim( [ 0 dump.S( 4 ) ] );
-    xlabel( 'Step' );
-    ylabel( 'Population' );
-	title( 'World population', 'fontweight', 'b' );
+    xlabel( 'Step', 'fontsize', 11 );
+    ylabel( 'Population', 'fontsize', 11 );
+	title( 'World population', 'fontweight', 'b', 'fontsize', 12 );
     
-	subplot( 4, 4, 15:16 );
-	plot( x, dump.dS( 4, : ), 'g', x, dump.dZ( 4, : ), 'r', x, dump.dR( 4, : ), 'k' );
-    xlabel( 'Step' );
-    ylabel( 'Population Variation' );
-	title( 'World population', 'fontweight', 'b' );
+	subplot( 4, 2, 8 );
+	plot( x, dump.dS( 4, : ), x, dump.dZ( 4, : ), x, dump.dR( 4, : ) );
+    xlabel( 'Step', 'fontsize', 11 );
+    ylabel( 'Population Variation', 'fontsize', 11 );
+	title( 'World population', 'fontweight', 'b', 'fontsize', 12 );
 
 
 end
