@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.3.4)  14 DEC 2012 17:18
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.3.4)  14 DEC 2012 18:33
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -381,14 +381,7 @@ Package: caption3 2010/01/14 v3.1m caption3 kernel (AR)
 \c@ContinuedFloat=\count115
 Package caption Info: listings package is loaded.
 )
-(./zombie_report.aux
-
-LaTeX Warning: Label `doomsday' multiply defined.
-
-
-LaTeX Warning: Label `doomsday' multiply defined.
-
-)
+(./zombie_report.aux)
 \openout1 = `zombie_report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -405,7 +398,8 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 38.
- (/usr/local/texlive/2011/texmf-dist/tex/latex/base/ts1cmr.fd
+
+(/usr/local/texlive/2011/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 38.
@@ -518,7 +512,13 @@ File: confirmation_en.pdf Graphic file (type pdf)
 Package pdftex.def Info: confirmation_en.pdf, page1 used on input line 79.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [3 <./confirmation_en.pdf>]
-(./zombie_report.toc)
+(./zombie_report.toc
+Overfull \hbox (26.51678pt too wide) in paragraph at lines 25--25
+ [][] []\OT1/cmr/m/n/12 Further In-ves-ti-ga-tion: Inter-State fluxes treated w
+ith a Game-Theoretical 
+ []
+
+)
 \tf@toc=\write3
 \openout3 = `zombie_report.toc'.
 
@@ -584,15 +584,15 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [12 <../images/Powerpoint_figures/macrostate.pdf>] [13 <../images/Powerpoint_fi
 gures/total_model.pdf>] [14] [15]
 Package epstopdf Info: Source file: <../images/Matlab_figures/model-AgeB.eps>
-(epstopdf)                    date: 2012-12-14 16:49:32
+(epstopdf)                    date: 2012-12-14 17:21:52
 (epstopdf)                    size: 27320 bytes
 (epstopdf)             Output file: <../images/Matlab_figures/model-AgeB-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2012-12-14 17:09:53
+(epstopdf)                    date: 2012-12-14 17:41:10
 (epstopdf)                    size: 17548 bytes
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/mo
 del-AgeB-eps-converted-to.pdf ../images/Matlab_figures/model-AgeB.eps>
-(epstopdf)             \includegraphics on input line 303.
+(epstopdf)             \includegraphics on input line 305.
 Package epstopdf Info: Output file is already uptodate.
 
 <../images/Matlab_figures/model-AgeB-eps-converted-to.pdf, id=352, 719.68875pt 
@@ -601,18 +601,18 @@ File: ../images/Matlab_figures/model-AgeB-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use ../images/Matlab_figures/model-AgeB-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/model-AgeB-eps-converted-to.p
-df used on input line 303.
+df used on input line 305.
 (pdftex.def)             Requested size: 467.79214pt x 114.1752pt.
 Package epstopdf Info: Source file: <../images/Matlab_figures/model-AltB.eps>
-(epstopdf)                    date: 2012-12-14 16:54:42
-(epstopdf)                    size: 29410 bytes
+(epstopdf)                    date: 2012-12-14 17:21:52
+(epstopdf)                    size: 29423 bytes
 (epstopdf)             Output file: <../images/Matlab_figures/model-AltB-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2012-12-14 17:09:54
-(epstopdf)                    size: 15619 bytes
+(epstopdf)                    date: 2012-12-14 17:41:30
+(epstopdf)                    size: 15620 bytes
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/mo
 del-AltB-eps-converted-to.pdf ../images/Matlab_figures/model-AltB.eps>
-(epstopdf)             \includegraphics on input line 310.
+(epstopdf)             \includegraphics on input line 312.
 Package epstopdf Info: Output file is already uptodate.
 
 <../images/Matlab_figures/model-AltB-eps-converted-to.pdf, id=353, 816.04875pt 
@@ -621,20 +621,24 @@ File: ../images/Matlab_figures/model-AltB-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use ../images/Matlab_figures/model-AltB-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/model-AltB-eps-converted-to.p
-df used on input line 310.
+df used on input line 312.
 (pdftex.def)             Requested size: 448.8282pt x 282.1048pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 Package epstopdf Info: Source file: <../images/Matlab_figures/example_doomsday.
 eps>
-(epstopdf)                    date: 2012-12-13 21:11:56
+(epstopdf)                    date: 2012-12-14 17:21:52
 (epstopdf)                    size: 50778 bytes
 (epstopdf)             Output file: <../images/Matlab_figures/example_doomsday-
 eps-converted-to.pdf>
-(epstopdf)                    date: 2012-12-13 21:11:56
+(epstopdf)                    date: 2012-12-14 17:21:52
 (epstopdf)                    size: 21458 bytes
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/ex
 ample_doomsday-eps-converted-to.pdf ../images/Matlab_figures/example_doomsday.e
 ps>
-(epstopdf)             \includegraphics on input line 320.
+(epstopdf)             \includegraphics on input line 322.
 Package epstopdf Info: Output file is already uptodate.
 
 <../images/Matlab_figures/example_doomsday-eps-converted-to.pdf, id=354, 1446.4
@@ -644,31 +648,33 @@ le (type pdf)
 
 <use ../images/Matlab_figures/example_doomsday-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/example_doomsday-eps-converte
-d-to.pdf used on input line 320.
+d-to.pdf used on input line 322.
 (pdftex.def)             Requested size: 506.2489pt x 256.81328pt.
- [16 <../images/Matlab_figures/model-AgeB-eps-converted-to.pdf> <../images/Matl
-ab_figures/model-AltB-eps-converted-to.pdf>]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 Package epstopdf Info: Source file: <../images/Matlab_figures/example_zkill.eps
 >
-(epstopdf)                    date: 2012-12-13 21:11:56
+(epstopdf)                    date: 2012-12-14 17:21:52
 (epstopdf)                    size: 70350 bytes
 (epstopdf)             Output file: <../images/Matlab_figures/example_zkill-eps
 -converted-to.pdf>
-(epstopdf)                    date: 2012-12-13 21:11:56
+(epstopdf)                    date: 2012-12-14 17:21:52
 (epstopdf)                    size: 19812 bytes
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/ex
 ample_zkill-eps-converted-to.pdf ../images/Matlab_figures/example_zkill.eps>
-(epstopdf)             \includegraphics on input line 327.
+(epstopdf)             \includegraphics on input line 329.
 Package epstopdf Info: Output file is already uptodate.
 
-<../images/Matlab_figures/example_zkill-eps-converted-to.pdf, id=384, 1446.4037
+<../images/Matlab_figures/example_zkill-eps-converted-to.pdf, id=355, 1446.4037
 5pt x 733.74126pt>
 File: ../images/Matlab_figures/example_zkill-eps-converted-to.pdf Graphic file 
 (type pdf)
 
 <use ../images/Matlab_figures/example_zkill-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/example_zkill-eps-converted-t
-o.pdf used on input line 327.
+o.pdf used on input line 329.
 (pdftex.def)             Requested size: 506.2489pt x 256.81328pt.
 
 
@@ -676,43 +682,45 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <../images/Matlab_figures/example_exode.eps
 >
-(epstopdf)                    date: 2012-12-13 21:11:56
+(epstopdf)                    date: 2012-12-14 17:21:52
 (epstopdf)                    size: 62508 bytes
 (epstopdf)             Output file: <../images/Matlab_figures/example_exode-eps
 -converted-to.pdf>
-(epstopdf)                    date: 2012-12-13 21:11:56
+(epstopdf)                    date: 2012-12-14 17:21:52
 (epstopdf)                    size: 20864 bytes
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/ex
 ample_exode-eps-converted-to.pdf ../images/Matlab_figures/example_exode.eps>
-(epstopdf)             \includegraphics on input line 335.
+(epstopdf)             \includegraphics on input line 337.
 Package epstopdf Info: Output file is already uptodate.
 
-<../images/Matlab_figures/example_exode-eps-converted-to.pdf, id=385, 1446.4037
+<../images/Matlab_figures/example_exode-eps-converted-to.pdf, id=356, 1446.4037
 5pt x 733.74126pt>
 File: ../images/Matlab_figures/example_exode-eps-converted-to.pdf Graphic file 
 (type pdf)
 
 <use ../images/Matlab_figures/example_exode-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/example_exode-eps-converted-t
-o.pdf used on input line 335.
+o.pdf used on input line 337.
 (pdftex.def)             Requested size: 506.2489pt x 256.81328pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17 <../images/Matlab_figures/example_doomsday-eps-converted-to.pdf>] [18 <../i
-mages/Matlab_figures/example_zkill-eps-converted-to.pdf>] [19 <../images/Matlab
-_figures/example_exode-eps-converted-to.pdf>]
-Overfull \hbox (18.02884pt too wide) in paragraph at lines 372--380
+[16 <../images/Matlab_figures/model-AgeB-eps-converted-to.pdf>] [17 <../images/
+Matlab_figures/model-AltB-eps-converted-to.pdf>] [18 <../images/Matlab_figures/
+example_doomsday-eps-converted-to.pdf>] [19 <../images/Matlab_figures/example_z
+kill-eps-converted-to.pdf>] [20 <../images/Matlab_figures/example_exode-eps-con
+verted-to.pdf>]
+Overfull \hbox (18.02884pt too wide) in paragraph at lines 374--382
 []\OT1/cmr/m/it/12 Macrostate treat-ment $\OMS/cmsy/m/n/12 )$ $[]$ 
  []
 
-[20] (./zombie_report.bbl) [21] (../code/outbreak.m
+[21] (./zombie_report.bbl) [22] (../code/outbreak.m
 LaTeX Font Info:    Try loading font information for TS1+pcr on input line 33.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/ts1pcr.fd
 File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
-) [22]
+) [23]
 LaTeX Font Info:    Try loading font information for OML+pcr on input line 72.
 
 (/usr/local/texlive/2011/texmf-dist/tex/latex/psnfss/omlpcr.fd
@@ -727,18 +735,18 @@ File: omspcr.fd
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <9> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
- [23] [24]
-[25] [26]) (../code/update.m [27] [28] [29]) (../code/sweep.m [30] [31]
-[32] [33]) [34] (./zombie_report.aux)
+ [24] [25]
+[26] [27]) (../code/update.m [28] [29] [30]) (../code/sweep.m [31] [32]
+[33] [34]) [35] (./zombie_report.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 6703 strings out of 493633
- 100502 string characters out of 3143378
- 464625 words of memory out of 3000000
- 9847 multiletter control sequences out of 15000+200000
+ 6705 strings out of 493633
+ 100528 string characters out of 3143378
+ 464578 words of memory out of 3000000
+ 9849 multiletter control sequences out of 15000+200000
  16337 words of font info for 62 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  42i,18n,46p,2690b,1529s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -762,10 +770,10 @@ onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2011/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2011/texmf-dist/fonts/
 type1/urw/courier/ucrr8a.pfb>
-Output written on zombie_report.pdf (34 pages, 597200 bytes).
+Output written on zombie_report.pdf (35 pages, 600866 bytes).
 PDF statistics:
- 537 PDF objects out of 1000 (max. 8388607)
- 330 compressed objects within 4 object streams
+ 540 PDF objects out of 1000 (max. 8388607)
+ 332 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -295,37 +295,39 @@ The sweep function acts as a wrapper function for the sweeping of each parameter
 \newpage
 \section{Simulation Results and Discussion}\indent
 
+Due to the high interconnectivity of our model and the high dependance of every parameter towards each other with respect to simulation outcome, we decided to first split the components of our model to observe their behavior independently and be able to deconvolute the role of the different population fluxes on the overall outcome scenario. The first obvious treatment was to look for the different regimes of our SZR model in the isolated case (no connection to other states). Secondly, we wanted to get a grasp of the different regimes accessible when we connected three states to form our full model. Obviously, full understanding of the role of each of the five parameter when treating the international model requires parameter sweeping in order to treat each effect separately. Unfortunately, due to the number of parameters (five), full parameter sweep and analysis would require plotting in the $6^{th}$ dimension. In addition, the number of individual simulation would be enormous and impossible to analyze. Although imperfect, we decided to separate the parameter sweep of the microstate level and the macrostate level. We rationalized that we could first sweep $\alpha$, $\beta$ and $\gamma$  find interesting phase transitions at the microstate level and then take a few of those $[\alpha, \beta, \gamma]$ triplet to sweep parameters $\nu$ and $\eta$ and observe the interesting regimes at the international level. This would allow us to make supposition regarding the type of foreign policies that should be adopted to maximize the chances of survival of the human race in the event of a zombie outbreak. 
+
 \subsection{Population Time-Evolution in an Isolated State}\indent
 
 % Susceptible always dead (independent of gamma)
 \begin{figure}[h!]
 \centerline{
 \includegraphics[scale=0.65]{../images/Matlab_figures/model-AgeB.eps}}
-\caption{blalbal (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-4}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.1, \eta=1.5\cdot10^{-4}$). \label{doomsday} }
+\caption{blalbal (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed. Left: $\alpha=1.6\cdot10^{-4}, \beta=1.0\cdot10^{-4}, \gamma=8.0\cdot10^{-5}$. Right: $\alpha=5.0\cdot10^{-3}, \beta=5.0\cdot10^{-3}, \gamma=8.0\cdot10^{-5} $). \label{deathS} }
 \end{figure}
 
 % Dependance to gamma and population
 \begin{figure}[h!]
 \centerline{
 \includegraphics[scale=0.55]{../images/Matlab_figures/model-AltB.eps}}
-\caption{ablaala(\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-4}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.1, \eta=1.5\cdot10^{-4}$). \label{doomsday} }
+\caption{ablaala(\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed. $\alpha=4.0\cdot10^{-4}, \beta=5.0\cdot10^{-4}$ for all simulations. Left column: $\gamma=0.1\cdot10^{-4}$, right column: $\gamma=1.9\cdot10^{-4}$. Initial number of zombies: first line=1, second line=100, third line=200). \label{gamma_population} }
 \end{figure}
 
 
-\subsection{Population Time-Evolution under Different Regimes}\indent
+\subsection{Population Time-Evolution with Connected States}\indent
  
 % Doomsday figure
 \begin{figure}[h!]
 \centerline{
 \includegraphics[scale=0.35]{../images/Matlab_figures/example_doomsday.eps}}
-\caption{Doomsday scenario. Emergence of zombies in state 1 leads to full contamination of the world's population (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-4}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.1, \eta=1.5\cdot10^{-4}$). \label{doomsday} }
+\caption{Doomsday scenario. Apparition of a single zombie in state 1 leads to full contamination of the world's population. Left panel represent the populations of each state (and world population) with respect to step number. Right panel represents the corresponding population variation (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-4}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.1, \eta=1.5\cdot10^{-4}$). \label{doomsday} }
 \end{figure}
 
 % Zombie kill figure
 \begin{figure}[h!]
 \centerline{
 \includegraphics[scale=0.35]{../images/Matlab_figures/example_zkill.eps}}
-\caption{Survival of humanity by zombie eradication. As soon as zombies appear in state 1, they get killed until the outbreak is contained  (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-8}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.01, \eta=1.5\cdot10^{-4}$).
+\caption{Survival of humanity by zombie eradication. As soon as zombies appear in state 1, they get killed until the outbreak is contained. Left panel represent the populations of each state (and world population) with respect to step number. Right panel represents the corresponding population variation (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-8}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.01, \eta=1.5\cdot10^{-4}$).
 \label{skill} }
 \end{figure}
 
@@ -333,14 +335,14 @@ The sweep function acts as a wrapper function for the sweeping of each parameter
 \begin{figure}[h!]
 \centerline{
 \includegraphics[scale=0.35]{../images/Matlab_figures/example_exode.eps}}
-\caption{Survival of humanity and emergence of a zombie state. Emergence of zombies in state 1 leads to the exodus of the remaining population to states 2 and 3. State 1 then becomes fully infested of zombies and the remaining of the world's population is in state 2 and 3 (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=5\cdot10^{-5},  \beta=5\cdot10^{-10},  \gamma=5\cdot10^{-10},  \nu=0.1,  \eta=0$). \label{exodus} }
+\caption{Survival of humanity and emergence of a zombie state. Emergence of zombies in state 1 leads to the exodus of the remaining population to states 2 and 3. State 1 becomes fully infested of zombies and the remaining of the world's population is in state 2 and 3. Left panel represent the populations of each state (and world population) with respect to step number. Right panel represents the corresponding population variation (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=5\cdot10^{-5},  \beta=5\cdot10^{-10},  \gamma=5\cdot10^{-10},  \nu=0.1,  \eta=0$). \label{exodus} }
 \end{figure}
 
-\subsection{Phase Transition at the Microstate }\indent
+\subsection{Phase Transition for the Microstate Parameters }\indent
 
 
 
-\subsection{Phase Transition at the Macrostate Level}\indent
+\subsection{Phase Transition for the Macrostate Parameters}\indent
 
 
 
@@ -356,7 +358,7 @@ The sweep function acts as a wrapper function for the sweeping of each parameter
 \subsection{Regimes that Allowed the Survival of Humanity}\indent
 
 
-\subsection{Further Work: Inter-State fluxes under Game-Theoretical Treatment}\indent
+\subsection{Further Investigation: Inter-State fluxes treated with a Game-Theoretical Model}\indent
 \label{sec:gt}
 
 For each state (microstate), we defined a SZR model that evaluates the evolution of the different populations under studies: susceptibles (S), zombies (Z) and removed (R). Epidemological-like (mass-action) transfer of populations between the states (at the macrostate level, \textit{i.e.} international level) also occurs as defined above and models the refugees and zombie transfer across states. Those transfers are dependent of the parameter $\nu$ for susceptible transfer and parameter $\eta$ for the zombies. Within the scope of this semester work, we decided to simulate the different paradigms of inter national politics by simply fixing values of both $\eta$ and $\nu$ at the beginning of each simulation and observe the effect on the outcome. Both the relative and absolute values of those parameters are supposed to represent the paradigm under consideration (\textit{e.g.} a very small value of $\nu$ would be representative of neoconservatism within the framework of our model since it drastically limits the possibility of immigration of refugees into a given state). Of course, such a treatment is very static and does not take into account the likely variation over time of  international cooperation elements (change in immigration politics, military action on foreign soil, etc...). This change in foreign policies is even likely to be more pronounced for the case of a zombie outbreak since such an event would be unprecedented and decision-makers would have a hard time figuring out in such a short time what position to adopt. 
@@ -391,7 +393,7 @@ Therefore, a nice way to make the macrostate parameters ($\nu$, $\eta$) dynamic 
 
 \bibliography{zombie_report} % Load the .bib file containing the references
 \bibliographystyle{unsrt} % Define bibliography style
-\nocite{bennett1995modelling, balcan2011phase, funk2010modelling, reluga2010game, reluga2009sis, munz2009zombies, drezner}
+\nocite{bennett1995modelling, balcan2011phase, funk2010modelling, reluga2010game, reluga2009sis}
 
 
 

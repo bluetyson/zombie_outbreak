@@ -17,14 +17,14 @@
 \contentsline {subsection}{\numberline {6.3}The Sweep Function}{15}
 \contentsline {section}{\numberline {7}Simulation Results and Discussion}{16}
 \contentsline {subsection}{\numberline {7.1}Population Time-Evolution in an Isolated State}{16}
-\contentsline {subsection}{\numberline {7.2}Population Time-Evolution under Different Regimes}{17}
-\contentsline {subsection}{\numberline {7.3}Phase Transition at the Microstate }{17}
-\contentsline {subsection}{\numberline {7.4}Phase Transition at the Macrostate Level}{17}
+\contentsline {subsection}{\numberline {7.2}Population Time-Evolution with Connected States}{16}
+\contentsline {subsection}{\numberline {7.3}Phase Transition for the Microstate Parameters }{17}
+\contentsline {subsection}{\numberline {7.4}Phase Transition for the Macrostate Parameters}{17}
 \contentsline {section}{\numberline {8}Summary and Outlook}{18}
 \contentsline {subsection}{\numberline {8.1}Regimes that Allowed the Survival of Humanity}{18}
-\contentsline {subsection}{\numberline {8.2}Further Work: Inter-State fluxes under Game-Theoretical Treatment}{18}
-\contentsline {section}{\numberline {9}References}{21}
-\contentsline {section}{\numberline {10}Appendix}{22}
-\contentsline {subsection}{\numberline {10.1}outbreak.m}{22}
-\contentsline {subsection}{\numberline {10.2}update.m}{27}
-\contentsline {subsection}{\numberline {10.3}sweep.m}{30}
+\contentsline {subsection}{\numberline {8.2}Further Investigation: Inter-State fluxes treated with a Game-Theoretical Model}{18}
+\contentsline {section}{\numberline {9}References}{22}
+\contentsline {section}{\numberline {10}Appendix}{23}
+\contentsline {subsection}{\numberline {10.1}outbreak.m}{23}
+\contentsline {subsection}{\numberline {10.2}update.m}{28}
+\contentsline {subsection}{\numberline {10.3}sweep.m}{31}
