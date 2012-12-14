@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.3.4)  14 DEC 2012 23:55
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.3.4)  15 DEC 2012 00:16
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -820,7 +820,7 @@ ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2011/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2011/texmf-dist/fonts/ty
 pe1/urw/courier/ucrr8a.pfb>
-Output written on zombie_report.pdf (42 pages, 808413 bytes).
+Output written on zombie_report.pdf (42 pages, 808426 bytes).
 PDF statistics:
  612 PDF objects out of 1000 (max. 8388607)
  381 compressed objects within 4 object streams
