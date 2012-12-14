@@ -10,7 +10,7 @@
 \usepackage{graphicx} % Include pictures
 
 \usepackage{amssymb} % Math functions
-\usepackage[fleqn]{amsmath} % Math functions
+\usepackage[]{amsmath} % Math functions
 
 \usepackage{epstopdf}
 
@@ -145,25 +145,34 @@ As describe in Drezner's book, we except different equilibrium outcomes dependin
 \newpage
 \section{Description of the Model}\indent
 
-In order to simulate a multi-state system under epidemiological evolution we needed to define a clear mathematical framework treating both the population fluxes within states and among states. Such a treatment was necessary to represent the two-fold problem of a zombie outbreak at an international level:
+In order to simulate a multi-state system under epidemiological evolution we needed to define a clear mathematical framework treating both the population fluxes within states and among states. Such a treatment was necessary to represent the two-fold problem of a zombie outbreak at an international leve comprised of well-defined states:
 \begin{enumerate}[i.]
 	\item Intra-state fluxes have a fixed physical definition and are invariable among states. They represent the true epidemiological part of our model
 	\item Inter-state fluxes do not have a similar physical meaning and will depend greatly on the paradigm of international politics under consideration (\textit{Realpolitik}, Liberal, Neoconservatorism). They do not represent epidemological variation \textit{per se} but modelisation of immigration/emigration fluxes.
 \end{enumerate}
 
-With such an approach, we would be able to separate the population evolutions at the international and domestic level. We decided to simulate the microstate level under a modification of the classical SIR model \textcolor{red}{REFERENCE} called the SZR model (S for susceptible, Z for Zombies, R for removed) \cite{munz2009zombies}. Contrary to the 
+With such an approach, we would be able to separate the population evolutions at the international and domestic level. They idea would be see if variations of the international fluxes could influence the general (world) outcome in terms of survival of our species. Moreover, we were interested in the modalities of such a survival. Would the zombies be eradicated? Would some states disappear? Is the emergence of a zombie state possible? Of course, such a system is very complicated and in order to formulate a mathematical treatment of the model we made a few basic assumptions. Namely:
+\begin{enumerate}[i.]
+	\item Zombification is an infectiously transmitted upon contact between a susceptible and a zombie.
+	\item Zombification occurs instantaneously, and therefore no latent phase needs to be modeled.
+	\item The outbreak occurs over a short amount of time, therefore both natural death rate and birth rate can be neglected.
+	\item Only three homogenous population types are considered, susceptibles (S), zombies (Z) and removed (R).
+\end{enumerate}
+
+We decided to simulate the microstate level under a modification of the classical SIR model \textcolor{red}{REFERENCE} called the SZR model (S for susceptible, Z for Zombies, R for removed) \cite{munz2009zombies}. Contrary to the original SZR model developed by the authors, we made two modification in order to accommodate our interpretation of zombification. As we could not find an appropriate treatment of an epidemiological model with distinct subpopulations that would fit a zombie outbreak, we had to develop macrostate population transfer equation that would represent the simulated system. Since removed are effectively dead humans or head-shotted zombies, they will not transfer between states and accordingly, only the transfer of S and R needs to be considered. 
 
 \subsection{Microstate Description}\indent
+
+Each state (microstate) has three distinct populations, the susceptible (S), the zombies (Z) and the removed (R). This defines our SZR model. A scheme for the microstate fluxes is described in figure \ref{microstate}.
 
 % Microstate model figure
 \begin{figure}[h!]
 \centerline{
 \includegraphics[scale=0.55]{Images/microstate.pdf}}
-\caption{Description of population fuxes at the microstate level. \label{microstate} }
+\caption{Description of population fluxes at the microstate level. \label{microstate} }
 \end{figure}
 
-the first equation is \eqref{eq:smicro}, the second is \eqref{eq:zmicro} and so on
-
+Contrary to the original SZR model by Munz \textit{et al.} \cite{munz2009zombies}, we do not consider deads rising from their graves to become zombies. Indeed, we consider a very classical approach to the zombie type as described in modern culture such as removal of the head effectively kills a zombie.  Moreover, we consider that non-natural death of susceptibles directly to removed is a mass-action based transfer of both the zombie and the susceptible population multiplied by a constant $\gamma$. The rational behind formulating the transfer as such comes from the consideration that those death are zombie-related, such as forced escapes, crowd panic effect, etc... In addition, susceptibles can become zombies through the same mass-action equation, where the frequency rate of infection is $\alpha$. Taken together, those considerations give equation \eqref{eq:smicro} for the variation of the susceptible population. The zombie population has an incoming flux from the susceptible with parameter $\alpha$ as previously described. They can also get killed through encounter with susceptible with a frequency rate $\beta$. Taken together, these two equations describe the flux of zombie at the microstate level \eqref{eq:zmicro}. From those equation logically comes the equation\eqref{eq:rmicro}, describing the flux of removed. 
 
 \begin{equation}  \label{eq:smicro}
 \Delta S_{i}^{micro} = -\alpha S_{i} Z_{i} -\gamma S_{i} Z_{i} = -(\alpha + \gamma) S_{i} Z_{i}
@@ -176,9 +185,29 @@ the first equation is \eqref{eq:smicro}, the second is \eqref{eq:zmicro} and so 
 \begin{equation} \label{eq:rmicro}
 \Delta R_{i}^{micro} = +\beta S_{i} Z_{i} + \gamma S_{i} Z_{i} = (\beta + \gamma) S_{i} Z_{i}
 \end{equation}
+\bigskip
 
+It is interesting to already note that under such a model, which considers an outbreak occurring over a short amount of time, the susceptible population can only decrease (two outgoing fluxes, no incoming flux) and the removed population increase (two incoming fluxes, no outgoing) no matter what. The zombie population evolution can however be positive or negative, depending on the ratio between $\alpha$ and $\beta$. Another interesting fact from this model is the identical mass-action description of the fluxes ($S_{i} \cdot Z_{i}$), meaning that the outcome will be dependent on the different ratio between the parameters $\alpha, \beta, \gamma$.
 
 \subsection{Macrostate Description}\indent
+
+Whilst description of the microstate was fairly obvious from literature precedents, a simple description of population fluxes at the macro-level proved to be challenging. Indeed, it had to describe the complexity of population immigration/emigration in a the complex international context of a large-scale epidemiological disaster. It also had to capture and describe the behavior of a so far unknown actor on the international scene, namely zombies. The baseline migration of susceptible (in the absence of a zombie outbreak) was supposed to be negligible in comparison to population exodus from zombie fear. We initially wanted to implement an other mass-action based transfer of susceptibles based on S to Z ratios between the states (susceptibles would not migrate to a state where humans would be overwhelmed ). This idea might not reasonable since it implies knowledge of the infection statues of the state to be migrated in, which is unlikely to be the case in panic migration scheme. Moreover, this model proved to be very hard to implement for convergences criteria due to the high inter-dependance of the multiple sub-populations. It was therefore abandoned to the profit of a new, rougher model described by equation \eqref{eq:smacro}. 
+
+\begin{equation} \label{eq:smacro}
+\Delta S_{i}^{macro} =  \sum_{j\neq i}{ \left( \nu \langle \Delta S_{j} \rangle - \nu  \langle \Delta S_{i} \rangle \right) }
+\end{equation}
+
+
+In this interpretation, susceptible emigrate symmetrically to all the other state irrespective of their infection statues (ignorance model). Emigration pressure is generated by calculating the mean of the last ten variation of susceptible in the state. This idea would be that if large death/zombification of susceptible over the recent updates occurred, the remaining population would be more inclined to move away from the ``disaster'' zone (panic model). Besides, the use of a sliding window to calculate this mean introduces a latent effect of the emigration, consistent with large crowd displacement in a moment of panic. 
+
+Description of the zombie migration was more problematic owing to the lack of an unambiguous zombie behavior in the literature. Two descriptions of behavourial types for zombies is usually found. It usually either is in the model of a random-walker, \textit{i.e.} its pattern of motion is completely independent of its surrounding, or it is based on the flesh-craving version, \textit{i.e.} zombies will go where flesh is present. Our initial try was to study a flesh-craving type of zombie. However, the implementation failed for the same reason as for the susceptible, namely the need for a mass-action description generating a too great dependance between all the sub-population and an impossibility to converge the simulation. We then decided to revise our description of the type of zombie consider in oder to simplify the inter-dependance. We describe a pseudo-flesh-craving zombie where emigration pressure to another state would be dictated by the ratio Z over S, in other terms, the little availability of ``local'' food would push the zombies to look for some new place. In this description, the knowledge of the other state's statues is unknown to the zombies, which is probably of fair representation of reality since zombies are not intelligent species and cannot get information through news channel etc... Equation \eqref{eq:zmacro} gives the mathematical description of this flux. 
+
+\begin{equation} \label{eq:zmacro}
+\Delta Z_{i}^{macro} = \sum_{j\neq i}{\left( \eta Z_{j}\tanh \left( \frac{Z_{j}}{S_{j}}\right) -\eta Z_{i}\tanh \left( \frac{Z_{i}}{S_{i}}\right) \right)}
+\end{equation}
+
+Note the use of $\tanh$ for the ratio in order to avoid infinite emigration of zombies when all the susceptible of a state have either been turned into zombies or been killed, which would obviously be unrealistic. Since $\tanh$ can only take values between 0 and 1, we multiplied the equation by the actual zombie population, making the emigration proportional to the current zombie population. Figure \ref{macrostate} describes the relationship between two states, \textit{i} and \textit{k}.
+
 
 % Macrostate model figure
 \begin{figure}[h!]
@@ -188,21 +217,21 @@ the first equation is \eqref{eq:smicro}, the second is \eqref{eq:zmicro} and so 
 \label{macrostate} }
 \end{figure}
 
-\begin{equation} \label{eq:smacro}
-\Delta S_{i}^{macro} =  \sum_{j\neq i}{ \left( \nu \langle \Delta S_{j} \rangle - \nu  \langle \Delta S_{i} \rangle \right) }
-\end{equation}
-
-\begin{equation} \label{eq:zmacro}
-\Delta Z_{i}^{macro} = \sum_{j\neq i}{\left( \eta Z_{j}\tanh \left( \frac{Z_{j}}{S_{j}}\right) -\eta Z_{i}\tanh \left( \frac{Z_{i}}{S_{i}}\right) \right)}
-\end{equation}
 
 
+\subsection{Model with Three States}\indent
+
+We decided to simulate the evolution of a zombie population (sparkled in a single state) in a system of three inter-connected state and see how the choice of parameters $\nu$ and $\eta$ (international cooperation) might affect the outcome at the world population level and the effect on the different states. Figure \ref{totalmodel} gives a representation of model we implemented. We initially wanted to make those macrostate parameters time-evolving and under a game-theoretical treatment, unfortunately, time-limitation made it impossible to implement (see \ref{sec:gt} for details). 
 % Total model figure
 \begin{figure}[h!]
 \centerline{
 \includegraphics[scale=0.45]{Images/total_model.pdf}}
 \caption{Schematic of our 3-state model including all variables. The parts in blue represent the fluxes at the microstate level while the parts in orange represent the macrostate population fluxes. This schematic represent our simulated system where the interaction of three states (microstates) is modeled \label{totalmodel} }
 \end{figure}
+
+
+Note that due to the high inter-dependance of all the parameters, it is hard to deconvolute the effect to each parameter on the outcome of the individual simulation. Since quantitative data about parameters of zombification ($\alpha$), zombie-killing ($\beta$) and death related to a zombie outbreak ($\gamma$) are absent from the literature it will be necessary to determine those (by parameter sweeping) before going on to vary the macrostate parameters ($\nu$ and $\eta$) in order to find the interesting regimes of our model located at the phase transitions. 
+
 
 
 
@@ -223,7 +252,7 @@ The outbreak function is the wrapping function of the epidemiological model. It 
 \left\langle \left| \Delta S \right| \right\rangle < x\ \&\&\ \left\langle\left|\Delta Z \right| \right\rangle < x
 \end{equation}
 
-Where $x$ is the threshold value. The mean of the absolute variation of susceptibles and zombies on the last 100 steps is calculated using a sliding window and compared to a threshold $x = 0.1$. If the values are smaller than the threshold, we assume a steady state or "quasi-equilibrium" and exit the simulation. Furthermore, a maximum number of step can be defined (default: $10^8$ steps) as last exit condition. Details of the code can be found in Appendix 10.1.
+Where $x$ is the threshold value. The mean of the absolute variation of susceptibles and zombies on the last 100 steps is calculated using a sliding window and compared to a threshold $x = 0.1$. If the values are smaller than the threshold, we assume a steady state or "quasi-equilibrium" and exit the simulation. Furthermore, a maximum number of step can be defined (default: $10^8$ steps) as last exit condition (see \ref{sec:outbreak} for details about the code).
 
 \subsection{The Update Function}\indent
 
@@ -236,11 +265,12 @@ The second constraint is applied after the computation of all flux. There is the
 	\item the incoming flux of the two other states are corrected to fit the values,
 	\item the validation is applied to the two other states.
 \end{enumerate}
-This algorithm is applied until all discrepancy is removed. Note that negative values up to $10^{-4}$ are allowed and that during the first step of the algorithm, in the case where the sum of the population and incoming flux is negative, this value is zeroed. This method allows a relatively fast convergence of the values while retaining physical significance of the model and its implementation. Details of the code can be found in Appendix 10.2.
+This algorithm is applied until all discrepancy is removed. Note that negative values up to $10^{-4}$ are allowed and that during the first step of the algorithm, in the case where the sum of the population and incoming flux is negative, this value is zeroed. This method allows a relatively fast convergence of the values while retaining physical significance of the model and its implementation. (see \ref{sec:update} for details about the code).
+
 
 \subsection{The Sweep Function}\indent
 
-The sweep function acts as a wrapper function for the sweeping of each parameters between two values using defined steps. The results of each individual simulation is stored in a dedicated folder. It also assigns a id string to the sweep. This id allows to resume the sweep with the first non completed simulation, this feature was added due to the duration of the sweep with sufficient resolution. Details of the code can be found in Appendix 10.3.
+The sweep function acts as a wrapper function for the sweeping of each parameters between two values using defined steps. The results of each individual simulation is stored in a dedicated folder. It also assigns a id string to the sweep. This id allows to resume the sweep with the first non completed simulation, this feature was added due to the duration of the sweep with sufficient resolution. (see \ref{sec:sweep} for details about the code).
 % SIMULATION RESULTS AND DISCUSSION
 \newpage
 \section{Simulation Results and Discussion}\indent
@@ -284,6 +314,7 @@ The sweep function acts as a wrapper function for the sweeping of each parameter
 
 
 \subsection{Further Work: Inter-State fluxes under Game-Theoretical Treatment}\indent
+\label{sec:gt}
 
 For each state (microstate), we defined a SZR model that evaluates the evolution of the different populations under studies: susceptibles (S), zombies (Z) and removed (R). Epidemological-like (mass-action) transfer of populations between the states (at the macrostate level, \textit{i.e.} international level) also occurs as defined above and models the refugees and zombie transfer across states. Those transfers are dependent of the parameter $\nu$ for susceptible transfer and parameter $\eta$ for the zombies. Within the scope of this semester work, we decided to simulate the different paradigms of inter national politics by simply fixing values of both $\eta$ and $\nu$ at the beginning of each simulation and observe the effect on the outcome. Both the relative and absolute values of those parameters are supposed to represent the paradigm under consideration (\textit{e.g.} a very small value of $\nu$ would be representative of neoconservatism within the framework of our model since it drastically limits the possibility of immigration of refugees into a given state). Of course, such a treatment is very static and does not take into account the likely variation over time of  international cooperation elements (change in immigration politics, military action on foreign soil, etc...). This change in foreign policies is even likely to be more pronounced for the case of a zombie outbreak since such an event would be unprecedented and decision-makers would have a hard time figuring out in such a short time what position to adopt. 
 
@@ -321,25 +352,27 @@ Therefore, a nice way to make the macrostate parameters ($\nu$, $\eta$) dynamic 
 \section{Appendix}
 \bigskip
 \subsection{outbreak.m}
+\label{sec:outbreak}
 \lstinputlisting{../code/outbreak.m}
 \bigskip
 \bigskip
 \bigskip
 
 \subsection{update.m}
+\label{sec:update}
 \lstinputlisting{../code/update.m}
 \bigskip
 \bigskip
 \bigskip
 
-\subsection{plotResults.m}
-\lstinputlisting{../code/plotResults.m}
+\subsection{sweep.m}
+\label{sec:sweep}
+\lstinputlisting{../code/sweep.m}
 \bigskip
 \bigskip
 \bigskip
 
-\subsection{sweep.m}
-\lstinputlisting{../code/sweep.m}
+
 
 
 

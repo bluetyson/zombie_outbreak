@@ -8,22 +8,22 @@
 \contentsline {subsection}{\numberline {4.4}Popular Believes in the Event of the Zombie Outbreak}{7}
 \contentsline {subsection}{\numberline {4.5}Can a Different Treatment of the Problem Lead to a Different Outcome?}{8}
 \contentsline {section}{\numberline {5}Description of the Model}{9}
-\contentsline {subsection}{\numberline {5.1}Microstate Description}{9}
-\contentsline {subsection}{\numberline {5.2}Macrostate Description}{10}
-\contentsline {section}{\numberline {6}Implementation}{11}
-\contentsline {subsection}{\numberline {6.1}The Outbreak Function}{11}
-\contentsline {subsection}{\numberline {6.2}The Update Function}{12}
-\contentsline {subsection}{\numberline {6.3}The Sweep Function}{13}
-\contentsline {section}{\numberline {7}Simulation Results and Discussion}{14}
-\contentsline {subsection}{\numberline {7.1}Population Time-Evolution under Different Regimes}{14}
-\contentsline {subsection}{\numberline {7.2}Phase Transition at the Microstate }{14}
-\contentsline {subsection}{\numberline {7.3}Phase Transition at the Macrostate Level}{14}
-\contentsline {section}{\numberline {8}Summary and Outlook}{15}
-\contentsline {subsection}{\numberline {8.1}Regimes that Allowed the Survival of Humanity}{15}
-\contentsline {subsection}{\numberline {8.2}Further Work: Inter-State fluxes under Game-Theoretical Treatment}{15}
-\contentsline {section}{\numberline {9}References}{18}
-\contentsline {section}{\numberline {10}Appendix}{19}
-\contentsline {subsection}{\numberline {10.1}outbreak.m}{19}
-\contentsline {subsection}{\numberline {10.2}update.m}{24}
-\contentsline {subsection}{\numberline {10.3}plotResults.m}{27}
-\contentsline {subsection}{\numberline {10.4}sweep.m}{29}
+\contentsline {subsection}{\numberline {5.1}Microstate Description}{10}
+\contentsline {subsection}{\numberline {5.2}Macrostate Description}{11}
+\contentsline {subsection}{\numberline {5.3}Model with Three States}{12}
+\contentsline {section}{\numberline {6}Implementation}{14}
+\contentsline {subsection}{\numberline {6.1}The Outbreak Function}{14}
+\contentsline {subsection}{\numberline {6.2}The Update Function}{14}
+\contentsline {subsection}{\numberline {6.3}The Sweep Function}{15}
+\contentsline {section}{\numberline {7}Simulation Results and Discussion}{16}
+\contentsline {subsection}{\numberline {7.1}Population Time-Evolution under Different Regimes}{16}
+\contentsline {subsection}{\numberline {7.2}Phase Transition at the Microstate }{16}
+\contentsline {subsection}{\numberline {7.3}Phase Transition at the Macrostate Level}{16}
+\contentsline {section}{\numberline {8}Summary and Outlook}{17}
+\contentsline {subsection}{\numberline {8.1}Regimes that Allowed the Survival of Humanity}{17}
+\contentsline {subsection}{\numberline {8.2}Further Work: Inter-State fluxes under Game-Theoretical Treatment}{17}
+\contentsline {section}{\numberline {9}References}{20}
+\contentsline {section}{\numberline {10}Appendix}{21}
+\contentsline {subsection}{\numberline {10.1}outbreak.m}{21}
+\contentsline {subsection}{\numberline {10.2}update.m}{26}
+\contentsline {subsection}{\numberline {10.3}sweep.m}{29}
