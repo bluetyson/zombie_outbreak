@@ -173,6 +173,7 @@ With such an approach, we would be able to separate the population evolutions at
 We decided to simulate the microstate level under a modification of the classical SIR model \textcolor{red}{REFERENCE} called the SZR model (S for susceptible, Z for Zombies, R for removed) \cite{munz2009zombies}. Contrary to the original SZR model developed by the authors, we made two modification in order to accommodate our interpretation of zombification. As we could not find an appropriate treatment of an epidemiological model with distinct subpopulations that would fit a zombie outbreak, we had to develop macrostate population transfer equation that would represent the simulated system. Since removed are effectively dead humans or head-shotted zombies, they will not transfer between states and accordingly, only the transfer of S and R needs to be considered. 
 
 \subsection{Microstate Description}\indent
+\label{sec:microdescription}
 
 Each state (microstate) has three distinct populations, the susceptible (S), the zombies (Z) and the removed (R). This defines our SZR model. A scheme for the microstate fluxes is described in figure \ref{microstate}.
 
@@ -272,13 +273,32 @@ Where $x$ is the threshold value. The mean of the absolute variation of suscepti
 The update function takes care of the evolution of the different populations at each cycle. It applies the different equations of the models and uses safeguards to avoid unphysical results. It first calculates the the variation-to-be of each population of each state based on the current populations. It does this in a sequential manner, first the susceptibles and then the zombies. After the update, it checks for the actual variations obtained. This is done in order to ensure that variations larger than the actual population size cannot occur.
 The first constraint is applied during the computation of the flux exiting each states. Due to the structure of the program, negatives population values can arise. Though these populations will be extremely small ($> - 10^{-4}$), resulting in small negative exiting flux, they will lead to negative entering flux in the other states. These flux being considered as positive into the next control procedure, negative values have to be avoided.
 
-The second constraint is applied after the computation of all flux. There is the possibility for the negative flux (death, contamination, emigration) to be bigger than the population plus the positive flux (immigration). In such case, we apply a simple algorithm to avoid the negative population:
-\begin{enumerate}
-	\item the negative flux are normalized and multiplied by the population plus the positive flux,
-	\item the incoming flux of the two other states are corrected to fit the values,
-	\item the validation is applied to the two other states.
-\end{enumerate}
-This algorithm is applied until all discrepancy is removed. Note that negative values up to $10^{-4}$ are allowed and that during the first step of the algorithm, in the case where the sum of the population and incoming flux is negative, this value is zeroed. This method allows a relatively fast convergence of the values while retaining physical significance of the model and its implementation. (see \ref{sec:update} for details about the code).
+The second constraint is applied after the computation of all flux. There is the possibility for the negative flux (death, contamination, emigration) to be bigger than the population plus the positive flux (immigration). In such case, we apply a simple algorithm to avoid the negative population. According to the equations \eqref{eq:smicro} and \eqref{eq:smacro}, the total variation in the state \textit{i} is defined by four negative fluxes and two positive ones. 
+
+\begin{equation} \label{eq:delta-}
+\Delta S_i^- = \Delta S_{S\rightarrow Z} + \Delta S_{S\rightarrow R} + \Delta S_{S_i\rightarrow S_{j\neq i}} + \Delta S_{S_i\rightarrow S_{k\neq i}}
+\end{equation}
+
+\begin{equation} \label{eq:delta+}
+\Delta S_i^+ = \Delta S_{S_{j\neq i}\rightarrow S_i} + \Delta S_{S{k\neq i}\rightarrow S_i}
+\end{equation}
+
+For the population to stay positive, the following relation has to be true:
+
+\begin{equation} \label{eq:condition}
+\Delta S_i^+ + S_i + \Delta S_i^- \geq 0
+\end{equation}
+
+If this condition is not fullfilled by any of the state, its fluxes are set so that the relation is fullfilled and that the ratio between the different fluxes are not changed:
+
+\begin{equation} \label{eq:correction}
+\Delta S_{X\rightarrow Y,1} = \frac{\Delta S_{X\rightarrow Y,0}}{\Delta S_i^-}\cdot max(\Delta S_i^+ + S_i, 0)
+\end{equation}
+
+After the update of the four negative fluxes, the corresponding inter-state variations are updated. The procedure is then repeated until all states fullfill the condition. Note that a convergence criterion of $10^{-4}$ has been set to account for the numeric inaccuracies. Furthermore, negative values being allowed by the convergence criterion, the negative values of $S_i + \Delta S_i^+$ are zeroed.
+
+This method allows a relatively fast convergence of the values while retaining physical significance of the model and its implementation. (see \ref{sec:update} for details about the code).
+
 
 
 \subsection{The Sweep Function}\indent
@@ -299,12 +319,15 @@ Due to the high interconnectivity of our model and the high dependance of every 
 
 \subsection{Population Time-Evolution in an Isolated State}\indent
 
+Although a similar model has previously been studied \cite{munz2009zombies}, we wanted to know the behavior of our modified SZR model, in particular the different types of regimes accessible. As previously discussed (see \ref{sec:microdescription}), all transfers at the microstate level follow the same mass-action law and accordingly different outcome will depend solely on the various ratio between the parameters of the SZR model ($\alpha$, $\beta$ and  $\gamma$). We can already predict in the case of an isolated state, variation of S will always be negative and variation of R will always be positive. Variation of Z will depend on the $\alpha/\beta$ ratio. Figure \ref{deathS} shows the time-evolution of the different populations (S, Z, R) when contamination is started by a single zombie for the cases $\alpha>\beta$ and $\alpha=\beta$.
 % Susceptible always dead (independent of gamma)
 \begin{figure}[h!]
 \centerline{
 \includegraphics[scale=0.65]{../images/Matlab_figures/model-AgeB.eps}}
 \caption{blalbal (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed. Left: $\alpha=1.6\cdot10^{-4}, \beta=1.0\cdot10^{-4}, \gamma=8.0\cdot10^{-5}$. Right: $\alpha=5.0\cdot10^{-3}, \beta=5.0\cdot10^{-3}, \gamma=8.0\cdot10^{-5} $). \label{deathS} }
 \end{figure}
+
+It is worthwhile noting that the doomsday scenario observed in both cases occurs irrespectively of the value of $\gamma$. The only effect of $\gamma$ is on the speed with which the human race gets wiped out from the surface of the earth. This makes sense since in both cases ($\alpha<=\beta$) apparition of zombies occur at a rate greater or equal than they get killed and therefore they will eventually overcome our planet. The parameter $\gamma$ (which represent zombie-related death but not zombification) is only an additional way humans day but does not affect the zombie population. Another interesting observation one can make from figure \ref{deathS} is the different regimes when $\alpha<\beta$ and $\alpha=\beta$. In the first case we see a classical 
 
 % Dependance to gamma and population
 \begin{figure}[h!]
