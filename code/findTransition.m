@@ -1,10 +1,12 @@
 function [ oArray ] = findTransition( array )
 
-% findTransition expect a 3D array filled with 0 and 1. It will return an
-% 3D array from the same size filled with 1 at the position where:
+% FINDTRANSITION expect a 3D array. It will return an 3D array from
+%   the same size where only the values respecting the following conditions
+%   are kept:
 %
-%       1) the value was 1 in the input array
+%       1) the value was greater than 0 in the input array
 %       2) at least one neighbor had the value 0 in the input array
+%
 
     [ xM, yM, zM ] = size( array );
     

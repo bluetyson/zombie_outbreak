@@ -1,9 +1,20 @@
 \begin{thebibliography}{1}
 
-\bibitem{drezner}
-D.W. Drezner.
-\newblock {\em Theories of international politics and zombies}.
-\newblock Princeton University Press, 2011.
+\bibitem{brauer2008compartmental}
+F.~Brauer.
+\newblock Compartmental models in epidemiology.
+\newblock {\em Mathematical epidemiology}, pages 19--79, 2008.
+
+\bibitem{m1925applications}
+AG~M'Kendrick.
+\newblock Applications of mathematics to medical problems.
+\newblock {\em Proceedings of the Edinburgh Mathematical Society},
+  44(1):98--130, 1925.
+
+\bibitem{stone2007seasonal}
+L.~Stone, R.~Olinky, and A.~Huppert.
+\newblock Seasonal dynamics of recurrent epidemics.
+\newblock {\em Nature}, 446(7135):533--536, 2007.
 
 \bibitem{munz2009zombies}
 P.~Munz, I.~Hudea, J.~Imad, and R.J. Smith.
@@ -12,32 +23,14 @@ P.~Munz, I.~Hudea, J.~Imad, and R.J. Smith.
 \newblock {\em Infectious Disease Modelling Research Progress. Hauppauge NY:
   Nova Science Publishers}, pages 133--150, 2009.
 
-\bibitem{reluga2009sis}
-T.C. Reluga.
-\newblock An sis epidemiology game with two subpopulations.
-\newblock {\em Journal of Biological Dynamics}, 3(5):515--531, 2009.
+\bibitem{littlewood1997clinical}
+R.~Littlewood, C.~Douyon, et~al.
+\newblock Clinical findings in three cases of zombification.
+\newblock {\em Lancet}, 350(9084):1094--1096, 1997.
 
-\bibitem{bennett1995modelling}
-P.G. Bennett.
-\newblock Modelling decisions in international relations: game theory and
-  beyond.
-\newblock {\em Mershon International Studies Review}, pages 19--52, 1995.
-
-\bibitem{balcan2011phase}
-D.~Balcan and A.~Vespignani.
-\newblock Phase transitions in contagion processes mediated by recurrent
-  mobility patterns.
-\newblock {\em Nature physics}, 7(7):581--586, 2011.
-
-\bibitem{funk2010modelling}
-S.~Funk, M.~Salath{\'e}, and V.A.A. Jansen.
-\newblock Modelling the influence of human behaviour on the spread of
-  infectious diseases: a review.
-\newblock {\em Journal of The Royal Society Interface}, 7(50):1247--1256, 2010.
-
-\bibitem{reluga2010game}
-T.C. Reluga.
-\newblock Game theory of social distancing in response to an epidemic.
-\newblock {\em PLoS computational biology}, 6(5):e1000793, 2010.
+\bibitem{drezner}
+D.W. Drezner.
+\newblock {\em Theories of international politics and zombies}.
+\newblock Princeton University Press, 2011.
 
 \end{thebibliography}
