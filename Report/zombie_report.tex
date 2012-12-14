@@ -103,6 +103,10 @@ We wish to thank Karsten Donnay and Stefano Balietti for their support in our wo
 
 
 
+
+
+
+
 % INTRODUCTION AND MOTIVATION
 \newpage
 \section{Introduction and Motivations}\indent
@@ -141,6 +145,13 @@ Expected Results
 
 As describe in Drezner's book, we except different equilibrium outcomes depending on the paradigm under consideration. He postulates the possibile appearance of zombie states under Realpolitik and Liberalism paradigms while Neoconservatism would not allow such an outcome.
 
+
+
+
+
+
+
+
 % DESCRIPTION OF THE MODEL
 \newpage
 \section{Description of the Model}\indent
@@ -168,7 +179,7 @@ Each state (microstate) has three distinct populations, the susceptible (S), the
 % Microstate model figure
 \begin{figure}[h!]
 \centerline{
-\includegraphics[scale=0.55]{Images/microstate.pdf}}
+\includegraphics[scale=0.55]{../images/Powerpoint_figures/microstate.pdf}}
 \caption{Description of population fluxes at the microstate level. \label{microstate} }
 \end{figure}
 
@@ -212,7 +223,7 @@ Note the use of $\tanh$ for the ratio in order to avoid infinite emigration of z
 % Macrostate model figure
 \begin{figure}[h!]
 \centerline{
-\includegraphics[scale=0.45]{Images/macrostate.pdf}}
+\includegraphics[scale=0.45]{../images/Powerpoint_figures/macrostate.pdf}}
 \caption{Description of population fluxes at the macrostate level.
 \label{macrostate} }
 \end{figure}
@@ -225,12 +236,14 @@ We decided to simulate the evolution of a zombie population (sparkled in a singl
 % Total model figure
 \begin{figure}[h!]
 \centerline{
-\includegraphics[scale=0.45]{Images/total_model.pdf}}
+\includegraphics[scale=0.45]{../images/Powerpoint_figures/total_model.pdf}}
 \caption{Schematic of our 3-state model including all variables. The parts in blue represent the fluxes at the microstate level while the parts in orange represent the macrostate population fluxes. This schematic represent our simulated system where the interaction of three states (microstates) is modeled \label{totalmodel} }
 \end{figure}
 
 
 Note that due to the high inter-dependance of all the parameters, it is hard to deconvolute the effect to each parameter on the outcome of the individual simulation. Since quantitative data about parameters of zombification ($\alpha$), zombie-killing ($\beta$) and death related to a zombie outbreak ($\gamma$) are absent from the literature it will be necessary to determine those (by parameter sweeping) before going on to vary the macrostate parameters ($\nu$ and $\eta$) in order to find the interesting regimes of our model located at the phase transitions. 
+
+
 
 
 
@@ -271,23 +284,47 @@ This algorithm is applied until all discrepancy is removed. Note that negative v
 \subsection{The Sweep Function}\indent
 
 The sweep function acts as a wrapper function for the sweeping of each parameters between two values using defined steps. The results of each individual simulation is stored in a dedicated folder. It also assigns a id string to the sweep. This id allows to resume the sweep with the first non completed simulation, this feature was added due to the duration of the sweep with sufficient resolution. (see \ref{sec:sweep} for details about the code).
+
+
+
+
+
+
+
 % SIMULATION RESULTS AND DISCUSSION
 \newpage
 \section{Simulation Results and Discussion}\indent
+
+\subsection{Population Time-Evolution in an Isolated State}\indent
+
+% Susceptible always dead (independent of gamma)
+\begin{figure}[h!]
+\centerline{
+\includegraphics[scale=0.65]{../images/Matlab_figures/model-AgeB.eps}}
+\caption{blalbal (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-4}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.1, \eta=1.5\cdot10^{-4}$). \label{doomsday} }
+\end{figure}
+
+% Dependance to gamma and population
+\begin{figure}[h!]
+\centerline{
+\includegraphics[scale=0.55]{../images/Matlab_figures/model-AltB.eps}}
+\caption{ablaala(\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-4}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.1, \eta=1.5\cdot10^{-4}$). \label{doomsday} }
+\end{figure}
+
 
 \subsection{Population Time-Evolution under Different Regimes}\indent
  
 % Doomsday figure
 \begin{figure}[h!]
 \centerline{
-\includegraphics[scale=0.35]{Images/example_doomsday.eps}}
+\includegraphics[scale=0.35]{../images/Matlab_figures/example_doomsday.eps}}
 \caption{Doomsday scenario. Emergence of zombies in state 1 leads to full contamination of the world's population (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-4}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.1, \eta=1.5\cdot10^{-4}$). \label{doomsday} }
 \end{figure}
 
 % Zombie kill figure
 \begin{figure}[h!]
 \centerline{
-\includegraphics[scale=0.35]{Images/example_zkill.eps}}
+\includegraphics[scale=0.35]{../images/Matlab_figures/example_zkill.eps}}
 \caption{Survival of humanity by zombie eradication. As soon as zombies appear in state 1, they get killed until the outbreak is contained  (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.5\cdot10^{-8}, \beta=5\cdot10^{-6}, \gamma=5\cdot10^{-4}, \nu=0.01, \eta=1.5\cdot10^{-4}$).
 \label{skill} }
 \end{figure}
@@ -295,7 +332,7 @@ The sweep function acts as a wrapper function for the sweeping of each parameter
 % Exode figure
 \begin{figure}[h!]
 \centerline{
-\includegraphics[scale=0.35]{Images/example_exode.eps}}
+\includegraphics[scale=0.35]{../images/Matlab_figures/example_exode.eps}}
 \caption{Survival of humanity and emergence of a zombie state. Emergence of zombies in state 1 leads to the exodus of the remaining population to states 2 and 3. State 1 then becomes fully infested of zombies and the remaining of the world's population is in state 2 and 3 (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=5\cdot10^{-5},  \beta=5\cdot10^{-10},  \gamma=5\cdot10^{-10},  \nu=0.1,  \eta=0$). \label{exodus} }
 \end{figure}
 
@@ -304,6 +341,12 @@ The sweep function acts as a wrapper function for the sweeping of each parameter
 
 
 \subsection{Phase Transition at the Macrostate Level}\indent
+
+
+
+
+
+
 
 
 % SUMMARY AND OUTLOOK
@@ -339,12 +382,18 @@ Therefore, a nice way to make the macrostate parameters ($\nu$, $\eta$) dynamic 
 
 \textit{where} \textcolor{red}{$\nu$} $= f(GT)$ \textit{,} \textcolor{blue}{$\eta$} $= f(GT)$  
 
+
+
+
+
 % REFERENCES
 \newpage
 
 \bibliography{zombie_report} % Load the .bib file containing the references
 \bibliographystyle{unsrt} % Define bibliography style
 \nocite{bennett1995modelling, balcan2011phase, funk2010modelling, reluga2010game, reluga2009sis, munz2009zombies, drezner}
+
+
 
 % APPENDIX
 \newpage
