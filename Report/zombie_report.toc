@@ -1,29 +1,28 @@
-\contentsline {section}{\numberline {1}Abstract}{5}
-\contentsline {section}{\numberline {2}Individual contributions}{5}
-\contentsline {section}{\numberline {3}Acknowledgments}{5}
-\contentsline {section}{\numberline {4}Introduction and Motivations}{6}
-\contentsline {subsection}{\numberline {4.1}Zombie Outbreak}{6}
-\contentsline {subsection}{\numberline {4.2}Epidemological Studies}{6}
-\contentsline {subsection}{\numberline {4.3}Zombies: a Definition}{7}
-\contentsline {subsection}{\numberline {4.4}Popular Believes in the Event of the Zombie Outbreak}{7}
-\contentsline {subsection}{\numberline {4.5}Can a Different Treatment of the Problem Lead to a Different Outcome?}{8}
-\contentsline {section}{\numberline {5}Description of the Model}{9}
-\contentsline {subsection}{\numberline {5.1}Microstate Description}{9}
-\contentsline {subsection}{\numberline {5.2}Macrostate Description}{9}
-\contentsline {section}{\numberline {6}Implementation}{10}
-\contentsline {subsection}{\numberline {6.1}The Outbreak Function}{10}
-\contentsline {subsection}{\numberline {6.2}The Update Function}{10}
-\contentsline {subsection}{\numberline {6.3}The Sweep Function}{11}
-\contentsline {section}{\numberline {7}Simulation Results and Discussion}{12}
-\contentsline {subsection}{\numberline {7.1}Population Time-Evolution under Different Regimes}{12}
-\contentsline {subsection}{\numberline {7.2}Phase Transition at the Microstate }{12}
-\contentsline {subsection}{\numberline {7.3}Phase Transition at the Macrostate Level}{12}
-\contentsline {section}{\numberline {8}Summary and Outlook}{13}
-\contentsline {subsection}{\numberline {8.1}Regimes that Allowed the Survival of Humanity}{13}
-\contentsline {subsection}{\numberline {8.2}Further Work: Inter-State fluxes under Game-Theoretical Treatment}{13}
-\contentsline {section}{\numberline {9}References}{16}
-\contentsline {section}{\numberline {10}Appendix}{17}
-\contentsline {subsection}{\numberline {10.1}outbreak.m}{17}
-\contentsline {subsection}{\numberline {10.2}update.m}{22}
-\contentsline {subsection}{\numberline {10.3}plotResults.m}{25}
-\contentsline {subsection}{\numberline {10.4}sweep.m}{27}
+\contentsline {section}{\numberline {1}Individual contributions}{6}
+\contentsline {section}{\numberline {2}Acknowledgments}{6}
+\contentsline {section}{\numberline {3}Introduction and Motivations}{7}
+\contentsline {subsection}{\numberline {3.1}Zombie Outbreak}{7}
+\contentsline {subsection}{\numberline {3.2}Epidemological Studies}{7}
+\contentsline {subsection}{\numberline {3.3}Zombies: a Definition}{8}
+\contentsline {subsection}{\numberline {3.4}Popular Believes in the Event of the Zombie Outbreak}{8}
+\contentsline {subsection}{\numberline {3.5}Can a Different Treatment of the Problem Lead to a Different Outcome?}{9}
+\contentsline {section}{\numberline {4}Description of the Model}{10}
+\contentsline {subsection}{\numberline {4.1}Microstate Description}{10}
+\contentsline {subsection}{\numberline {4.2}Macrostate Description}{10}
+\contentsline {section}{\numberline {5}Implementation}{11}
+\contentsline {subsection}{\numberline {5.1}The Outbreak Function}{11}
+\contentsline {subsection}{\numberline {5.2}The Update Function}{11}
+\contentsline {subsection}{\numberline {5.3}The Sweep Function}{12}
+\contentsline {section}{\numberline {6}Simulation Results and Discussion}{13}
+\contentsline {subsection}{\numberline {6.1}Population Time-Evolution under Different Regimes}{13}
+\contentsline {subsection}{\numberline {6.2}Phase Transition at the Microstate }{13}
+\contentsline {subsection}{\numberline {6.3}Phase Transition at the Macrostate Level}{13}
+\contentsline {section}{\numberline {7}Summary and Outlook}{14}
+\contentsline {subsection}{\numberline {7.1}Regimes that Allowed the Survival of Humanity}{14}
+\contentsline {subsection}{\numberline {7.2}Further Work: Inter-State fluxes under Game-Theoretical Treatment}{14}
+\contentsline {section}{\numberline {8}References}{17}
+\contentsline {section}{\numberline {9}Appendix}{18}
+\contentsline {subsection}{\numberline {9.1}outbreak.m}{18}
+\contentsline {subsection}{\numberline {9.2}update.m}{23}
+\contentsline {subsection}{\numberline {9.3}plotResults.m}{26}
+\contentsline {subsection}{\numberline {9.4}sweep.m}{28}
