@@ -4,8 +4,8 @@
 \contentsline {section}{\numberline {4}Introduction and Motivations}{6}
 \contentsline {subsection}{\numberline {4.1}Zombie Outbreak}{6}
 \contentsline {subsection}{\numberline {4.2}Epidemological Studies}{6}
-\contentsline {subsection}{\numberline {4.3}Zombies: a Definition}{7}
-\contentsline {subsection}{\numberline {4.4}Popular Believes in the Event of the Zombie Outbreak}{7}
+\contentsline {subsection}{\numberline {4.3}Zombies: a Definition}{6}
+\contentsline {subsection}{\numberline {4.4}Popular Believes in the Event of a Zombie Outbreak}{7}
 \contentsline {subsection}{\numberline {4.5}How Could Humanity Survive?}{8}
 \contentsline {section}{\numberline {5}Description of the Model}{9}
 \contentsline {subsection}{\numberline {5.1}Microstate Description}{10}
