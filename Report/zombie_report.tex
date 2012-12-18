@@ -303,7 +303,7 @@ This method allows a relatively fast convergence of the values while retaining p
 The sweep function acts as a tool for the sweeping of each parameters between two values using defined steps in an automatized manner. The results of each individual simulation is stored in a dedicated folder. It also assigns an identification string to the sweep. This id allows to resume the sweep from the last completed simulation, this feature was added in order to interrupt the simulation on a personal computer for sweeps done with high resolution and therefore long simulation times (see \ref{sec:sweep} for details about the code).
 
 
-\subsection{The findTransition Function}\indent
+\subsection{The FindTransition Function}\indent
 \label{sec:findTransition}
 
 In order to analyse our multidimensional sweeping, we implemented a function to find the transition between three parameters allowing the survival of the humanity and those leading to its doom. The function recovers the coordinates of all points whose value is not zero in a 3D matrix and for each, controls if one of the six neighbors has a value of zero. If this is the case, the original value is returned, otherwise the point is zeroed. This allows to find the phase transition (see \ref{sec:findtrans} for details about the code).
@@ -346,6 +346,7 @@ It is visible that with a starting number of one or a hundred zombies, humanity 
 
 
 \subsection{Population Time-Evolution with Connected States}\indent
+\label{sec:time-evolv}
  
 So far we have treated the SZR model in a closed system with no population exchanges with other states. We will now investigate the influence of population exchange at the macrostate level and see the influence on the outcome with respect to the choice of the inter-state fluxes ($\nu$ and $\eta$). 
 
@@ -381,7 +382,7 @@ A regime where humanity would survive is shown in figure \ref{skill} where it ca
 Another example where humanity survives but for different reason is depicted in figure \ref{exodus}.
 Here the set of parameters under scrutiny leads to an interesting phenomenon. Since $\eta=0$ and $\nu$ is large, emergence of a single zombie in state 1 triggers the outbreak and the build up of a zombie population. Consequently, humans start to feel the urge to move to another place, which they do but since the borders are closed to zombies ($\eta=0$) they can not infest another state. As a result, all remaining susceptibles from state 1 migrate to the other states and the initial place of the outbreak becomes a zombie-only state. Such a case can be viewed as a special case of quarantine where an entire country would become depleted from its human inhabitants to the profit of a new population; zombies. Interestingly, this scenario had been postulated by Drezner for a zombie outbreak in a liberal world \cite{drezner}. 
 
-\subsection{Phase Transition for the Micro- and Macro-state Parameters }\indent
+\subsection{Phase Transition for the Micro- and Macro-State Parameters }\indent
 
 So far we have treated specific set of parameters, which displayed interesting regimes with different outcomes for our model. The next question is to understand the full dependance of every parameter with respect to the others in order observe the phase transition of location of the interesting regimes of our model. As mentioned before, a complete parameter sweep would not be feasible due to the high number of connected parameter present in our system (all of them). Accordingly, we rationalized that since we deconvoluted the behavioral treatment of the micro and macro state we could do the same with the parameter sweep. We first swept $\alpha$, $\beta$ and $\gamma$ under three conditions of $\eta$ and $\nu$ to see the phase transition at the microstate level and then took a point in this phase-space that presented interesting properties to do a parameter sweep of $\nu$ and $\eta$. The idea was to find sets of microstate parameters and then see how modifying the macrostate parameters would influence the outcome of simulation, \textit{i.e.} how modifying foreign policies could save humanity.
 % 3D plots for alpha beta gamma
@@ -402,6 +403,21 @@ Figure \ref{nueta} shows the heat-map for this parameter sweep. It is worth noti
 
 
 
+\subsection{Asymmetry in State Power}\indent
+
+So far we have only looked at fully symmetrical systems where both populations and parameters under scrutiny were chosen equal for every state. We did so in order to avoid introduction of additional effects on the simulation outcomes, which would have been hard to deconvolute from the rest of the features of our model. Another reason was that certain parameters simply represent ``physical constants'' of zombification, \textit{i.e.} they are independent of the state under consideration and are only related to the zombie outbreak paradigm under consideration. Parameters that fall into this category are typically $\alpha$ and $\gamma$. Indeed, it is likely that zombification will occur at the same rate everywhere since it is an epidemiological parameter and therefore should not be influenced by factors such as socio-economical environments. Under the assumptions of our model, the same consideration hold for $\gamma$. Parameters $\nu$ and $\eta$ could arguably be different between states but for the sake of simplicity, we decided to model cooperation in systems of homogenous international relationships. Finally, $\beta$, which represent the efficiency of the people of a given state to kill zombies, was so far set as identical in all systems for symmetrical reasons. However, a more accurate representation of the international scene implies considering a world containing states possessing different military powers. A simple way to represent such an effect within the framework of our model would simply be to assign different $\beta$ to the three states. Figure \ref{basym} represents such a case, where state 3 possess a value for $\beta$ one order of magnitude higher than states 1 and 2. 
+ 
+\begin{figure}[h!]
+\centerline{
+\includegraphics[scale=0.35]{../images/Matlab_figures/asymmetric-system.eps}}
+\caption{The effect of asymmetry in state power.  Emergence of zombies in state 1 leads to contamination and partial death in states 1 and 2, leading to the emigration of both susceptibles and zombies to the other states.  State 3 possessing a higher $\beta$ value than the other states, the outbreak is crushed at the border, leading to zombie eradication. Left panel represent the populations of each state (and world population) with respect to step number. Right panel represents the corresponding population variation (\textcolor{blue}{blue} = susceptibles, \textcolor{red}{red} = zombies, black = removed, $\alpha=1.0\cdot10^{-3}, \beta=5\cdot10^{-4} $ (states 1 and 2) $\beta=5\cdot10^{-3}$ (state 3) $, \gamma=1\cdot10^{-4}, \nu=0.25, \eta=0.1$). \label{basym} }
+\end{figure}
+
+Such a system displays interesting features. First of all, it is worth noting that since $\alpha>\beta$ in state 1, a zombie outbreak occurs, leading to contamination and death of the susceptibles in this state. A similar effect is observable for state 2 for the same reason, however with a delay (accumulation of zombies in state 1 before they start emigrating). Those features are consistent with the observations made in section \ref{sec:time-evolv} and figure \ref{doomsday}. Indeed, $\alpha$ being greater than $\beta$, zombies appear with a rate higher than their eradication, leading to disappearance of humans in those states. Emigration of susceptible is also observable after the zombie outbreak. But most interestingly, it can be observed that the higher value of $\beta$ in state 3 (with $\beta>\alpha$ unlike state 1 and 2) allows to avoid a zombie outbreak in this state. Moreover, and contrary to the case observed in figure \ref{exodus}, apparition of a zombie state does not occur. Indeed, once state 1 and 2 are depleted from their susceptibles, zombies start emigrating to state 3 where they immediately get killed at the border, eventually leading to full eradication of all the zombies. This behavior provides an interesting modeling of a case where an outbreak would lead to people fleeing and finding refuge in another state where the fate of humanity would be decided in a total war against zombies until none remain.
+
+
+
+
 
 % SUMMARY AND OUTLOOK
 \newpage
@@ -412,9 +428,6 @@ In the present study we showed the behavior of a model of interconnected SZR mod
 Although they did not reveal interesting phase transitions, owing the symmetry of the systems we investigated, we were still able to find limit cases where our model displayed interesting behaviors. In particular, the standard doomsday scenario with outbreak of zombies (and attempt of the susceptible to migrate eventhough it has no effect) as well as the emergence of a zombie state in the case where borders would not let any zombie cross. Therefore, we can postulate that in order to give humanity its best chances, international politics should quickly react to let all humans immigrate in state that are not contaminated and very firmly watch their borders for zombies.
   
 
-\subsection{Further Investigation: Asymmetric State powers}\indent
-
-Due to the symmetry of the parameters used for our simulation, it is evident that the macrostate outcome will be dominated by microstate behavior. One way to generate a more realistic view of international cooperation while making use of our model would be to assign different values of $\beta$ to each state. This could represent the asymmetric military power of the international scene. As such, we could imagine a regime where emergence of zombies in one place might lead to an outbreak in this state, but then, once all the susceptible would have emigrated to other states, zombies would try to go there but would suffer extermination.
 
 \subsection{Further Investigation: Inter-State fluxes treated with a Game-Theoretical Model}\indent
 \label{sec:gt}

@@ -15,17 +15,17 @@
 \contentsline {subsection}{\numberline {6.1}The Outbreak Function}{14}
 \contentsline {subsection}{\numberline {6.2}The Update Function}{14}
 \contentsline {subsection}{\numberline {6.3}The Sweep Function}{16}
-\contentsline {subsection}{\numberline {6.4}The findTransition Function}{16}
+\contentsline {subsection}{\numberline {6.4}The FindTransition Function}{16}
 \contentsline {section}{\numberline {7}Simulation Results and Discussion}{17}
 \contentsline {subsection}{\numberline {7.1}Population Time-Evolution in an Isolated State}{17}
-\contentsline {subsection}{\numberline {7.2}Population Time-Evolution with Connected States}{19}
-\contentsline {subsection}{\numberline {7.3}Phase Transition for the Micro- and Macro-state Parameters }{23}
-\contentsline {section}{\numberline {8}Summary and Outlook}{25}
-\contentsline {subsection}{\numberline {8.1}Further Investigation: Asymmetric State powers}{25}
-\contentsline {subsection}{\numberline {8.2}Further Investigation: Inter-State fluxes treated with a Game-Theoretical Model}{26}
-\contentsline {section}{\numberline {9}References}{28}
-\contentsline {section}{\numberline {10}Appendix}{29}
-\contentsline {subsection}{\numberline {10.1}outbreak.m}{29}
-\contentsline {subsection}{\numberline {10.2}update.m}{34}
-\contentsline {subsection}{\numberline {10.3}sweep.m}{37}
-\contentsline {subsection}{\numberline {10.4}findTransition.m}{41}
+\contentsline {subsection}{\numberline {7.2}Population Time-Evolution with Connected States}{20}
+\contentsline {subsection}{\numberline {7.3}Phase Transition for the Micro- and Macro-State Parameters }{21}
+\contentsline {subsection}{\numberline {7.4}Asymmetry in State Power}{25}
+\contentsline {section}{\numberline {8}Summary and Outlook}{27}
+\contentsline {subsection}{\numberline {8.1}Further Investigation: Inter-State fluxes treated with a Game-Theoretical Model}{27}
+\contentsline {section}{\numberline {9}References}{30}
+\contentsline {section}{\numberline {10}Appendix}{31}
+\contentsline {subsection}{\numberline {10.1}outbreak.m}{31}
+\contentsline {subsection}{\numberline {10.2}update.m}{36}
+\contentsline {subsection}{\numberline {10.3}sweep.m}{39}
+\contentsline {subsection}{\numberline {10.4}findTransition.m}{43}
