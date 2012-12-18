@@ -1,31 +1,31 @@
 \contentsline {section}{\numberline {1}Abstract}{5}
-\contentsline {section}{\numberline {2}Individual contributions}{5}
+\contentsline {section}{\numberline {2}Individual Contributions}{5}
 \contentsline {section}{\numberline {3}Acknowledgments}{5}
 \contentsline {section}{\numberline {4}Introduction and Motivations}{6}
-\contentsline {subsection}{\numberline {4.1}Zombie Outbreak}{6}
-\contentsline {subsection}{\numberline {4.2}Epidemological Studies}{6}
-\contentsline {subsection}{\numberline {4.3}Zombies: a Definition}{6}
-\contentsline {subsection}{\numberline {4.4}Popular Believes in the Event of a Zombie Outbreak}{7}
+\contentsline {subsection}{\numberline {4.1}Zombies: a Definition}{6}
+\contentsline {subsection}{\numberline {4.2}Zombie Outbreak}{6}
+\contentsline {subsection}{\numberline {4.3}Popular Believes in the Event of a Zombie Outbreak}{7}
+\contentsline {subsection}{\numberline {4.4}Epidemological Studies}{7}
 \contentsline {subsection}{\numberline {4.5}How Could Humanity Survive?}{8}
 \contentsline {section}{\numberline {5}Description of the Model}{9}
 \contentsline {subsection}{\numberline {5.1}Microstate Description}{10}
 \contentsline {subsection}{\numberline {5.2}Macrostate Description}{11}
-\contentsline {subsection}{\numberline {5.3}Model with Three States}{12}
-\contentsline {section}{\numberline {6}Implementation}{14}
-\contentsline {subsection}{\numberline {6.1}The Outbreak Function}{14}
-\contentsline {subsection}{\numberline {6.2}The Update Function}{14}
-\contentsline {subsection}{\numberline {6.3}The Sweep Function}{16}
-\contentsline {subsection}{\numberline {6.4}The FindTransition Function}{16}
-\contentsline {section}{\numberline {7}Simulation Results and Discussion}{17}
-\contentsline {subsection}{\numberline {7.1}Population Time-Evolution in an Isolated State}{17}
-\contentsline {subsection}{\numberline {7.2}Population Time-Evolution with Connected States}{20}
-\contentsline {subsection}{\numberline {7.3}Phase Transition for the Micro- and Macro-State Parameters }{21}
-\contentsline {subsection}{\numberline {7.4}Asymmetry in State Power}{25}
-\contentsline {section}{\numberline {8}Summary and Outlook}{27}
-\contentsline {subsection}{\numberline {8.1}Further Investigation: Inter-State fluxes treated with a Game-Theoretical Model}{27}
-\contentsline {section}{\numberline {9}References}{30}
-\contentsline {section}{\numberline {10}Appendix}{31}
-\contentsline {subsection}{\numberline {10.1}outbreak.m}{31}
-\contentsline {subsection}{\numberline {10.2}update.m}{36}
-\contentsline {subsection}{\numberline {10.3}sweep.m}{39}
-\contentsline {subsection}{\numberline {10.4}findTransition.m}{43}
+\contentsline {subsection}{\numberline {5.3}Model withs Three Interconnected States}{12}
+\contentsline {section}{\numberline {6}Implementation}{15}
+\contentsline {subsection}{\numberline {6.1}The Outbreak Function}{15}
+\contentsline {subsection}{\numberline {6.2}The Update Function}{15}
+\contentsline {subsection}{\numberline {6.3}The Sweep Function}{17}
+\contentsline {subsection}{\numberline {6.4}The FindTransition Function}{17}
+\contentsline {section}{\numberline {7}Simulation Results and Discussion}{18}
+\contentsline {subsection}{\numberline {7.1}Population Time-Evolution in an Isolated State}{18}
+\contentsline {subsection}{\numberline {7.2}Population Time-Evolution with Connected States}{21}
+\contentsline {subsection}{\numberline {7.3}Phase Transition for the Micro- and Macro-State Parameters }{22}
+\contentsline {subsection}{\numberline {7.4}Asymmetry in State Power}{26}
+\contentsline {section}{\numberline {8}Summary and Outlook}{28}
+\contentsline {subsection}{\numberline {8.1}Further Investigation: Inter-State fluxes treated with a Game-Theoretical Model}{28}
+\contentsline {section}{\numberline {9}References}{31}
+\contentsline {section}{\numberline {10}Appendix}{32}
+\contentsline {subsection}{\numberline {10.1}outbreak.m}{32}
+\contentsline {subsection}{\numberline {10.2}update.m}{37}
+\contentsline {subsection}{\numberline {10.3}sweep.m}{40}
+\contentsline {subsection}{\numberline {10.4}findTransition.m}{44}
