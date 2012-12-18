@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.3.4)  18 DEC 2012 22:46
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.3.4)  18 DEC 2012 23:16
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -591,7 +591,7 @@ nverted-to.pdf>
 (epstopdf)                    size: 17548 bytes
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/mo
 del-AgeB-eps-converted-to.pdf ../images/Matlab_figures/model-AgeB.eps>
-(epstopdf)             \includegraphics on input line 333.
+(epstopdf)             \includegraphics on input line 336.
 Package epstopdf Info: Output file is already uptodate.
 
 <../images/Matlab_figures/model-AgeB-eps-converted-to.pdf, id=373, 719.68875pt 
@@ -600,7 +600,7 @@ File: ../images/Matlab_figures/model-AgeB-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use ../images/Matlab_figures/model-AgeB-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/model-AgeB-eps-converted-to.p
-df used on input line 333.
+df used on input line 336.
 (pdftex.def)             Requested size: 467.79214pt x 114.1752pt.
 
 
@@ -616,7 +616,7 @@ nverted-to.pdf>
 (epstopdf)                    size: 15620 bytes
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/mo
 del-AltB-eps-converted-to.pdf ../images/Matlab_figures/model-AltB.eps>
-(epstopdf)             \includegraphics on input line 346.
+(epstopdf)             \includegraphics on input line 349.
 Package epstopdf Info: Output file is already uptodate.
 
 <../images/Matlab_figures/model-AltB-eps-converted-to.pdf, id=395, 816.04875pt 
@@ -625,7 +625,7 @@ File: ../images/Matlab_figures/model-AltB-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use ../images/Matlab_figures/model-AltB-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/model-AltB-eps-converted-to.p
-df used on input line 346.
+df used on input line 349.
 (pdftex.def)             Requested size: 448.8282pt x 282.1048pt.
 
 [20 <../images/Matlab_figures/model-AltB-eps-converted-to.pdf>]
@@ -640,7 +640,7 @@ eps-converted-to.pdf>
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/ex
 ample_doomsday-eps-converted-to.pdf ../images/Matlab_figures/example_doomsday.e
 ps>
-(epstopdf)             \includegraphics on input line 362.
+(epstopdf)             \includegraphics on input line 365.
 Package epstopdf Info: Output file is already uptodate.
 
 <../images/Matlab_figures/example_doomsday-eps-converted-to.pdf, id=411, 1446.4
@@ -650,7 +650,7 @@ le (type pdf)
 
 <use ../images/Matlab_figures/example_doomsday-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/example_doomsday-eps-converte
-d-to.pdf used on input line 362.
+d-to.pdf used on input line 365.
 (pdftex.def)             Requested size: 506.2489pt x 256.81328pt.
 Package epstopdf Info: Source file: <../images/Matlab_figures/example_zkill.eps
 >
@@ -662,7 +662,7 @@ Package epstopdf Info: Source file: <../images/Matlab_figures/example_zkill.eps
 (epstopdf)                    size: 19812 bytes
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/ex
 ample_zkill-eps-converted-to.pdf ../images/Matlab_figures/example_zkill.eps>
-(epstopdf)             \includegraphics on input line 370.
+(epstopdf)             \includegraphics on input line 373.
 Package epstopdf Info: Output file is already uptodate.
 
 <../images/Matlab_figures/example_zkill-eps-converted-to.pdf, id=412, 1446.4037
@@ -672,7 +672,7 @@ File: ../images/Matlab_figures/example_zkill-eps-converted-to.pdf Graphic file
 
 <use ../images/Matlab_figures/example_zkill-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/example_zkill-eps-converted-t
-o.pdf used on input line 370.
+o.pdf used on input line 373.
 (pdftex.def)             Requested size: 506.2489pt x 256.81328pt.
  [21 <../images/Matlab_figures/example_doomsday-eps-converted-to.pdf>]
 
@@ -688,7 +688,7 @@ Package epstopdf Info: Source file: <../images/Matlab_figures/example_exode.eps
 (epstopdf)                    size: 20864 bytes
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/ex
 ample_exode-eps-converted-to.pdf ../images/Matlab_figures/example_exode.eps>
-(epstopdf)             \includegraphics on input line 383.
+(epstopdf)             \includegraphics on input line 386.
 Package epstopdf Info: Output file is already uptodate.
 
 <../images/Matlab_figures/example_exode-eps-converted-to.pdf, id=425, 1446.4037
@@ -698,7 +698,7 @@ File: ../images/Matlab_figures/example_exode-eps-converted-to.pdf Graphic file
 
 <use ../images/Matlab_figures/example_exode-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/example_exode-eps-converted-t
-o.pdf used on input line 383.
+o.pdf used on input line 386.
 (pdftex.def)             Requested size: 506.2489pt x 256.81328pt.
 
 
@@ -713,7 +713,7 @@ onverted-to.pdf>
 (epstopdf)                    size: 43192 bytes
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/a-
 b-g-sweep-eps-converted-to.pdf ../images/Matlab_figures/a-b-g-sweep.eps>
-(epstopdf)             \includegraphics on input line 396.
+(epstopdf)             \includegraphics on input line 399.
 Package epstopdf Info: Output file is already uptodate.
 
 <../images/Matlab_figures/a-b-g-sweep-eps-converted-to.pdf, id=426, 1083.04625p
@@ -723,7 +723,7 @@ ype pdf)
 
 <use ../images/Matlab_figures/a-b-g-sweep-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/a-b-g-sweep-eps-converted-to.
-pdf used on input line 396.
+pdf used on input line 399.
 (pdftex.def)             Requested size: 487.36632pt x 208.67769pt.
  [22]
 
@@ -739,7 +739,7 @@ converted-to.pdf>
 (epstopdf)                    size: 11042 bytes
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/nu
 -eta-sweep-eps-converted-to.pdf ../images/Matlab_figures/nu-eta-sweep.eps>
-(epstopdf)             \includegraphics on input line 404.
+(epstopdf)             \includegraphics on input line 407.
 Package epstopdf Info: Output file is already uptodate.
 
 <../images/Matlab_figures/nu-eta-sweep-eps-converted-to.pdf, id=430, 1446.40375
@@ -749,7 +749,7 @@ type pdf)
 
 <use ../images/Matlab_figures/nu-eta-sweep-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/nu-eta-sweep-eps-converted-to
-.pdf used on input line 404.
+.pdf used on input line 407.
 (pdftex.def)             Requested size: 477.31471pt x 242.13536pt.
  [23 <../images/Matlab_figures/example_zkill-eps-converted-to.pdf>]
 
@@ -772,7 +772,7 @@ Package epstopdf Info: Source file: <../images/Matlab_figures/asymmetric-system
 (epstopdf)             Command: <epstopdf --outfile=../images/Matlab_figures/as
 ymmetric-system-eps-converted-to.pdf ../images/Matlab_figures/asymmetric-system
 .eps>
-(epstopdf)             \includegraphics on input line 417.
+(epstopdf)             \includegraphics on input line 420.
 Package epstopdf Info: Output file is already uptodate.
 
 <../images/Matlab_figures/asymmetric-system-eps-converted-to.pdf, id=489, 1446.
@@ -782,7 +782,7 @@ ile (type pdf)
 
 <use ../images/Matlab_figures/asymmetric-system-eps-converted-to.pdf>
 Package pdftex.def Info: ../images/Matlab_figures/asymmetric-system-eps-convert
-ed-to.pdf used on input line 417.
+ed-to.pdf used on input line 420.
 (pdftex.def)             Requested size: 506.2489pt x 256.81328pt.
 
 
@@ -790,7 +790,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [26] [27 <../images/Matlab_figures/asymmetric-system-eps-converted-to.pdf>]
 [28] [29]
-Overfull \hbox (18.02884pt too wide) in paragraph at lines 450--458
+Overfull \hbox (18.02884pt too wide) in paragraph at lines 453--461
 []\OT1/cmr/m/it/12 Macrostate treat-ment $\OMS/cmsy/m/n/12 )$ $[]$ 
  []
 
@@ -818,10 +818,10 @@ LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <9> not available
 [35] [36]) (../code/update.m [37] [38] [39]) (../code/sweep.m [40] [41]
 [42] [43]) (../code/findTransition.m [44]) [45] (./zombie_report.aux) ) 
 Here is how much of TeX's memory you used:
- 6746 strings out of 493633
- 101681 string characters out of 3143378
- 464795 words of memory out of 3000000
- 9884 multiletter control sequences out of 15000+200000
+ 6747 strings out of 493633
+ 101695 string characters out of 3143378
+ 464798 words of memory out of 3000000
+ 9885 multiletter control sequences out of 15000+200000
  16553 words of font info for 63 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  42i,18n,46p,2671b,1529s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -847,7 +847,7 @@ ublic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmti12.pfb></usr/local/texlive/2011/texmf-dist/fonts/type1/urw/co
 urier/ucrr8a.pfb>
-Output written on zombie_report.pdf (45 pages, 828865 bytes).
+Output written on zombie_report.pdf (45 pages, 829018 bytes).
 PDF statistics:
  632 PDF objects out of 1000 (max. 8388607)
  395 compressed objects within 4 object streams

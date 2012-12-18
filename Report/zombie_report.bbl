@@ -1,5 +1,17 @@
 \begin{thebibliography}{1}
 
+\bibitem{munz2009zombies}
+P.~Munz, I.~Hudea, J.~Imad, and R.J. Smith.
+\newblock When zombies attack!: mathematical modelling of an outbreak of zombie
+  infection.
+\newblock {\em Infectious Disease Modelling Research Progress. Hauppauge NY:
+  Nova Science Publishers}, pages 133--150, 2009.
+
+\bibitem{littlewood1997clinical}
+R.~Littlewood, C.~Douyon, et~al.
+\newblock Clinical findings in three cases of zombification.
+\newblock {\em Lancet}, 350(9084):1094--1096, 1997.
+
 \bibitem{brauer2008compartmental}
 F.~Brauer.
 \newblock Compartmental models in epidemiology.
@@ -16,21 +28,13 @@ L.~Stone, R.~Olinky, and A.~Huppert.
 \newblock Seasonal dynamics of recurrent epidemics.
 \newblock {\em Nature}, 446(7135):533--536, 2007.
 
-\bibitem{munz2009zombies}
-P.~Munz, I.~Hudea, J.~Imad, and R.J. Smith.
-\newblock When zombies attack!: mathematical modelling of an outbreak of zombie
-  infection.
-\newblock {\em Infectious Disease Modelling Research Progress. Hauppauge NY:
-  Nova Science Publishers}, pages 133--150, 2009.
-
-\bibitem{littlewood1997clinical}
-R.~Littlewood, C.~Douyon, et~al.
-\newblock Clinical findings in three cases of zombification.
-\newblock {\em Lancet}, 350(9084):1094--1096, 1997.
-
 \bibitem{drezner}
 D.W. Drezner.
 \newblock {\em Theories of international politics and zombies}.
 \newblock Princeton University Press, 2011.
+
+\bibitem{residentevil}
+Shinji Mikami~(creator) Capcom.
+\newblock Resident evil, 1996-2007.
 
 \end{thebibliography}
