@@ -3,10 +3,9 @@
 \contentsline {section}{\numberline {3}Acknowledgments}{5}
 \contentsline {section}{\numberline {4}Introduction and Motivations}{6}
 \contentsline {subsection}{\numberline {4.1}Zombies: a Definition}{6}
-\contentsline {subsection}{\numberline {4.2}Zombie Outbreak}{6}
+\contentsline {subsection}{\numberline {4.2}Zombie Outbreak and World Politics}{6}
 \contentsline {subsection}{\numberline {4.3}Popular Believes in the Event of a Zombie Outbreak}{7}
-\contentsline {subsection}{\numberline {4.4}Epidemological Studies}{7}
-\contentsline {subsection}{\numberline {4.5}How Could Humanity Survive?}{8}
+\contentsline {subsection}{\numberline {4.4}How Could Humanity Survive?}{8}
 \contentsline {section}{\numberline {5}Description of the Model}{9}
 \contentsline {subsection}{\numberline {5.1}Microstate Description}{10}
 \contentsline {subsection}{\numberline {5.2}Macrostate Description}{11}
@@ -25,8 +24,8 @@
 \contentsline {subsection}{\numberline {8.1}Further Investigations: Asymmetric systems}{29}
 \contentsline {subsection}{\numberline {8.2}Further Investigations: Inter-State fluxes treated with a Game-Theoretical Model}{30}
 \contentsline {section}{\numberline {9}References}{32}
-\contentsline {section}{\numberline {10}Appendix}{33}
-\contentsline {subsection}{\numberline {10.1}outbreak.m}{33}
-\contentsline {subsection}{\numberline {10.2}update.m}{38}
-\contentsline {subsection}{\numberline {10.3}sweep.m}{41}
-\contentsline {subsection}{\numberline {10.4}findTransition.m}{45}
+\contentsline {section}{\numberline {10}Appendix}{34}
+\contentsline {subsection}{\numberline {10.1}outbreak.m}{34}
+\contentsline {subsection}{\numberline {10.2}update.m}{39}
+\contentsline {subsection}{\numberline {10.3}sweep.m}{42}
+\contentsline {subsection}{\numberline {10.4}findTransition.m}{46}
