@@ -19,13 +19,14 @@
 \contentsline {section}{\numberline {7}Simulation Results and Discussion}{18}
 \contentsline {subsection}{\numberline {7.1}Population Time-Evolution in an Isolated State}{18}
 \contentsline {subsection}{\numberline {7.2}Population Time-Evolution with Connected States}{21}
-\contentsline {subsection}{\numberline {7.3}Phase Transition for the Micro- and Macro-State Parameters }{22}
-\contentsline {subsection}{\numberline {7.4}Asymmetry in State Power}{26}
-\contentsline {section}{\numberline {8}Summary and Outlook}{28}
-\contentsline {subsection}{\numberline {8.1}Further Investigation: Inter-State fluxes treated with a Game-Theoretical Model}{28}
-\contentsline {section}{\numberline {9}References}{31}
-\contentsline {section}{\numberline {10}Appendix}{32}
-\contentsline {subsection}{\numberline {10.1}outbreak.m}{32}
-\contentsline {subsection}{\numberline {10.2}update.m}{37}
-\contentsline {subsection}{\numberline {10.3}sweep.m}{40}
-\contentsline {subsection}{\numberline {10.4}findTransition.m}{44}
+\contentsline {subsection}{\numberline {7.3}Phase Transitions for the Micro- and Macro-State Parameters}{24}
+\contentsline {subsection}{\numberline {7.4}Asymmetric State Powers}{26}
+\contentsline {section}{\numberline {8}Summary and Outlook}{29}
+\contentsline {subsection}{\numberline {8.1}Further Investigations: Asymmetric systems}{29}
+\contentsline {subsection}{\numberline {8.2}Further Investigations: Inter-State fluxes treated with a Game-Theoretical Model}{30}
+\contentsline {section}{\numberline {9}References}{32}
+\contentsline {section}{\numberline {10}Appendix}{33}
+\contentsline {subsection}{\numberline {10.1}outbreak.m}{33}
+\contentsline {subsection}{\numberline {10.2}update.m}{38}
+\contentsline {subsection}{\numberline {10.3}sweep.m}{41}
+\contentsline {subsection}{\numberline {10.4}findTransition.m}{45}
