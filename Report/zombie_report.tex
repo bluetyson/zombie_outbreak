@@ -22,6 +22,8 @@
 
 \usepackage[final]{pdfpages} % Include full PDF pages to be incorporated
 
+\usepackage{hyperref}
+
 \usepackage[nottoc,numbib]{tocbibind} % Include the references in the table of content
 
 \usepackage[labelfont=bf, justification=]{caption} % Put 'figure' of caption in bold and justify as centered
@@ -89,7 +91,7 @@
 
 \section{Abstract}\indent
 
-Application of an epidemiological model to a zombie outbreak has previously been investigated, raising the fear of dark days for humanity. Moreover, motivated by work in the field of international politics and the possible reactions of various foreign policies scenarios to such an event, we wished to deepen the investigation by expanding a SIR-like model to a multi-population system in order see how interactions between inter-connected populations may brighten the future of the human race. We developed a modification of the classical SZR model and added a framework to simulate inter-state transfers of populations. We then investigated the different regimes of our system through parameter variation. This analysis was made on two levels, first at the microstate (single state) then at the macrostate (international) level, in order to observe the influence of individual parameters on the simulation outcomes. We demonstrated that a system composed of intercating SZR model allowed to find regimes where humanity survived. However, a large dependence to the microstate parameters was noticed, whereas macrostate variables had a smaller impact These results suggest that the modelisation of the international population transfer might need to be re-defined.  
+Application of an epidemiological model to a zombie outbreak had previously been investigated, raising the fear of dark days for humanity. Works in the field of international politics postulated the possibility of a brighter outcome when various foreign policy scenarios were investigated. We wished to deepen the investigation by expanding a SIR-like model to a multi-population system in order see how interactions between interconnected populations may brighten the future of the human race. We developed a modification of the classical SZR model and added a framework to simulate inter-state transfers of populations. We then studied the different regimes of our system through parameter variation. This analysis was made on two levels, first at the microstate (single state) then at the macrostate (international) level, in order to observe the influence of individual layers on the simulation outcomes. We demonstrated that a system composed of interacting SZR models allowed to find regimes where humanity survived. A large dependence to the microstate parameters was observed, whereas macrostate variables had a smaller impact.  
 
 
 % INDIVIDUAL CONTRIBUTION
@@ -448,7 +450,7 @@ In section \ref{sec:asym} we described the effect of an asymmetric $\beta$ value
 
 For each state (microstate), a SZR evaluates the evolution of the different populations under study. Mass-action transfer of populations between the states (at the macrostate level, \textit{i.e.} international level) also occurs as defined in our model and simulates refugee and zombie transfers across states. Those transfers are dependent of parameter $\nu$ for susceptible transfer and parameter $\eta$ for zombie transfer. Within the scope of this semester project, we decided to simulate different regimes of international cooperation by simply fixing the values of $\eta$ and $\nu$ at the beginning of each simulation and observe the resulting outcomes. Both the relative and absolute values of those parameters are supposed to represent the paradigm of international politics under consideration (\textit{e.g.} a very small value of $\nu$ would represent neo-conservatism since it drastically limits the possibility of refugee immigration). Of course, such a treatment is very static and does not take into account the likely variation over time of international cooperation elements (change in immigration policies, military action on foreign soil, etc...); a variation likely to occur when dealing with a zombie outbreak.
 
-Therefore, a elegant way to make the macrostate parameters ($\nu$, $\eta$) dynamic and allow the representation of such changes would be to make them functions of a game-theoretical treatment. Similar approaches for other epidemiological studies have been described in the literature as a way to provide a more realistic approach to disease spreading in human populations \cite{funk2010modelling, reluga2010game, reluga2009sis}. In such a system, population fluxes would still be treated within the framework of our current model, with the only variation that the macrostate parameters would be time-evolving. 
+Therefore, an elegant way to make the macrostate parameters ($\nu$, $\eta$) dynamic and allow the representation of such changes would be to make them functions of a game-theoretical treatment. Similar approaches for other epidemiological studies have been described in the literature as a way to provide a more realistic approach to disease spreading in human populations \cite{funk2010modelling, reluga2010game, reluga2009sis}. In such a system, population fluxes would still be treated within the framework of our current model, with the only variation that the macrostate parameters would be time-evolving. 
 
 \bigskip
 

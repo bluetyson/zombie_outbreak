@@ -1,0 +1,31 @@
+\BOOKMARK [1][-]{section.1}{Abstract}{}% 1
+\BOOKMARK [1][-]{section.2}{Individual Contributions}{}% 2
+\BOOKMARK [1][-]{section.3}{Acknowledgments}{}% 3
+\BOOKMARK [1][-]{section.4}{Introduction and Motivations}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Zombies: a Definition}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Zombie Outbreak and World Politics}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Popular Believes in the Event of a Zombie Outbreak}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{How Could Humanity Survive?}{section.4}% 8
+\BOOKMARK [1][-]{section.5}{Description of the Model}{}% 9
+\BOOKMARK [2][-]{subsection.5.1}{Microstate Description}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.2}{Macrostate Description}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.3}{Model with Three Interconnected States}{section.5}% 12
+\BOOKMARK [1][-]{section.6}{Implementation}{}% 13
+\BOOKMARK [2][-]{subsection.6.1}{The Outbreak Function}{section.6}% 14
+\BOOKMARK [2][-]{subsection.6.2}{The Update Function}{section.6}% 15
+\BOOKMARK [2][-]{subsection.6.3}{The Sweep Function}{section.6}% 16
+\BOOKMARK [2][-]{subsection.6.4}{The FindTransition Function}{section.6}% 17
+\BOOKMARK [1][-]{section.7}{Simulation Results and Discussion}{}% 18
+\BOOKMARK [2][-]{subsection.7.1}{Population Time-Evolution in an Isolated State}{section.7}% 19
+\BOOKMARK [2][-]{subsection.7.2}{Population Time-Evolution with Connected States}{section.7}% 20
+\BOOKMARK [2][-]{subsection.7.3}{Phase Transitions for the Micro- and Macro-State Parameters}{section.7}% 21
+\BOOKMARK [2][-]{subsection.7.4}{Asymmetric State Powers}{section.7}% 22
+\BOOKMARK [1][-]{section.8}{Summary and Outlook}{}% 23
+\BOOKMARK [2][-]{subsection.8.1}{Further Investigations: Asymmetric systems}{section.8}% 24
+\BOOKMARK [2][-]{subsection.8.2}{Further Investigations: Game-Theoretical Treatment of Inter-State fluxes}{section.8}% 25
+\BOOKMARK [1][-]{section.9}{References}{}% 26
+\BOOKMARK [1][-]{section.10}{Appendix}{}% 27
+\BOOKMARK [2][-]{subsection.10.1}{outbreak.m}{section.10}% 28
+\BOOKMARK [2][-]{subsection.10.2}{update.m}{section.10}% 29
+\BOOKMARK [2][-]{subsection.10.3}{sweep.m}{section.10}% 30
+\BOOKMARK [2][-]{subsection.10.4}{findTransition.m}{section.10}% 31
