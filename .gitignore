@@ -8,17 +8,3 @@ results/
 *.restart
 
 *.mat
-
-*.log
-
-*.sty
-
-*.aux
-
-*.bbl
-
-*.blg
-
-*.gz
-
-*.toc
